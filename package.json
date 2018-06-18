@@ -14,6 +14,7 @@
   "author": "Zouhir <zouhir@zouhir.org>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^23.1.1",
     "eslint": "^4.5.0",
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
