@@ -1,15 +1,11 @@
-import { h } from "preact";
+import { h, Component } from "preact"
 
-export interface HelloWorldProps {
-  color?: string
-}
-
-export default function HelloWorld(props: HelloWorldProps) {
-  return (
-    <div>
-      <h1 style={{ color: props.color }}>
-        Hello, World!
-      </h1>
-    </div>
-  );
+export default class App extends Component {
+  render(props) {
+    return (
+      <div>
+        <h1 style={{ color: props.color }}>Hello, World!</h1>
+      </div>
+    )
+  }
 }
