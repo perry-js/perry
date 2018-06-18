@@ -1,4 +1,8 @@
+import preactCliTypeScript from 'preact-cli-plugin-typescript'
+
 export default (config, env, helpers) => {
+  preactCliTypeScript(config)
+  
   delete config.entry.polyfills;
   config.output.filename = "[name].js";
 
