@@ -1,5 +1,4 @@
 import { h } from "preact";
-import "./style.scss";
 
 export interface HelloWorldProps {
   color?: string

@@ -1,12 +1,14 @@
+import { h } from "preact"; 
 import habitat from "preact-habitat";
-import HelloWorld from "../../components/hello-world/index";
+import Widget from "../../components/widget/index";
 
 const renderBugReporter = options => {
-  const { render } = habitat(HelloWorld);
+  const Wrapper = () => <Widget {...options} />;
+  
+  const { render } = habitat(Wrapper);
 
   render({
     selector: 'body',
-    defaultProps: options,
     clean: false,
   });
 };
