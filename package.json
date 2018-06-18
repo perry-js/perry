@@ -20,9 +20,11 @@
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
     "preact-cli": "^2.0.2",
+    "preact-cli-plugin-typescript": "^0.2.2",
     "preact-render-to-string": "^3.7.0",
     "preact-widget-scripts": "^0.6.0",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "ts-jest": "^22.4.6"
   },
   "dependencies": {
     "preact": "^8.2.5",
@@ -34,12 +36,14 @@
   "jest": {
     "verbose": true,
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest"
     },
     "moduleFileExtensions": [
-      "js",
-      "jsx"
+      "ts",
+      "tsx",
+      "js"
     ],
+    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
     "testEnvironment": "node",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
