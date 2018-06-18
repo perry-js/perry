@@ -27,13 +27,13 @@
 
 </head>
 
-<body>
-  <div data-widget-host="habitat" class="preview">
-    <script type="text/props">
-      { "color": "red"}
-    </script>
-  </div>
-  <script async src="/bundle.js"></script>
+<body class="preview">
+  <script src="/bundle.js"></script>
+  <script>
+    new BugReporter({
+      color: "red"
+    });
+  </script>
 </body>
 
 </html>
