@@ -4,7 +4,7 @@ import writeToStore from '../write-to-store';
 const createHandlerFactory: Function =
   (instance: Console, property: string): Function =>
     (enabled: boolean): Function =>
-      (...params: Array<any>) => {
+      (...params: any) => {
         enabled && writeToStore({
           name: 'console',
           params,
