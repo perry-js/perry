@@ -1,4 +1,5 @@
 export default {
+  credentials: { /** empty credentials */ },
   log: false,
   warn: true,
   error: true,

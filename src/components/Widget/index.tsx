@@ -5,7 +5,13 @@ import ButtonOutline from "rebass/dist/ButtonOutline";
 import Provider from "rebass/dist/Provider";
 
 export interface WidgetProps {
-  color?: string;
+  credentials: object,
+  log: boolean,
+  warn: boolean,
+  error: boolean,
+  cookies: boolean,
+  localStorage: boolean,
+  sessionStorage: boolean,
 };
 
 const Widget = (props: WidgetProps) => (
