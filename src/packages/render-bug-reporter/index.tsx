@@ -1,6 +1,6 @@
 import { h } from "preact"; 
 import habitat from "preact-habitat";
-import Widget from "../../components/widget/index";
+import Widget from "../../components/Widget";
 
 const renderBugReporter = options => {
   const Wrapper = () => <Widget {...options} />;
