@@ -23,13 +23,78 @@
       font-size: 11px;
       color: rgba(0, 0, 0, 0.5);
     }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: 1em 6em;
+    }
+
+    .actions button {
+      background-color: transparent;
+      border: 2px solid #444;
+      padding: 0.5em 0.8em;
+      margin-bottom: 0.5em;
+      min-width: 75px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .actions button:hover {
+      box-shadow: 0 0 0 1pt #fff;
+      background-color: #444;
+      color: #fff;
+    }
+
+    .actions button:active {
+      box-shadow: 0 0 0 2pt #fff;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .actions::before {
+      content: 'ACTIONS';
+      display: block;
+      font-size: 11px;
+      margin-bottom: .4em;
+      color: rgba(0, 0, 0, 0.5);
+    }
   </style>
 </head>
 
 <body class="preview">
+  <div class="actions">
+    <div>
+      <button id="action-log">Console Log</button>
+      <button id="action-warn">Console Warn</button>
+      <button id="action-error">Console Error</button>
+      <button id="action-throw-error">Throw Error</button>
+    </div>
+  </div>
+
   <script src="/bundle.js"></script>
+
   <script>
+    /**
+     * Initialize Bug Reporter
+     */
     new BugReporter();
+
+    /**
+     * Configure playground handlers
+     */
+    const buttons = {
+      log: document.getElementById("action-log"),
+      warn: document.getElementById("action-warn"),
+      error: document.getElementById("action-error"),
+      throwError: document.getElementById("action-throw-error"),
+    };
+
+    buttons.log.addEventListener("click", () => console.log('ama simple info log'));
+    buttons.warn.addEventListener("click", () => console.warn('ama warning'));
+    buttons.error.addEventListener("click", () => console.error('ama error'));
+    buttons.throwError.addEventListener("click", () => { throw new Error('ama boom') });
   </script>
 </body>
 

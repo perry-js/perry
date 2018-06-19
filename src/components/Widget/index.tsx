@@ -6,6 +6,8 @@ import Provider from "rebass/dist/Provider"
 import styled from "styled-components"
 import BugIcon from "../BugIcon"
 
+const size = 40;
+
 export enum WidgetState {
   RECORDING,
   STOPPED,
@@ -13,10 +15,8 @@ export enum WidgetState {
 }
 
 export interface WidgetProps {
-  state: WidgetState
-}
-
-const size = 40
+  state: WidgetState,
+};
 
 export const WidgetButton = Button.extend`
   position: fixed;
@@ -46,13 +46,14 @@ export const WidgetButton = Button.extend`
   &:active {
     box-shadow: none;
   }
-`
+`;
+
 const Widget = (props: WidgetProps) => (
   <Provider>
     <WidgetButton>
       <BugIcon />
     </WidgetButton>
   </Provider>
-)
+);
 
 export default Widget

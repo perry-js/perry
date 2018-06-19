@@ -8,7 +8,7 @@ import Widget from "./"
 
 describe("Widget Snapshot", () => {
   it("should render with content", () => {
-    const tree = render(<Widget state={WidgetState.IDLE} />)
-    expect(tree).toMatchSnapshot()
-  })
-})
+    const tree = render(<Widget state={WidgetState.IDLE} />);
+    expect(tree).toMatchSnapshot();
+  });
+});
