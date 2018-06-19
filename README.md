@@ -31,7 +31,7 @@ Perry.js is still in active development and shall not be used in Production.
 ```html
 <script src="https://some.cdn.com/perry.js"></script>
 <script>
-  new BugReporter();
+  new Perry();
 </script>
 ```
 ### Using NPM
@@ -39,9 +39,9 @@ Perry.js is still in active development and shall not be used in Production.
 `npm install --save perryjs`
 
 ```js
-import BugReporter from 'perryjs/src/packages/bug-reporter-class';
+import Perry from 'perryjs/src/packages/perry';
 
-new BugReporter();
+new Perry();
 ```
 
 ### Specifications and Designs:

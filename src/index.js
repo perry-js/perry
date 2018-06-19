@@ -1,7 +1,7 @@
 const poly = require("preact-cli/lib/lib/webpack/polyfills");
 
-import BugReporter from './packages/bug-reporter-class';
+import Perry from './packages/perry';
 
 if (window) {
-  window.BugReporter = BugReporter;
+  window.Perry = Perry;
 }

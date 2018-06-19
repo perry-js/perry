@@ -30,7 +30,7 @@ import renderBugReporter from '../render-bug-reporter';
  * This is only a class wrapper to expose
  * a nice API for users of this tool.
  */
-export default class BugReporter {
+export default class Perry {
   constructor(options: object = {}) {
     const finalOptions: PerryOptions = {
       ...defaultOptions,
