@@ -1,4 +1,5 @@
-import OptionsSchema from '../options-schema';
+import PerryOptions from '../../interfaces/PerryOptions';
+import PerryOptionsSchema from '../options-schema';
 
-export default options =>
-  OptionsSchema.isValidSync(options, { strict: true });
+export default (options: PerryOptions): boolean =>
+  PerryOptionsSchema.isValidSync(options, { strict: true });
