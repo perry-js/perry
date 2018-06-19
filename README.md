@@ -22,6 +22,28 @@ Perry.js is a Bug Reporter tool that you can just plug in your website whenever 
 
 Perry.js is still in active development and shall not be used in Production.
 
+## Getting started
+
+**Attention:** None of the methods below are currently available _(yet)_
+
+### Using a CDN
+
+```html
+<script src="https://some.cdn.com/perry.js"></script>
+<script>
+  new BugReporter();
+</script>
+```
+### Using NPM
+
+`npm install --save perryjs`
+
+```js
+import BugReporter from 'perryjs/src/packages/bug-reporter-class';
+
+new BugReporter();
+```
+
 ## Collaborators
 
  - Armando Magalhaes (armando.mag95@gmail.com)
