@@ -7,4 +7,6 @@ export default interface PerryOptions {
   cookies: boolean,
   localStorage: boolean,
   sessionStorage: boolean,
+  clicks: boolean,
+  ignoreScriptErrors: boolean
 };
