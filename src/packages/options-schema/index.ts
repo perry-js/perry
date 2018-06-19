@@ -3,6 +3,7 @@ import boolean from "yup/lib/boolean";
 
 export default object({
   credentials: object(),
+  clearOnReload: boolean(),
   log: boolean(),
   warn: boolean(),
   error: boolean(),

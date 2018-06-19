@@ -7,6 +7,14 @@
     "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "allowJs": true
+    "allowJs": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "dom.iterable",
+      "scripthost",
+      "es2015.proxy"
+    ]
   }
 }
