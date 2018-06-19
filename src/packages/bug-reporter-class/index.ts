@@ -45,7 +45,6 @@ export default class BugReporter {
     
     applyConsoleProxy(finalOptions);
     listenWindowErrors(finalOptions);
-
     renderBugReporter(finalOptions);
   }
 };
