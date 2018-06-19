@@ -44,6 +44,12 @@ import BugReporter from 'perryjs/src/packages/bug-reporter-class';
 new BugReporter();
 ```
 
+### Specifications and Designs:
+
+ - Specification v0.0.0: https://docs.google.com/document/d/1_uSihkXTd0lUeFazryo6xiYvFIFPlzDa1EUWoIX2CSE/edit?usp=sharing
+
+ - Figma Design v0.0.0: https://www.figma.com/file/dPeyZlkwtoF9ZN0FCTvwtZhP/Untitled
+
 ## Collaborators
 
  - Armando Magalhaes (armando.mag95@gmail.com)
