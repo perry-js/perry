@@ -13,6 +13,9 @@ import applyConsoleProxy from '../apply-console-proxy';
 /** Listens and stores interactions in window.onerror */
 import listenWindowErrors from '../listen-window-errors';
 
+/** Listens and stores document clicks */
+import listenDocumentClicks from '../listen-document-clicks';
+
 /** Clears perry store */
 import clearStore from '../clear-store';
 
@@ -45,6 +48,7 @@ export default class Perry {
     
     applyConsoleProxy(finalOptions);
     listenWindowErrors(finalOptions);
+    listenDocumentClicks(finalOptions);
     renderBugReporter(finalOptions);
   }
 };

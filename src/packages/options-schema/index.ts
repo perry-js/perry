@@ -10,4 +10,6 @@ export default object({
   cookies: boolean(),
   localStorage: boolean(),
   sessionStorage: boolean(),
+  clicks: boolean(),
+  ignoreScriptErrors: boolean()
 }).noUnknown();

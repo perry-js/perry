@@ -17,7 +17,7 @@ export default function writeToStore({
 
   const newHistory: ReadonlyArray<PerryStoreEvent> = [
     ...history,
-    event  
+    event
   ];
 
   localStorage.setItem(key, JSON.stringify(newHistory));
