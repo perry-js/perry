@@ -54,6 +54,7 @@ export const WidgetButton = Button.extend`
     box-shadow: none;
   }
 `
+
 const Widget = (props: WidgetProps) => (
   <Provider>
     <WidgetButton>
