@@ -13,7 +13,14 @@ export enum WidgetState {
 }
 
 export interface WidgetProps {
-  state: WidgetState
+  state?: WidgetState
+  credentials: object
+  log: boolean
+  warn: boolean
+  error: boolean
+  cookies: boolean
+  localStorage: boolean
+  sessionStorage: boolean
 }
 
 const size = 40
