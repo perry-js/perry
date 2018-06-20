@@ -1,19 +1,20 @@
-import { h } from "preact"
+import { h, Component } from "preact"
 import Box from "grid-styled/dist/Box"
 import Flex from "grid-styled/dist/Flex"
-import Button from "rebass/dist/Button"
 import Provider from "rebass/dist/Provider"
 import styled from "styled-components"
-import BugIcon from "../BugIcon"
+import WidgetIcon from "../WidgetIcon"
+import PreviewModal from "../PreviewModal"
+import { StyledLabel, WidgetButton } from "./index.style"
 
-export enum WidgetState {
+export enum WidgetStatus {
   RECORDING,
   STOPPED,
   IDLE
 }
 
 export interface WidgetProps {
-  state?: WidgetState
+  status?: WidgetStatus
   credentials: object
   log: boolean
   warn: boolean
@@ -23,44 +24,85 @@ export interface WidgetProps {
   sessionStorage: boolean
 }
 
-const size = 40
+const getLabelForState = (state: WidgetStatus) => {
+  switch (state) {
+    case WidgetStatus.IDLE:
+      return "Start recording"
+    case WidgetStatus.RECORDING:
+      return "Recording..."
+    case WidgetStatus.STOPPED:
+      return "Submit"
+  }
+}
 
-export const WidgetButton = Button.extend`
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  outline: none;
-  height: ${size}px;
-  width: ${size}px;
-  padding: 7px;
-  cursor: pointer;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s;
-  overflow: hidden;
-  white-space: nowrap;
-
-  &:hover {
-    box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 130px;
+class Widget extends Component {
+  state = {
+    isModalOpen: false,
+    status: WidgetStatus.IDLE,
+    form: {
+      title: "",
+      description: ""
+    }
   }
 
-  &:active {
-    box-shadow: none;
-  }
-`
+  toggleModal = () =>
+    this.setState({
+      ...this.state,
+      isModalOpen: !this.state.isModalOpen
+    })
 
-const Widget = (props: WidgetProps) => (
-  <Provider>
-    <WidgetButton>
-      <BugIcon />
-    </WidgetButton>
-  </Provider>
-)
+  setStatus = (status: WidgetStatus) =>
+    this.setState({
+      ...this.state,
+      status
+    })
+
+  nextStep = () => {
+    switch (this.state.status) {
+      case WidgetStatus.IDLE:
+        return this.setStatus(WidgetStatus.RECORDING)
+      case WidgetStatus.RECORDING:
+        return this.setStatus(WidgetStatus.STOPPED)
+      case WidgetStatus.STOPPED:
+        return this.toggleModal()
+    }
+  }
+
+  discard = () => {
+    this.setStatus(WidgetStatus.IDLE)
+    this.toggleModal()
+  }
+
+  submit = () => {
+    this.setStatus(WidgetStatus.IDLE)
+    this.toggleModal()
+  }
+
+  updateForm = (key: string) => (val: any) => {
+    this.setState({
+      ...this.state,
+      form: { ...this.state.form, [key]: val }
+    })
+  }
+
+  render() {
+    return (
+      <Provider>
+        <WidgetButton onClick={this.nextStep}>
+          <WidgetIcon status={this.state.status} />
+          <StyledLabel>{getLabelForState(this.state.status)}</StyledLabel>
+        </WidgetButton>
+        <PreviewModal
+          isOpen={this.state.isModalOpen}
+          onClose={this.toggleModal}
+          onSubmit={this.submit}
+          onDiscard={this.discard}
+          updateForm={this.updateForm}
+          form={this.state.form}
+        />
+      </Provider>
+    )
+  }
+}
 
 export default Widget
