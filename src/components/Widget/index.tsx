@@ -4,15 +4,7 @@ import Flex from "grid-styled/dist/Flex"
 import ButtonOutline from "rebass/dist/ButtonOutline";
 import Provider from "rebass/dist/Provider";
 
-export interface WidgetProps {
-  credentials: object,
-  log: boolean,
-  warn: boolean,
-  error: boolean,
-  cookies: boolean,
-  localStorage: boolean,
-  sessionStorage: boolean,
-};
+import WidgetProps from '../../interfaces/WidgetProps';
 
 const Widget = (props: WidgetProps) => (
   <Provider>
@@ -21,7 +13,7 @@ const Widget = (props: WidgetProps) => (
       justifyContent="center"
     >
       <Box m={4}>
-        <ButtonOutline>
+        <ButtonOutline onClick={props.onSubmit}>
           Bug Reporter Widget
         </ButtonOutline>
       </Box>

@@ -1,3 +1,6 @@
+/** Widget Component Props interface */
+import WidgetProps from '../../interfaces/WidgetProps';
+
 /** Perry Options interface */
 import PerryOptions from '../../interfaces/PerryOptions';
 
@@ -19,36 +22,52 @@ import listenDocumentClicks from '../listen-document-clicks';
 /** Clears perry store */
 import clearStore from '../clear-store';
 
-/**
- * This is the UI renderer.
- *
- * It is a wrapper for preact, preact-dom and 
- * the required UI components for the tool.
- */
-import renderBugReporter from '../render-bug-reporter';
+import aggregateReport from '../aggregate-report';
 
-/**
- * This is the actual instantiator.
- *
- * This is only a class wrapper to expose
- * a nice API for users of this tool.
- */
+/** Renders the widget into document */
+import renderWidget from '../render-widget';
+
+/** Perry.js class definition */
 export default class Perry {
+  private finalOptions: PerryOptions;
+
   constructor(options: object = {}) {
-    const finalOptions: PerryOptions = {
+    this.finalOptions = {
       ...defaultOptions,
       ...options,
     };
 
-    if (!isValidOptions(finalOptions)) {
+    if (!isValidOptions(this.finalOptions)) {
       throw new Error("Your options are invalid. Please respect the options schema defined in the docs.");
     }
 
-    finalOptions.clearOnReload && clearStore();
+    this.componentWillMount();
+    this.render();
+  }
+
+  componentWillMount() {
+    const options = this.finalOptions;
+
+    options.clearOnReload && clearStore();
     
-    applyConsoleProxy(finalOptions);
-    listenWindowErrors(finalOptions);
-    listenDocumentClicks(finalOptions);
-    renderBugReporter(finalOptions);
+    applyConsoleProxy(options);
+    listenWindowErrors(options);
+    listenDocumentClicks(options);
+  }
+
+  render() {
+    const options = this.finalOptions;
+
+    const props: WidgetProps = {
+      onSubmit: () => {
+        const report = aggregateReport();
+
+        options.plugins.map(plugin => plugin(report));
+
+        return report;
+      }
+    };
+
+    renderWidget(props);
   }
 };
