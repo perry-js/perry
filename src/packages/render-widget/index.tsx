@@ -1,9 +1,12 @@
 import { h } from "preact"; 
 import habitat from "preact-habitat";
 import Widget from "../../components/Widget";
+import WidgetProps from "../../interfaces/WidgetProps";
 
-const renderBugReporter = options => {
-  const Wrapper = () => <Widget {...options} />;
+const renderWidget = (props: WidgetProps) => {
+  const Wrapper = () => (
+    <Widget onSubmit={props.onSubmit} />
+  );
   
   const { render } = habitat(Wrapper);
 
@@ -13,4 +16,4 @@ const renderBugReporter = options => {
   });
 };
 
-export default renderBugReporter;
+export default renderWidget;

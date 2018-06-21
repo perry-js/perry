@@ -7,22 +7,22 @@
   <script src="http://localhost:8097"></script>
   <title>Perry.js Preview</title>
 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <style>
     .preview {
-      width: 100%;
-      max-width: 1100px;
-      margin: 80px auto;
-      border: 1px dashed rgba(0, 0, 0, 0.2);
+      padding: 1.8em;
       position: relative;
+      border: 1px dashed rgba(0, 0, 0, 0.2);
     }
 
     .preview::before {
-      content: 'PERRY.JS PREVIEW';
-      position: absolute;
-      display: block;
-      top: -18px;
+      top: -20px;
+      left: 0px;
       font-size: 11px;
       color: rgba(0, 0, 0, 0.5);
+      display: block;
+      content: 'PERRY.JS PREVIEW';
+      position: absolute;
     }
 
     .actions {
@@ -32,72 +32,81 @@
       margin: 1em 6em;
     }
 
-    .actions button {
-      background-color: transparent;
-      border: 2px solid #444;
-      padding: 0.5em 0.8em;
-      margin-bottom: 0.5em;
-      min-width: 75px;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .actions button:hover {
-      box-shadow: 0 0 0 1pt #fff;
-      background-color: #444;
-      color: #fff;
-    }
-
-    .actions button:active {
-      box-shadow: 0 0 0 2pt #fff;
-      background-color: #222;
-      color: #fff;
-    }
-
-    .actions::before {
-      content: 'ACTIONS';
-      display: block;
-      font-size: 11px;
-      margin-bottom: .4em;
-      color: rgba(0, 0, 0, 0.5);
-    }
   </style>
 </head>
 
-<body class="preview">
-  <div class="actions">
-    <div>
-      <button id="action-log">Console Log</button>
-      <button id="action-warn">Console Warn</button>
-      <button id="action-error">Console Error</button>
-      <button id="action-throw-error">Throw Error</button>
+<body>
+  <div class="container">
+    <div class="row">
+      <img src="https://raw.githubusercontent.com/perry-js/perry/master/.github/assets/logo.png" alt="Perry.js">
+      <h1>Perry.js</h1>
+      <h5>Perry.js is a Javascript library to help creating meaningful bug reports.</h5>
+      
+      <p>Perry is a spy. His job is to help you and your mates to fight against bugs.</p>
+      
+      <p>
+        He does it by spying your user usage. He listens to console logs, warns, errors, and user interaction such as clicks.<br />
+        He writes all this data inside your page LocalStorage under its specific namespacing.<br /> 
+        After gathering all this data, it wraps it all together into a serializable Bug Report, which contains:
+      </p>
+      
+      <ul>
+        <li>Logs</li>
+        <li>Warnings</li>
+        <li>Errors</li>
+        <li>MouseEvent Data (click, target element, screen position, screen size and so on)</li>
+        <li>Cookies Data</li>
+        <li>Local Storage Data</li>
+        <li>Session Storage Data (soon) </li>
+        <li>Print Screens (soon)</li>
+      </ul>
+      
+      <p>
+        He also will be able to reproduce these reports automatically by importing this serializable json<br />
+        and rerunning the user interaction as if he was the user, so he can show you good a spy can be.
+      </p>
+    </div>
+
+    <hr />
+    <br />
+
+    <div class="preview">
+      <p>
+        Perry is already taking care of this page you're reading right now.<br />
+        Open DevTools, see the logs and inspect localStorage while interacting
+      </p>
+
+      <button id="action-log">Console: <span style="color: #449;">Log</span></button>
+      <button id="action-warn">Console: <span style="color: #f80">Warn</span></button>
+      <button id="action-error">Console: <span style="color: #f00">Error</span></button>
+      <button id="action-throw-error"><span style="color: #f00">Throw Error</span></button>
+      <button id="clear-local-storage"><span style="color: #449;">Clear Local Storage</span></button>
     </div>
   </div>
-
-  <script crossorigin src="/bundle.js"></script>
+  
+  <script src="/bundle.js"></script>
 
   <script>
-    /**
-     * Initialize Perry
-     */
-    new Perry({
-      clicks: true
-    });
-
-    /**
-     * Configure playground handlers
-     */
+    /** Setup playground */
     const buttons = {
       log: document.getElementById("action-log"),
       warn: document.getElementById("action-warn"),
       error: document.getElementById("action-error"),
       throwError: document.getElementById("action-throw-error"),
+      clearLocalStorage: document.getElementById("clear-local-storage")
     };
-
+    
     buttons.log.addEventListener("click", () => console.log('ama simple info log'));
     buttons.warn.addEventListener("click", () => console.warn('ama warning'));
     buttons.error.addEventListener("click", () => console.error('ama error'));
     buttons.throwError.addEventListener("click", () => { throw new Error('ama boom') });
+    buttons.clearLocalStorage.addEventListener("click", () => localStorage.clear());
+
+    /** Initialize Perry.js */
+    new Perry({
+      log: true,
+      clicks: true
+    });
   </script>
 </body>
 

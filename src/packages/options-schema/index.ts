@@ -1,15 +1,16 @@
 import object from "yup/lib/object";
 import boolean from "yup/lib/boolean";
+import array from "yup/lib/array";
 
 export default object({
-  credentials: object(),
-  clearOnReload: boolean(),
   log: boolean(),
   warn: boolean(),
   error: boolean(),
+  clicks: boolean(),
   cookies: boolean(),
   localStorage: boolean(),
   sessionStorage: boolean(),
-  clicks: boolean(),
-  ignoreScriptErrors: boolean()
+  ignoreScriptErrors: boolean(),
+  clearOnReload: boolean(),
+  plugins: array(),
 }).noUnknown();

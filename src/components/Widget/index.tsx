@@ -76,6 +76,7 @@ class Widget extends Component {
   submit = () => {
     this.setStatus(WidgetStatus.IDLE)
     this.toggleModal()
+    this.props.onSubmit()
   }
 
   updateForm = (key: string) => (val: any) => {
@@ -86,19 +87,20 @@ class Widget extends Component {
   }
 
   render() {
+    const { form, status, isModalOpen } = this.state;
     return (
       <Provider>
         <WidgetButton onClick={this.nextStep}>
-          <WidgetIcon status={this.state.status} />
-          <StyledLabel>{getLabelForState(this.state.status)}</StyledLabel>
+          <WidgetIcon status={status} />
+          <StyledLabel>{getLabelForState(status)}</StyledLabel>
         </WidgetButton>
         <PreviewModal
-          isOpen={this.state.isModalOpen}
+          isOpen={isModalOpen}
           onClose={this.toggleModal}
           onSubmit={this.submit}
           onDiscard={this.discard}
           updateForm={this.updateForm}
-          form={this.state.form}
+          form={form}
         />
       </Provider>
     )
