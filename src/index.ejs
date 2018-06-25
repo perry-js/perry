@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://localhost:8097"></script>
   <title>Perry.js Preview</title>
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
@@ -104,7 +105,12 @@
     /** Initialize Perry.js */
     new Perry({
       log: true,
-      clicks: true
+      clicks: true,
+      plugins: [
+        function ConsoleLogPlugin(reportInfo) {
+          console.log("[Perry Report Info]:", reportInfo);
+        }
+      ]
     });
   </script>
 </body>

@@ -1,4 +1,4 @@
-import PerryOptions from '../../interfaces/PerryOptions';
+import PerryOptions from "@/interfaces/PerryOptions"
 
 const defaultOptions: PerryOptions = {
   log: false,
@@ -13,4 +13,4 @@ const defaultOptions: PerryOptions = {
   plugins: []
 };
 
-export default defaultOptions;
+export default defaultOptions

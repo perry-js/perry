@@ -1,4 +1,4 @@
-import PerryStoreEvent from '../../interfaces/PerryStoreEvent';
+import PerryStoreEvent from '@/interfaces/PerryStoreEvent';
 
 export default function writeToStore({
   name,
