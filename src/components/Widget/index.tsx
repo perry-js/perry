@@ -2,60 +2,32 @@ import { h, Component } from "preact"
 import Box from "grid-styled/dist/Box"
 import Flex from "grid-styled/dist/Flex"
 import Provider from "rebass/dist/Provider"
-import styled from "styled-components"
 import WidgetIcon from "../WidgetIcon"
-import PreviewModal from "../PreviewModal"
 import { StyledLabel, WidgetButton } from "./index.style"
+import ControlledPreviewModal from '../ControlledPreviewModal';
+import WidgetStatus from "../../interfaces/WidgetStatus";
+import WidgetProps from "@/interfaces/WidgetProps";
+import getLabelForState from "../../packages/get-label-for-widget-state";
+import PerryReportInfo from "@/interfaces/PerryReportInfo";
 
-export enum WidgetStatus {
-  RECORDING,
-  STOPPED,
-  IDLE
+export interface WidgetState {
+  isModalOpen: boolean,
+  status: WidgetStatus,
 }
 
-export interface WidgetProps {
-  status?: WidgetStatus
-  credentials: object
-  log: boolean
-  warn: boolean
-  error: boolean
-  cookies: boolean
-  localStorage: boolean
-  sessionStorage: boolean
-}
-
-const getLabelForState = (state: WidgetStatus) => {
-  switch (state) {
-    case WidgetStatus.IDLE:
-      return "Start recording"
-    case WidgetStatus.RECORDING:
-      return "Recording..."
-    case WidgetStatus.STOPPED:
-      return "Submit"
-  }
-}
-
-class Widget extends Component {
+class Widget extends Component<WidgetProps, WidgetState> {
   state = {
     isModalOpen: false,
     status: WidgetStatus.IDLE,
-    form: {
-      title: "",
-      description: ""
-    }
   }
 
   toggleModal = () =>
-    this.setState({
-      ...this.state,
-      isModalOpen: !this.state.isModalOpen
-    })
+    this.setState(({ isModalOpen }) => ({
+      isModalOpen: !isModalOpen
+    }))
 
   setStatus = (status: WidgetStatus) =>
-    this.setState({
-      ...this.state,
-      status
-    })
+    this.setState({ status })
 
   nextStep = () => {
     switch (this.state.status) {
@@ -68,39 +40,30 @@ class Widget extends Component {
     }
   }
 
-  discard = () => {
+  handleDiscard = () => {
     this.setStatus(WidgetStatus.IDLE)
     this.toggleModal()
   }
 
-  submit = () => {
+  handleSubmit = (reportInfo: PerryReportInfo) => {
     this.setStatus(WidgetStatus.IDLE)
     this.toggleModal()
-    this.props.onSubmit()
-  }
-
-  updateForm = (key: string) => (val: any) => {
-    this.setState({
-      ...this.state,
-      form: { ...this.state.form, [key]: val }
-    })
+    this.props.onSubmit(reportInfo)
   }
 
   render() {
-    const { form, status, isModalOpen } = this.state;
+    const { status, isModalOpen } = this.state;
+
     return (
       <Provider>
         <WidgetButton onClick={this.nextStep}>
           <WidgetIcon status={status} />
           <StyledLabel>{getLabelForState(status)}</StyledLabel>
         </WidgetButton>
-        <PreviewModal
-          isOpen={isModalOpen}
-          onClose={this.toggleModal}
-          onSubmit={this.submit}
-          onDiscard={this.discard}
-          updateForm={this.updateForm}
-          form={form}
+        <ControlledPreviewModal
+          open={isModalOpen}
+          onSubmit={this.handleSubmit}
+          onDiscard={this.handleDiscard}
         />
       </Provider>
     )

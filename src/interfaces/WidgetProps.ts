@@ -1,3 +1,7 @@
+import WidgetStatus from "@/interfaces/WidgetStatus";
+import PerryReportInfo from "@/interfaces/PerryReportInfo";
+
 export default interface WidgetProps {
-  onSubmit?: Function,
+  status?: WidgetStatus;  
+  onSubmit?: (info: PerryReportInfo) => void,
 };

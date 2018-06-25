@@ -105,7 +105,12 @@
     /** Initialize Perry.js */
     new Perry({
       log: true,
-      clicks: true
+      clicks: true,
+      plugins: [
+        function ConsoleLogPlugin(reportInfo) {
+          console.log("[Perry Report Info]:", reportInfo);
+        }
+      ]
     });
   </script>
 </body>

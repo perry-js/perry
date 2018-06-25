@@ -25,7 +25,7 @@ export const WidgetButton = Button.extend`
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) !important;
     display: flex;
     align-items: center;
-    width: 160px;
+    width: 180px;
   }
 
   &:active {
@@ -45,6 +45,7 @@ export const StyledLabel = Text.extend`
   opacity: 0;
   white-space: nowrap;
   margin-right: 3px;
+  font-size: 0.8em;
 
   ${WidgetButton}:hover & {
     opacity: 1;

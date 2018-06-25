@@ -1,5 +1,5 @@
+import PerryOptions from '@/interfaces/PerryOptions';
 import writeToStore from '../write-to-store';
-import PerryOptions from '../../interfaces/PerryOptions';
 import mapHTMLElementToElementData from '../map-html-element-to-element-data';
 
 export default function listenWindowErrors(options: PerryOptions): void {

@@ -1,5 +1,6 @@
-import PerryReport from '../../interfaces/PerryReport';
-import PerryStoreEvent from '../../interfaces/PerryStoreEvent';
+import PerryReport from '@/interfaces/PerryReport';
+import PerryStoreEvent from '@/interfaces/PerryStoreEvent';
+import PerryReportInfo from '@/interfaces/PerryReportInfo';
 
 const getItemFor = (method: string) =>
   JSON.parse(localStorage.getItem(getKeyFor(method)));
@@ -8,8 +9,11 @@ const getKeyFor = (method: string) => `perry::${method}::history`;
 
 const orArray = (expression: any) => expression || [];
 
-export default function aggregateReport(): PerryReport {
+export default function aggregateReport(reportInfo: PerryReportInfo): PerryReport {
   const result: PerryReport = {
+    title: reportInfo.title,
+    description: reportInfo.description,
+    screenshotUrl: reportInfo.screenshotUrl,
     logs: getItemFor("console.log"),
     warns: getItemFor("console.warn"),
     errors: [

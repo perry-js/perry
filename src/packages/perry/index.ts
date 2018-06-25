@@ -1,8 +1,11 @@
 /** Widget Component Props interface */
-import WidgetProps from '../../interfaces/WidgetProps';
+import WidgetProps from '@/interfaces/WidgetProps';
 
 /** Perry Options interface */
-import PerryOptions from '../../interfaces/PerryOptions';
+import PerryOptions from '@/interfaces/PerryOptions';
+
+/** Perry Report Info interface */
+import PerryReportInfo from '@/interfaces/PerryReportInfo';
 
 /** Options validator, created with Yup. */
 import isValidOptions from '../is-valid-options';
@@ -22,6 +25,7 @@ import listenDocumentClicks from '../listen-document-clicks';
 /** Clears perry store */
 import clearStore from '../clear-store';
 
+/** Aggregates info and creates PerryReport */
 import aggregateReport from '../aggregate-report';
 
 /** Renders the widget into document */
@@ -59,8 +63,8 @@ export default class Perry {
     const options = this.finalOptions;
 
     const props: WidgetProps = {
-      onSubmit: () => {
-        const report = aggregateReport();
+      onSubmit: (reportInfo: PerryReportInfo) => {
+        const report = aggregateReport(reportInfo);
 
         options.plugins.map(plugin => plugin(report));
 

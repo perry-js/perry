@@ -1,4 +1,4 @@
-import PerryOptions from '../../interfaces/PerryOptions';
+import PerryOptions from '@/interfaces/PerryOptions';
 import writeToStore from '../write-to-store';
 
 const createHandlerFactory: Function =
