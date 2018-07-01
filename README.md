@@ -13,6 +13,8 @@
   <a href="#alternative-installation-methods"><img src="https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg" alt="module formats: umd, cjs, esm"></a>
   <a href="https://www.codefactor.io/repository/github/perry-js/perry"><img src="https://www.codefactor.io/repository/github/perry-js/perry/badge" alt="CodeFactor"></a>
   <a href="https://bettercodehub.com/"><img src="https://bettercodehub.com/edge/badge/perry-js/perry?branch=master" alt="BCH Compliance"></a>
+  <a href="https://codeclimate.com/github/perry-js/perry/maintainability"><img src="https://api.codeclimate.com/v1/badges/e8785692722559904376/maintainability" /></a>
+  <a href="https://codeclimate.com/github/perry-js/perry/test_coverage"><img src="https://api.codeclimate.com/v1/badges/e8785692722559904376/test_coverage" /></a>
 </div>
 
 <br />
