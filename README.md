@@ -49,6 +49,10 @@ import Perry from 'perryjs/src/packages/perry';
 new Perry();
 ```
 
+### API
+
+_(In progress..)_
+
 ### Specifications and Designs:
 
  - Specification v0.0.0: https://docs.google.com/document/d/1_uSihkXTd0lUeFazryo6xiYvFIFPlzDa1EUWoIX2CSE/edit?usp=sharing
