@@ -63,3 +63,4 @@ _(In progress..)_
 
  - Armando Magalhaes (armando.mag95@gmail.com)
  - Guilherme Lima (guilhermelimak@gmail.com)
+ - Vitor Margis (vitor@margis.com.br)
