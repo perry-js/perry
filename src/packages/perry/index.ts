@@ -59,9 +59,7 @@ export default class Perry {
   }
 
   componentWillMount() {
-    const options = this.finalOptions;
-
-    options.clearOnReload && clearStore();
+    this.finalOptions.clearOnReload && clearStore();
   }
 
   render() {
@@ -69,7 +67,6 @@ export default class Perry {
 
     const props: WidgetProps = {
       onStartRecording: () => {
-        // subscribe
         clearStore();
         applyConsoleProxy(options);
         listenWindowErrors(options);
