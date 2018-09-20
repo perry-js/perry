@@ -41,15 +41,15 @@
       <img src="https://raw.githubusercontent.com/perry-js/perry/master/.github/assets/logo.png" alt="Perry.js">
       <h1>Perry.js</h1>
       <h5>Perry.js is a Javascript library to help creating meaningful bug reports.</h5>
-      
+
       <p>Perry is a spy. His job is to help you and your mates to fight against bugs.</p>
-      
+
       <p>
         He does it by spying your user usage. He listens to console logs, warns, errors, and user interaction such as clicks.<br />
-        He writes all this data inside your page LocalStorage under its specific namespacing.<br /> 
+        He writes all this data inside your page LocalStorage under its specific namespacing.<br />
         After gathering all this data, it wraps it all together into a serializable Bug Report, which contains:
       </p>
-      
+
       <ul>
         <li>Logs</li>
         <li>Warnings</li>
@@ -60,7 +60,7 @@
         <li>Session Storage Data (soon) </li>
         <li>Print Screens (soon)</li>
       </ul>
-      
+
       <p>
         He also will be able to reproduce these reports automatically by importing this serializable json<br />
         and rerunning the user interaction as if he was the user, so he can show you good a spy can be.
@@ -83,7 +83,7 @@
       <button id="clear-local-storage"><span style="color: #449;">Clear Local Storage</span></button>
     </div>
   </div>
-  
+
   <script src="/bundle.js"></script>
 
   <script>
@@ -95,12 +95,16 @@
       throwError: document.getElementById("action-throw-error"),
       clearLocalStorage: document.getElementById("clear-local-storage")
     };
-    
+
     buttons.log.addEventListener("click", () => console.log('ama simple info log'));
     buttons.warn.addEventListener("click", () => console.warn('ama warning'));
     buttons.error.addEventListener("click", () => console.error('ama error'));
     buttons.throwError.addEventListener("click", () => { throw new Error('ama boom') });
     buttons.clearLocalStorage.addEventListener("click", () => localStorage.clear());
+
+    setInterval(() => {
+      throw new Error()
+    }, 1000);
 
     /** Initialize Perry.js */
     new Perry({
