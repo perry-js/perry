@@ -1,3 +1,4 @@
+import path from 'path';
 import preactCliTypeScript from 'preact-cli-plugin-typescript'
 
 export default (config, env, helpers) => {
@@ -12,4 +13,9 @@ export default (config, env, helpers) => {
   if (env.production) {
     config.output.libraryTarget = "umd";
   }
+
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    '@': path.resolve(__dirname, 'src/')
+  };
 };
