@@ -1,5 +1,5 @@
 import { h, Component } from "preact"
-import PropTypes from "prop-types";
+import * as PropTypes from "prop-types";
 import PreviewModal from "../PreviewModal";
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
 
@@ -23,7 +23,7 @@ export default class ControlledPreviewModal extends Component<ControlledPreviewM
   };
 
   static propTypes = {
-    open: PropTypes.boolean,
+    open: PropTypes.bool,
     onSubmit: PropTypes.func,
     onDiscard: PropTypes.func,
   };
