@@ -33,6 +33,7 @@ class Widget extends Component<WidgetProps, WidgetState> {
   nextStep = () => {
     switch (this.state.status) {
       case WidgetStatus.IDLE:
+        this.props.onStartRecording();
         return this.setStatus(WidgetStatus.RECORDING)
       case WidgetStatus.RECORDING:
         return this.setStatus(WidgetStatus.STOPPED)

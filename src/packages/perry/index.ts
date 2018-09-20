@@ -53,16 +53,19 @@ export default class Perry {
     const options = this.finalOptions;
 
     options.clearOnReload && clearStore();
-    
-    applyConsoleProxy(options);
-    listenWindowErrors(options);
-    listenDocumentClicks(options);
   }
 
   render() {
     const options = this.finalOptions;
 
     const props: WidgetProps = {
+      onStartRecording: () => {
+        // subscribe
+        clearStore();
+        applyConsoleProxy(options);
+        listenWindowErrors(options);
+        listenDocumentClicks(options);
+      },
       onSubmit: (reportInfo: PerryReportInfo) => {
         const report = aggregateReport(reportInfo);
 
