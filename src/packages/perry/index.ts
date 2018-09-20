@@ -34,6 +34,12 @@ import renderWidget from '@/packages/render-widget';
 /** Restores the proxy to the default window value */
 import removeConsoleProxy from '@/packages/remove-console-proxy';
 
+/** Restores window.onerror event handler to the default window value */
+import removeWindowErrorsListener from '@/packages/remove-document-clicks-listener';
+
+/** Restores document.onclick event handler to the default document value */
+import removeDocumentClicksListener from '@/packages/remove-document-clicks-listener';
+
 /** Perry.js class definition */
 export default class Perry {
   private finalOptions: PerryOptions;
@@ -71,6 +77,8 @@ export default class Perry {
       },
       onStopRecording: () => {
         removeConsoleProxy();
+        removeWindowErrorsListener();
+        removeDocumentClicksListener();
       },
       onSubmit: (reportInfo: PerryReportInfo) => {
         const report = aggregateReport(reportInfo);

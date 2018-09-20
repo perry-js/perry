@@ -1,3 +1,4 @@
 export default {
-  console: window.console
+  console: window.console,
+  onerror: window.onerror,
 }

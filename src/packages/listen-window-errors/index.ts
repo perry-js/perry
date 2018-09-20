@@ -18,7 +18,7 @@ export default function listenWindowErrors(options: PerryOptions): void {
     const isUnhandableError = isScriptError(message);
     
     if (isUnhandableError && options.ignoreScriptErrors) {
-      return;  
+      return;
     }
 
     options.error && writeToStore({
