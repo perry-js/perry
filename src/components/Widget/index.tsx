@@ -1,14 +1,15 @@
-import { h, Component } from "preact"
-import Box from "grid-styled/dist/Box"
-import Flex from "grid-styled/dist/Flex"
-import Provider from "rebass/dist/Provider"
-import WidgetIcon from "../WidgetIcon"
-import { StyledLabel, WidgetButton } from "./index.style"
-import ControlledPreviewModal from '../ControlledPreviewModal';
-import WidgetStatus from "../../interfaces/WidgetStatus";
+import { h, Component } from "preact";
+import Box from "grid-styled/dist/Box";
+import Flex from "grid-styled/dist/Flex";
+import Provider from "rebass/dist/Provider";
+import WidgetIcon from "@/components/WidgetIcon";
+import ControlledPreviewModal from '@/components/ControlledPreviewModal';
+import WidgetStatus from "@/interfaces/WidgetStatus";
 import WidgetProps from "@/interfaces/WidgetProps";
-import getLabelForState from "../../packages/get-label-for-widget-state";
+import getLabelForState from "@/packages/get-label-for-widget-state";
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
+
+import { StyledLabel, WidgetButton } from "./index.style";
 
 export interface WidgetState {
   isModalOpen: boolean,
@@ -71,4 +72,4 @@ class Widget extends Component<WidgetProps, WidgetState> {
   }
 }
 
-export default Widget
+export default Widget;

@@ -8,28 +8,28 @@ import PerryOptions from '@/interfaces/PerryOptions';
 import PerryReportInfo from '@/interfaces/PerryReportInfo';
 
 /** Options validator, created with Yup. */
-import isValidOptions from '../is-valid-options';
+import isValidOptions from '@/packages/is-valid-options';
 
 /** Default options as a plain js object */
-import defaultOptions from '../default-options';
+import defaultOptions from '@/packages/default-options';
 
-/** Actual console[property] proxy */
-import applyConsoleProxy from '../apply-console-proxy';
+/** Listens and stores interactions with the console */
+import applyConsoleProxy from '@/packages/apply-console-proxy';
 
-/** Listens and stores interactions in window.onerror */
-import listenWindowErrors from '../listen-window-errors';
+/** Listens and stores interactions with window.onerror */
+import listenWindowErrors from '@/packages/listen-window-errors';
 
 /** Listens and stores document clicks */
-import listenDocumentClicks from '../listen-document-clicks';
+import listenDocumentClicks from '@/packages/listen-document-clicks';
 
 /** Clears perry store */
-import clearStore from '../clear-store';
+import clearStore from '@/packages/clear-store';
 
 /** Aggregates info and creates PerryReport */
-import aggregateReport from '../aggregate-report';
+import aggregateReport from '@/packages/aggregate-report';
 
 /** Renders the widget into document */
-import renderWidget from '../render-widget';
+import renderWidget from '@/packages/render-widget';
 
 /** Perry.js class definition */
 export default class Perry {
