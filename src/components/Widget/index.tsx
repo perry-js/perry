@@ -36,6 +36,7 @@ class Widget extends Component<WidgetProps, WidgetState> {
         this.props.onStartRecording();
         return this.setStatus(WidgetStatus.RECORDING)
       case WidgetStatus.RECORDING:
+        this.props.onStopRecording();
         return this.setStatus(WidgetStatus.STOPPED)
       case WidgetStatus.STOPPED:
         return this.toggleModal()

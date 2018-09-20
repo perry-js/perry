@@ -31,6 +31,9 @@ import aggregateReport from '@/packages/aggregate-report';
 /** Renders the widget into document */
 import renderWidget from '@/packages/render-widget';
 
+/** Restores the proxy to the default window value */
+import removeConsoleProxy from '@/packages/remove-console-proxy';
+
 /** Perry.js class definition */
 export default class Perry {
   private finalOptions: PerryOptions;
@@ -65,6 +68,9 @@ export default class Perry {
         applyConsoleProxy(options);
         listenWindowErrors(options);
         listenDocumentClicks(options);
+      },
+      onStopRecording: () => {
+        removeConsoleProxy();
       },
       onSubmit: (reportInfo: PerryReportInfo) => {
         const report = aggregateReport(reportInfo);
