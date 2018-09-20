@@ -1,5 +1,4 @@
 import { h, Component } from "preact"
-import * as PropTypes from "prop-types";
 import PreviewModal from "@/components/PreviewModal";
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
 
@@ -20,12 +19,6 @@ export default class ControlledPreviewModal extends Component<ControlledPreviewM
     open: false,
     onSubmit: () => {},
     onDiscard: () => {}
-  };
-
-  static propTypes = {
-    open: PropTypes.bool,
-    onSubmit: PropTypes.func,
-    onDiscard: PropTypes.func,
   };
 
   handleFieldChange = ({ target: { name, value }}: any) =>
