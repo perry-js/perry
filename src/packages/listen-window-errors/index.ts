@@ -1,5 +1,5 @@
-import writeToStore from '../write-to-store';
-import PerryOptions from '../../interfaces/PerryOptions';
+import writeToStore from '@/packages/write-to-store';
+import PerryOptions from '@/interfaces/PerryOptions';
 
 const isScriptError = (message: string): boolean =>
   message.toLowerCase().indexOf("script error") > -1

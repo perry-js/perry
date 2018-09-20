@@ -1,6 +1,6 @@
 import { h, Component } from "preact"
 import * as PropTypes from "prop-types";
-import PreviewModal from "../PreviewModal";
+import PreviewModal from "@/components/PreviewModal";
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
 
 interface ControlledPreviewModalProps {

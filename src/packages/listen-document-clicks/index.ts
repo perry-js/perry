@@ -1,6 +1,6 @@
 import PerryOptions from '@/interfaces/PerryOptions';
-import writeToStore from '../write-to-store';
-import mapHTMLElementToElementData from '../map-html-element-to-element-data';
+import writeToStore from '@/packages/write-to-store';
+import mapHTMLElementToElementData from '@/packages/map-html-element-to-element-data';
 
 export default function listenWindowErrors(options: PerryOptions): void {
   document.onclick = function (event: MouseEvent) {
