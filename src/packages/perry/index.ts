@@ -13,15 +13,6 @@ import isValidOptions from '@/packages/is-valid-options';
 /** Default options as a plain js object */
 import defaultOptions from '@/packages/default-options';
 
-/** Listens and stores interactions with the console */
-import applyConsoleProxy from '@/packages/apply-console-proxy';
-
-/** Listens and stores interactions with window.onerror */
-import listenWindowErrors from '@/packages/listen-window-errors';
-
-/** Listens and stores document clicks */
-import listenDocumentClicks from '@/packages/listen-document-clicks';
-
 /** Clears perry store */
 import clearStore from '@/packages/clear-store';
 
@@ -31,14 +22,14 @@ import aggregateReport from '@/packages/aggregate-report';
 /** Renders the widget into document */
 import renderWidget from '@/packages/render-widget';
 
-/** Restores the proxy to the default window value */
-import removeConsoleProxy from '@/packages/remove-console-proxy';
+/** Setup the listeners and proxies */
+import setupListeners from '@/packages/setup-listeners';
 
-/** Restores window.onerror event handler to the default window value */
-import removeWindowErrorsListener from '@/packages/remove-document-clicks-listener';
+/** Toggles the feature switches to true so the listeners can start to watch */
+import startListeners from '@/packages/start-listeners';
 
-/** Restores document.onclick event handler to the default document value */
-import removeDocumentClicksListener from '@/packages/remove-document-clicks-listener';
+/** Toggles the feature switches to false so the listeners stop watching */
+import stopListeners from '@/packages/stop-listeners';
 
 /** Perry.js class definition */
 export default class Perry {
@@ -59,24 +50,17 @@ export default class Perry {
   }
 
   componentWillMount() {
-    this.finalOptions.clearOnReload && clearStore();
+    const options = this.finalOptions;
+    options.clearOnReload && clearStore();
+    setupListeners(options);
   }
 
   render() {
     const options = this.finalOptions;
 
     const props: WidgetProps = {
-      onStartRecording: () => {
-        clearStore();
-        applyConsoleProxy(options);
-        listenWindowErrors(options);
-        listenDocumentClicks(options);
-      },
-      onStopRecording: () => {
-        removeConsoleProxy();
-        removeWindowErrorsListener();
-        removeDocumentClicksListener();
-      },
+      onStartRecording: startListeners,
+      onStopRecording: stopListeners,
       onSubmit: (reportInfo: PerryReportInfo) => {
         const report = aggregateReport(reportInfo);
 
