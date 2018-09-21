@@ -8,6 +8,6 @@ const set = (key: string, value: any) => STORE[key] = value;
 
 export default {
   is: (key: string): boolean => read(key),
-  enable: (key: string): void => set(key, true), 
-  disable: (key: string): void => set(key, false), 
+  enable: (key: string): void => set(key, true),
+  disable: (key: string): void => set(key, false),
 }
