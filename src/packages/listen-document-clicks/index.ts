@@ -1,9 +1,15 @@
 import PerryOptions from '@/interfaces/PerryOptions';
 import writeToStore from '@/packages/write-to-store';
+import Features from '@/packages/features';
+import FeatureToggleStore from '@/packages/feature-toggle-store';
 import mapHTMLElementToElementData from '@/packages/map-html-element-to-element-data';
 
-export default function listenWindowErrors(options: PerryOptions): void {
+export default function listenDocumentClicks(options: PerryOptions): void {
   document.onclick = function (event: MouseEvent) {
+    if (!FeatureToggleStore.is(Features.DOCUMENT_CLICK_LISTENER)) {
+      return;
+    }
+
     const view: Window = event.view;
     const screen: Screen = view.screen;
 
