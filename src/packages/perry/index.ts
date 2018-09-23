@@ -39,7 +39,7 @@ export default class Perry {
   public notify = notify;
   private finalOptions: PerryOptions;
 
-  constructor(options: object = {}) {
+  constructor(options: PerryOptions = defaultOptions) {
     this.finalOptions = {
       ...defaultOptions,
       ...options,
