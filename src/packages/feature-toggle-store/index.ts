@@ -10,4 +10,4 @@ export default {
   is: (key: string): boolean => read(key),
   enable: (key: string): void => set(key, true), 
   disable: (key: string): void => set(key, false), 
-}
+};
