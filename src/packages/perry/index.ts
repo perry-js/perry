@@ -31,8 +31,12 @@ import startListeners from '@/packages/start-listeners';
 /** Toggles the feature switches to false so the listeners stop watching */
 import stopListeners from '@/packages/stop-listeners';
 
+/** Perry stateless notifier */
+import notify from '@/packages/perry-notify';
+
 /** Perry.js class definition */
 export default class Perry {
+  public notify = notify;
   private finalOptions: PerryOptions;
 
   constructor(options: object = {}) {
