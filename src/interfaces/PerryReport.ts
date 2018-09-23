@@ -8,4 +8,5 @@ export default interface PerryReport extends PerryReportInfo {
   warns: Array<PerryStoreEvent>;
   errors: Array<PerryStoreEvent>;
   clicks: Array<PerryStoreEvent>;
+  notify: Array<PerryStoreEvent>;
 }
