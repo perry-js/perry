@@ -13,7 +13,7 @@ export default function notify(error: Error): void {
     params: {
       name: error.name,
       message: error.message,
-      stack: error && error.stack,
+      stack: error.stack,
     }
   });
 }
