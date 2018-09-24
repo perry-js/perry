@@ -31,7 +31,6 @@
       flex-direction: column;
       margin: 1em 6em;
     }
-
   </style>
 </head>
 
@@ -79,7 +78,8 @@
       <button id="action-log">Console: <span style="color: #449;">Log</span></button>
       <button id="action-warn">Console: <span style="color: #f80">Warn</span></button>
       <button id="action-error">Console: <span style="color: #f00">Error</span></button>
-      <button id="action-throw-error"><span style="color: #f00">Throw Error</span></button>
+      <button id="action-throw-handled-exception"><span style="color: #f00">Throw Handled Exception</span></button>
+      <button id="action-throw-unhandled-exception"><span style="color: #f00">Throw Unhandled Exception</span></button>
       <button id="clear-local-storage"><span style="color: #449;">Clear Local Storage</span></button>
     </div>
   </div>
@@ -87,27 +87,8 @@
   <script src="/bundle.js"></script>
 
   <script>
-    /** Setup playground */
-    const buttons = {
-      log: document.getElementById("action-log"),
-      warn: document.getElementById("action-warn"),
-      error: document.getElementById("action-error"),
-      throwError: document.getElementById("action-throw-error"),
-      clearLocalStorage: document.getElementById("clear-local-storage")
-    };
-
-    buttons.log.addEventListener("click", () => console.log('ama simple info log'));
-    buttons.warn.addEventListener("click", () => console.warn('ama warning'));
-    buttons.error.addEventListener("click", () => console.error('ama error'));
-    buttons.throwError.addEventListener("click", () => { throw new Error('ama boom') });
-    buttons.clearLocalStorage.addEventListener("click", () => localStorage.clear());
-
-    setInterval(() => {
-      throw new Error()
-    }, 1000);
-
     /** Initialize Perry.js */
-    new Perry({
+    const perry = new Perry({
       log: true,
       clicks: true,
       plugins: [
@@ -116,6 +97,19 @@
         }
       ]
     });
+
+    document.getElementById("action-log").addEventListener("click", () => console.log('ama simple info log'));
+    document.getElementById("action-warn").addEventListener("click", () => console.warn('ama warning'));
+    document.getElementById("action-error").addEventListener("click", () => console.error('ama error'));
+    document.getElementById("action-throw-unhandled-exception").addEventListener("click", () => { throw new Error('ama boom') });
+    document.getElementById("action-throw-handled-exception").addEventListener("click", () => {
+      try {
+        throw new Error('ama boom');
+      } catch (e) {
+        perry.notify(e);
+      }
+    })
+    document.getElementById("clear-local-storage").addEventListener("click", () => { localStorage.clear() })
   </script>
 </body>
 

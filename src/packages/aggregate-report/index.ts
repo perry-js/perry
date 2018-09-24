@@ -21,7 +21,8 @@ export default function aggregateReport(reportInfo: PerryReportInfo): PerryRepor
       ...orArray(getItemFor("window.onerror")),
     ],
     cookies: document.cookie,
-    clicks: getItemFor("document.onclick")
+    clicks: getItemFor("document.onclick"),
+    notify: getItemFor("perry.notify")
   };
 
   return result;
