@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest",
+    "test": "jest",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
@@ -47,13 +47,13 @@
       "js"
     ],
     "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|scss|less)$": "identity-obj-proxy",
       "^react$": "preact-compat",
       "^react-dom$": "preact-compat",
-      "@(.*)$": "<rootDir>/src/$1"
+      "@/(.*)$": "<rootDir>/src/$1"
     },
     "coverageThreshold": {
       "global": {
@@ -66,6 +66,7 @@
     "moduleDirectories": [
       "node_modules",
       "src"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   }
 }
