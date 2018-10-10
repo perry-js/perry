@@ -13,7 +13,7 @@ interface WidgetIconProps {
 const RecordingIcon = Circle.extend`
   margin: 0;
   width: 24px;
-  height: 24px;  
+  height: 24px;
   display: block;
   background-color: #f00;
 `

@@ -7,7 +7,7 @@ export default function writeToStore({
 }) {
   const key = `perry::${name}.${property}::history`;
 
-  const history: ReadonlyArray<PerryStoreEvent> = 
+  const history: ReadonlyArray<PerryStoreEvent> =
     JSON.parse(localStorage.getItem(key)) || [];
 
   const event: PerryStoreEvent = {
