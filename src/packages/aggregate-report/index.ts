@@ -9,7 +9,7 @@ const getKeyFor = (method: string) => `perry::${method}::history`;
 const orArray = (expression: any) => expression || [];
 
 export default function aggregateReport(reportInfo: PerryReportInfo): PerryReport {
-  const result: PerryReport = {
+  return {
     title: reportInfo.title,
     description: reportInfo.description,
     screenshotUrl: reportInfo.screenshotUrl,
@@ -17,12 +17,10 @@ export default function aggregateReport(reportInfo: PerryReportInfo): PerryRepor
     warns: getItemFor("console.warn"),
     errors: [
       ...orArray(getItemFor("console.error")),
-      ...orArray(getItemFor("window.onerror")),
+      ...orArray(getItemFor("window.onerror"))
     ],
     cookies: document.cookie,
     clicks: getItemFor("document.onclick"),
     notify: getItemFor("perry.notify")
   };
-
-  return result;
 }
