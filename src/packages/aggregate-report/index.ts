@@ -1,5 +1,4 @@
 import PerryReport from '@/interfaces/PerryReport';
-import PerryStoreEvent from '@/interfaces/PerryStoreEvent';
 import PerryReportInfo from '@/interfaces/PerryReportInfo';
 
 const getItemFor = (method: string) =>
