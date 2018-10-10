@@ -1,7 +1,7 @@
 import PerryElementData from '@/interfaces/PerryElementData';
 
 const mapClassListToArray =
-  (classList: DOMTokenList = ({} as DOMTokenList)): ReadonlyArray<string> => 
+  (classList: DOMTokenList = ({} as DOMTokenList)): ReadonlyArray<string> =>
     [].slice.call(classList);
 
 export default (element: HTMLElement): PerryElementData => ({
