@@ -1,0 +1,12 @@
+{
+  "name": "perry-plugin-firebase",
+  "scripts": {
+    "build": "parcel build index.ts"
+  },
+  "dependencies": {
+    "firebase": "^5.5.4",
+    "parcel": "^1.10.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.3"
+  }
+}

@@ -1,0 +1,25 @@
+0 silly input [ 'perry-client' ]
+1 silly flags { _: [ 'import', 'master' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   pathToRepo: 'perry-client' }
+2 verbose rootPath /home/xx/proj/perry
+3 info version 2.11.0
+4 silly isInitialized
+5 silly isInitialized true
+6 silly existsSync /home/xx/proj/perry/VERSION
+7 silly initialize attempt
+8 silly statSync /home/xx/proj/perry/perry-client
+9 silly getWorkspaceRoot
+10 verbose getWorkspaceRoot /home/xx/proj/perry
+11 silly existsSync /home/xx/proj/perry/packages/perry-client
+12 silly getCurrentSHA
+13 error initialize caught error
+14 error Error: fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+14 error Use '--' to separate paths from revisions, like this:
+14 error 'git <command> [<revision>...] -- [<file>...]'
+14 error
+14 error     at Function.module.exports.sync (/home/xx/.nvm/versions/node/v9.11.1/lib/node_modules/lerna/node_modules/execa/index.js:303:26)
+14 error     at Function.execSync (/home/xx/.nvm/versions/node/v9.11.1/lib/node_modules/lerna/lib/ChildProcessUtilities.js:59:30)
+14 error     at Function.getCurrentSHA (/home/xx/.nvm/versions/node/v9.11.1/lib/node_modules/lerna/lib/GitUtilities.js:212:49)
+14 error     at ImportCommand.initialize (/home/xx/.nvm/versions/node/v9.11.1/lib/node_modules/lerna/lib/commands/ImportCommand.js:155:51)

@@ -1,4 +1,2 @@
 node_modules
-.vscode
-.idea
-build
+lerna.debug.log
