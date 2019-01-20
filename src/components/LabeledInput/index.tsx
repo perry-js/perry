@@ -1,16 +1,19 @@
-import { h } from "preact"
+import { h, FunctionalComponent } from "preact"
 import Box from "grid-styled/dist/Box"
 import Input from "rebass/dist/Input"
 import Label from "rebass/dist/Label"
 
 interface InputProps {
-  label?: string
-  [a: string]: any
+  label?: string;
+  [a: string]: any;
 }
 
-const LabeledInput = (props: InputProps) => (
+const LabeledInput: FunctionalComponent<InputProps> = ({
+  label,
+  ...props
+}) => (
   <Box mb={3}>
-    <Label>{props.label}</Label>
+    <Label>{label}</Label>
     <Input {...props} />
   </Box>
 );

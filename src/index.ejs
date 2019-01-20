@@ -72,7 +72,8 @@
     <div class="preview">
       <p>
         Perry is already taking care of this page you're reading right now.<br />
-        Open DevTools, see the logs and inspect localStorage while interacting
+        This page has a ConsoleLogPlugin implemented for Perry.<br />
+        Open DevTools, start recording, play around, submit the form, and see your console.
       </p>
 
       <button id="action-log">Console: <span style="color: #449;">Log</span></button>
@@ -94,6 +95,13 @@
       plugins: [
         function ConsoleLogPlugin(reportInfo) {
           console.log("[Perry Report Info]:", reportInfo);
+          console.log("[Perry Report Info]:", [
+            "",
+            "This was printed by the ConsoleLogPlugin.",
+            "It is implemented inline into this test page.",
+            "To know more about how to implement a Perry Plugin:",
+            "Checkout this page src code or the github repository."
+          ].join("\n"));
         }
       ]
     });

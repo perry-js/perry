@@ -1,5 +1,4 @@
-import { h } from "preact"
-import Box from "grid-styled/dist/Box"
+import { h, FunctionalComponent } from "preact"
 import Base from "rebass/dist/Base"
 import Circle from "rebass/dist/Circle"
 
@@ -7,7 +6,7 @@ import BugIcon from "@/components/BugIcon"
 import WidgetStatus from "@/interfaces/WidgetStatus";
 
 interface WidgetIconProps {
-  status: WidgetStatus
+  status: WidgetStatus;
 }
 
 const RecordingIcon = Circle.extend`
@@ -16,14 +15,14 @@ const RecordingIcon = Circle.extend`
   height: 24px;
   display: block;
   background-color: #f00;
-`
+`;
 
 const StoppedIcon = Base.extend`
   width: 24px;
   height: 24px;
   display: block;
   background-color: #f00;
-`
+`;
 
 const IconForStatus = {
   [WidgetStatus.IDLE]: BugIcon,
@@ -31,8 +30,10 @@ const IconForStatus = {
   [WidgetStatus.STOPPED]: StoppedIcon,
 };
 
-const WidgetIcon = (props: WidgetIconProps) => {
-  const IconComponent = IconForStatus[props.status];
+const WidgetIcon: FunctionalComponent<WidgetIconProps> = ({
+  status
+}) => {
+  const IconComponent = IconForStatus[status];
 
   return (
     <Base mr="5px">

@@ -59,6 +59,32 @@ _(In progress..)_
 
  - Figma Design v0.0.0: https://www.figma.com/file/dPeyZlkwtoF9ZN0FCTvwtZhP/Untitled
 
+### Contributing
+
+Contributions are welcome into Perry.
+
+#### Getting started
+
+First clone this repository using Git:
+
+```sh
+$ git clone <this-repo-url> ./perry
+```
+
+Enter the project repository, download the dependencies and init the development server:
+
+```
+$ cd ./perry
+$ npm ci
+$ npm run dev
+```
+
+Go to https://localhost:8080 and you'll see the Perry test page.
+
+At this point you can change the src code and it Perry will get rebuilt on each code change.
+
+The demo page will reload as well when code changes.
+
 ## Collaborators
 
  - Armando Magalhaes (armando.mag95@gmail.com)

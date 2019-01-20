@@ -1,4 +1,4 @@
-const poly = require("preact-cli/lib/lib/webpack/polyfills");
+require("preact-cli/lib/lib/webpack/polyfills");
 
 import Perry from './packages/perry';
 

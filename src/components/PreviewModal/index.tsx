@@ -1,4 +1,4 @@
-import { h } from "preact"
+import { h, FunctionalComponent } from "preact"
 
 import Modal from "rebass/dist/Modal"
 import Subhead from "rebass/dist/Subhead"
@@ -8,24 +8,28 @@ import { Fixed } from "rebass/dist/Position"
 import LabeledInput from "@/components/LabeledInput"
 import Button from "rebass/dist/Button"
 import ButtonOutline from "rebass/dist/ButtonOutline"
-import PerryReport from "@/interfaces/PerryReport"
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
 
 interface ModalProps {
   form: PerryReportInfo;
   onSubmit: (reportInfo: PerryReportInfo) => void;
   onDiscard: () => void;
-  onFieldChange: (prop: string) => void;
+  onFieldChange: (property: string) => void;
 }
 
-const PreviewModal = (props: ModalProps) => (
+const PreviewModal: FunctionalComponent<ModalProps> = ({
+  form,
+  onSubmit,
+  onDiscard,
+  onFieldChange,
+}) => (
   <div>
     <Fixed
       top={0}
       right={0}
       bottom={0}
       left={0}
-      onClick={props.onDiscard}
+      onClick={onDiscard}
     />
     <Modal
       p={4}
@@ -41,32 +45,39 @@ const PreviewModal = (props: ModalProps) => (
         />
         <LabeledInput
           label="Report title"
-          value={props.form.title}
+          value={form.title}
           name="title"
-          onChange={props.onFieldChange}
+          onChange={onFieldChange}
         />
         <LabeledInput
           label="Description"
-          value={props.form.description}
+          value={form.description}
           name="description"
-          onChange={props.onFieldChange}
+          onChange={onFieldChange}
         />
       </Box>
       <Button
         mt={2}
         mr={2}
-        onClick={props.onSubmit}
+        onClick={onSubmit}
       >
         Submit
       </Button>
       <ButtonOutline
         mt={2}
-        onClick={props.onDiscard}
+        onClick={onDiscard}
       >
         Discard
       </ButtonOutline>
     </Modal>
   </div>
 );
+
+PreviewModal.defaultProps = {
+  form: {},
+  onSubmit: (_reportInfo) => {},
+  onDiscard: () => {},
+  onFieldChange: (_property) => {},
+}
 
 export default PreviewModal

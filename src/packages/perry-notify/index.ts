@@ -2,12 +2,8 @@ import writeToStore from '@/packages/write-to-store';
 import Features from '@/packages/features';
 import FeatureToggleStore from '@/packages/feature-toggle-store';
 
-export default function notify(error: Error): void {
-  if (!FeatureToggleStore.is(Features.NOTIFY_LISTENER)) {
-    return;
-  }
-
-  return writeToStore({
+const notify = (error: Error): void =>
+  FeatureToggleStore.is(Features.NOTIFY_LISTENER) && writeToStore({
     name: 'perry',
     property: 'notify',
     params: {
@@ -16,4 +12,5 @@ export default function notify(error: Error): void {
       stack: error.stack,
     }
   });
-}
+
+export default notify;

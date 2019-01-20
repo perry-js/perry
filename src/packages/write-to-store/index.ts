@@ -4,7 +4,7 @@ export default function writeToStore({
   name,
   property,
   params
-}) {
+}): void {
   const key = `perry::${name}.${property}::history`;
 
   const history: ReadonlyArray<PerryStoreEvent> =
