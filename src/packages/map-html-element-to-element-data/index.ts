@@ -4,7 +4,7 @@ const mapClassListToArray =
   (classList: DOMTokenList = ({} as DOMTokenList)): ReadonlyArray<string> =>
     [].slice.call(classList);
 
-export default (element: HTMLElement): PerryElementData => ({
+const mapHTMLElementToPerryElementData = (element: HTMLElement): PerryElementData => ({
   id: element.id,
   dataset: element.dataset,
   tagName: element.tagName,
@@ -14,3 +14,5 @@ export default (element: HTMLElement): PerryElementData => ({
   textContent: element.textContent,
   disabled: (element as HTMLButtonElement).disabled,
 });
+
+export default mapHTMLElementToPerryElementData;

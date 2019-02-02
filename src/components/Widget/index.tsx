@@ -1,6 +1,4 @@
 import { h, Component } from "preact";
-import Box from "grid-styled/dist/Box";
-import Flex from "grid-styled/dist/Flex";
 import Provider from "rebass/dist/Provider";
 import WidgetIcon from "@/components/WidgetIcon";
 import ControlledPreviewModal from '@/components/ControlledPreviewModal';
