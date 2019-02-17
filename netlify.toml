@@ -1,0 +1,7 @@
+/*
+	Cache-Control: max-age=86400
+	Access-Control-Allow-Origin: *
+	Access-Control-Allow-Methods: OPTIONS, GET
+	Access-Control-Allow-Headers: *
+	Access-Control-Request-Method: *
+	Access-Control-Max-Age: 3600
