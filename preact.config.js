@@ -13,6 +13,7 @@ export default (config, env, helpers) => {
   if (env.production) {
     config.output.library = "perry";
     config.output.libraryTarget = "umd";
+    config.output.umdNamedDefine = true;
   }
 
   config.resolve.alias = {
