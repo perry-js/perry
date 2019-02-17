@@ -11,6 +11,7 @@ export default (config, env, helpers) => {
   plugin.options.disable = true;
 
   if (env.production) {
+    config.output.library = "perry";
     config.output.libraryTarget = "umd";
   }
 
