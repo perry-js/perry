@@ -1,7 +1,7 @@
-import writeToStore from '@/packages/write-to-store';
-import PerryOptions from '@/interfaces/PerryOptions';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
+import writeToStore from '~/packages/write-to-store';
+import PerryOptions from '~/interfaces/PerryOptions';
+import Features from '~/packages/features';
+import FeatureToggleStore from '~/packages/feature-toggle-store';
 
 const isScriptError = (message: string): boolean =>
   message.toLowerCase().indexOf("script error") > -1

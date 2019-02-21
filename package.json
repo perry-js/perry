@@ -33,7 +33,7 @@
     "preact-habitat": "^3.1.0",
     "rebass": "^2.0.0-7",
     "styled-components": "^3.3.2",
-    "yup": "^0.25.1"
+    "yup": "0.25.1"
   },
   "jest": {
     "verbose": true,
@@ -52,7 +52,7 @@
       "\\.(css|scss|less)$": "identity-obj-proxy",
       "^react$": "preact-compat",
       "^react-dom$": "preact-compat",
-      "@/(.*)$": "<rootDir>/src/$1"
+      "~/(.*)$": "<rootDir>/src/$1"
     },
     "coverageThreshold": {
       "global": {

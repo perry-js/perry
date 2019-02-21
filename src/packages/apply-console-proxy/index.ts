@@ -1,7 +1,7 @@
-import PerryOptions from '@/interfaces/PerryOptions';
-import writeToStore from '@/packages/write-to-store';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
+import PerryOptions from '~/interfaces/PerryOptions';
+import writeToStore from '~/packages/write-to-store';
+import Features from '~/packages/features';
+import FeatureToggleStore from '~/packages/feature-toggle-store';
 
 const createHandlerFactory: Function =
   (instance: Console, property: string): Function =>

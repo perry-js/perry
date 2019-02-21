@@ -5,11 +5,10 @@ import Subhead from "rebass/dist/Subhead"
 import Divider from "rebass/dist/Divider"
 import Box from "grid-styled/dist/Box"
 import { Fixed } from "rebass/dist/Position"
-import LabeledInput from "@/components/LabeledInput"
+import LabeledInput from "~/components/LabeledInput"
 import Button from "rebass/dist/Button"
 import ButtonOutline from "rebass/dist/ButtonOutline"
-import PerryReport from "@/interfaces/PerryReport"
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import PerryReportInfo from "~/interfaces/PerryReportInfo";
 
 interface ModalProps {
   form: PerryReportInfo;

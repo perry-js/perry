@@ -1,4 +1,4 @@
-import WidgetStatus from "@/interfaces/WidgetStatus";
+import WidgetStatus from "~/interfaces/WidgetStatus";
 
 const labels = {
   [WidgetStatus.IDLE]: "Start recording",

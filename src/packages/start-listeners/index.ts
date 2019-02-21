@@ -1,5 +1,5 @@
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
+import Features from '~/packages/features';
+import FeatureToggleStore from '~/packages/feature-toggle-store';
 
 export default function startListeners() {
   FeatureToggleStore.enable(Features.CONSOLE_LISTENER);

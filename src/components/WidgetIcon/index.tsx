@@ -3,8 +3,8 @@ import Box from "grid-styled/dist/Box"
 import Base from "rebass/dist/Base"
 import Circle from "rebass/dist/Circle"
 
-import BugIcon from "@/components/BugIcon"
-import WidgetStatus from "@/interfaces/WidgetStatus";
+import BugIcon from "~/components/BugIcon"
+import WidgetStatus from "~/interfaces/WidgetStatus";
 
 interface WidgetIconProps {
   status: WidgetStatus

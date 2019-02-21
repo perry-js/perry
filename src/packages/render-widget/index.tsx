@@ -1,7 +1,7 @@
 import { h } from "preact";
 import habitat from "preact-habitat";
-import Widget from "@/components/Widget";
-import WidgetProps from "@/interfaces/WidgetProps";
+import Widget from "~/components/Widget";
+import WidgetProps from "~/interfaces/WidgetProps";
 
 const renderWidget = (props: WidgetProps) => {
   habitat(() => <Widget {...props} />).render({

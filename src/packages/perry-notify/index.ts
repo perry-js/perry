@@ -1,6 +1,6 @@
-import writeToStore from '@/packages/write-to-store';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
+import writeToStore from '~/packages/write-to-store';
+import Features from '~/packages/features';
+import FeatureToggleStore from '~/packages/feature-toggle-store';
 
 export default function notify(error: Error): void {
   if (!FeatureToggleStore.is(Features.NOTIFY_LISTENER)) {

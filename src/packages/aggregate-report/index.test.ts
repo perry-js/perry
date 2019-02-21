@@ -1,4 +1,4 @@
-import aggregateReport from './';
+import aggregateReport from '.';
 import PerryReportInfo from '~/interfaces/PerryReportInfo';
 
 const reportInfo : PerryReportInfo = {

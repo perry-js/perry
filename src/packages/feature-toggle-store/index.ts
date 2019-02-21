@@ -1,4 +1,4 @@
-import defaultFeatureToggleStore from '@/packages/default-feature-toggle-store';
+import defaultFeatureToggleStore from '~/packages/default-feature-toggle-store';
 
 const STORE = defaultFeatureToggleStore;
 

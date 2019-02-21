@@ -1,4 +1,4 @@
-import PerryOptions from "@/interfaces/PerryOptions"
+import PerryOptions from "~/interfaces/PerryOptions"
 
 const defaultOptions: PerryOptions = {
   log: false,

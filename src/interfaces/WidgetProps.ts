@@ -1,5 +1,5 @@
-import WidgetStatus from "@/interfaces/WidgetStatus";
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import WidgetStatus from "~/interfaces/WidgetStatus";
+import PerryReportInfo from "~/interfaces/PerryReportInfo";
 
 export default interface WidgetProps {
   status?: WidgetStatus;

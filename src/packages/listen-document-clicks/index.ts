@@ -1,8 +1,8 @@
-import PerryOptions from '@/interfaces/PerryOptions';
-import writeToStore from '@/packages/write-to-store';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
-import mapHTMLElementToElementData from '@/packages/map-html-element-to-element-data';
+import PerryOptions from '~/interfaces/PerryOptions';
+import writeToStore from '~/packages/write-to-store';
+import Features from '~/packages/features';
+import FeatureToggleStore from '~/packages/feature-toggle-store';
+import mapHTMLElementToElementData from '~/packages/map-html-element-to-element-data';
 
 export default function listenDocumentClicks(options: PerryOptions): void {
   document.onclick = function (event: MouseEvent) {
