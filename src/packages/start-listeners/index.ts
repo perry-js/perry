@@ -6,4 +6,5 @@ export default function startListeners() {
   FeatureToggleStore.enable(Features.WINDOW_ERROR_LISTENER);
   FeatureToggleStore.enable(Features.DOCUMENT_CLICK_LISTENER);
   FeatureToggleStore.enable(Features.NOTIFY_LISTENER);
+  FeatureToggleStore.enable(Features.WINDOW_SCREEN_RECORD);
 }

@@ -34,9 +34,13 @@ import stopListeners from '@/packages/stop-listeners';
 /** Perry stateless notifier */
 import notify from '@/packages/perry-notify';
 
+/** Screen recorder */
+import screenRecorder from '@/packages/record-screen';
+
 /** Perry.js class definition */
 export default class Perry {
   public notify = notify;
+  private readonly screenRecorder;
   private finalOptions: PerryOptions;
 
   constructor(options: PerryOptions = defaultOptions) {
@@ -48,6 +52,8 @@ export default class Perry {
     if (!isValidOptions(this.finalOptions)) {
       throw new Error("Your options are invalid. Please respect the options schema defined in the docs.");
     }
+
+    this.screenRecorder = screenRecorder({ videoName: 'video', encodingType: 'video/webm' });
 
     this.componentWillMount();
     this.render();
@@ -63,8 +69,14 @@ export default class Perry {
     const options = this.finalOptions;
 
     const props: WidgetProps = {
-      onStartRecording: startListeners,
-      onStopRecording: stopListeners,
+      onStartRecording: async () => {
+        startListeners();
+        await this.screenRecorder.start();
+      },
+      onStopRecording: () => {
+        stopListeners();
+        this.screenRecorder.stop();
+      },
       onSubmit: (reportInfo: PerryReportInfo) => {
         const report = aggregateReport(reportInfo);
 
