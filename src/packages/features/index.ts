@@ -3,5 +3,5 @@ export default {
   DOCUMENT_CLICK_LISTENER: 'perry::feature::documentclicklistener',
   WINDOW_ERROR_LISTENER: 'perry::feature::windowerrorlistener',
   NOTIFY_LISTENER:'perry::feature::notifylistener',
-  WINDOW_SCREEN_RECORD: 'perry::feature::windowsreenrecord',
+  WINDOW_SCREEN_RECORD: 'perry::feature::windowscreenrecord ',
 }
