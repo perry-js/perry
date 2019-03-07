@@ -56,17 +56,23 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
     node.innerText = this.options.videoName;
 
     const video = new Blob(this.data, { type: this.options.encodingType });
-    node.setAttribute('href', URL.createObjectURL(video));
-    node.setAttribute('target', '_blank');
-    document.getElementsByTagName('body')[0].appendChild(node);
+    const reader = new FileReader();
+    reader.readAsDataURL(video);
+    
+    reader.onloadend = () => {
+      node.setAttribute('href', reader.result.toString());
+      // node.setAttribute('target', '_blank');
+      node.setAttribute('download', `${this.options.videoName}.webm`);
+      document.getElementsByTagName('body')[0].appendChild(node);
 
-    writeToStore({
-      name: 'record',
-      property: 'onfinish',
-      params: {
-        message: 'record is done',
-      },
-    });
+      writeToStore({
+        name: 'record',
+        property: 'onfinish',
+        params: {
+          message: 'record is done',
+        },
+      });
+    };
   }
 
   private getDisplayMedia(constraints): Promise<MediaStream> {
