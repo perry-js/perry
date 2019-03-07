@@ -12,7 +12,7 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
   private data;
   private options: T;
 
-  constructor(options: T) {
+  public constructor(options: T) {
     this.options = options;
   }
 
@@ -25,7 +25,8 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
 
     const stream = await this.getDisplayMedia(constraints);
 
-    this.recorder = new window['MediaRecorder'](stream);
+    // @ts-ignore
+    this.recorder = new MediaRecorder(stream);
     this.data = [];
 
     this.recorder.ondataavailable = (evt) => this.data.push(evt.data);
@@ -61,7 +62,6 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
     
     reader.onloadend = () => {
       node.setAttribute('href', reader.result.toString());
-      // node.setAttribute('target', '_blank');
       node.setAttribute('download', `${this.options.videoName}.webm`);
       document.getElementsByTagName('body')[0].appendChild(node);
 
@@ -76,19 +76,19 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
   }
 
   private getDisplayMedia(constraints): Promise<MediaStream> {
-    // if IE use `navigator.getDisplayMedia` needs to be used
+    // if IE `navigator.getDisplayMedia` needs to be used
     if (typeof navigator.getDisplayMedia === 'function') {
       return navigator.getDisplayMedia(constraints);
     }
     
-    // hackish because of dom.d.ts - sorry ¯\_(ツ)_/¯
-    return navigator.mediaDevices['getDisplayMedia'](constraints);
+    // @ts-ignore
+    return navigator.mediaDevices.getDisplayMedia(constraints);
   }
 
   private isBrowserCompatible(): boolean {
     if (navigator && 'mediaDevices' in navigator) {
-      // again - sorry ¯\_(ツ)_/¯
-      if (typeof window['MediaRecorder'] === 'undefined') {
+      // @ts-ignore
+      if (typeof MediaRecorder === 'undefined') {
         writeToStore({
           name: 'record',
           property: 'onrecord',
@@ -119,12 +119,6 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
   }
 }
 
-let ptr: ScreenRecorder<ScreenRecorderOptions>;
-
 export default function screenRecorder(options: ScreenRecorderOptions): ScreenRecorder<ScreenRecorderOptions> {
-  if (!ptr) {
-    ptr = new ScreenRecorder(options);
-  }
-
-  return ptr;
+  return new ScreenRecorder(options);
 }

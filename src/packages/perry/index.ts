@@ -35,7 +35,7 @@ import stopListeners from '@/packages/stop-listeners';
 import notify from '@/packages/perry-notify';
 
 /** Screen recorder */
-import screenRecorder from '@/packages/record-screen';
+import screenRecorder from '@/packages/screen-recorder';
 
 /** Perry.js class definition */
 export default class Perry {
