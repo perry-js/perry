@@ -1,14 +1,16 @@
 import writeToStore from '@/packages/write-to-store';
+import PerryOptions from '@/interfaces/PerryOptions';
 import Features from '@/packages/features';
 import FeatureToggleStore from '@/packages/feature-toggle-store';
 
 export interface ScreenRecorderOptions {
-  videoName?: string;
-  encodingType?: string,
+  videoName: string;
+  encodingType: string,
 }
 
 export class ScreenRecorder<T extends ScreenRecorderOptions> {
   private recorder;
+  private stream;
   private data;
   private options: T;
 
@@ -23,10 +25,22 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
 
     const constraints = { video: { mediaSource: "screen" } };
 
-    const stream = await this.getDisplayMedia(constraints);
+    try {
+      this.stream = await this.getDisplayMedia(constraints);
+    } catch (err) {
+      writeToStore({
+        name: 'record',
+        property: 'onerror',
+        params: {
+          message: 'an error occured while trying to access the screen',
+          error: err,
+        },
+      });
+      return;
+    }
 
     // @ts-ignore
-    this.recorder = new MediaRecorder(stream);
+    this.recorder = new MediaRecorder(this.stream);
     this.data = [];
 
     this.recorder.ondataavailable = (evt) => this.data.push(evt.data);
@@ -61,7 +75,8 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
     reader.readAsDataURL(video);
     
     reader.onloadend = () => {
-      node.setAttribute('href', reader.result.toString());
+      const base64EncodedVideo = reader.result.toString();
+      node.setAttribute('href', base64EncodedVideo);
       node.setAttribute('download', `${this.options.videoName}.webm`);
       document.getElementsByTagName('body')[0].appendChild(node);
 
@@ -70,6 +85,7 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
         property: 'onfinish',
         params: {
           message: 'record is done',
+          file: base64EncodedVideo,
         },
       });
     };

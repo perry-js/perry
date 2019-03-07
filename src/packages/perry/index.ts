@@ -71,7 +71,11 @@ export default class Perry {
     const props: WidgetProps = {
       onStartRecording: async () => {
         startListeners();
-        await this.screenRecorder.start();
+        try {
+          await this.screenRecorder.start();
+        } catch (err) {
+          this.notify(err);
+        }
       },
       onStopRecording: () => {
         stopListeners();
