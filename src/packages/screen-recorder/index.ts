@@ -49,6 +49,8 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
     await new Promise((resolve, reject) => {
       this.recorder.onstop = () => {
         this.recorderOnstop();
+        // kill all tracks
+        this.stopTracks();
         resolve();
       };
       this.recorder.onerror = reject;
@@ -61,6 +63,10 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
     }
 
     this.recorder.stop();
+  }
+
+  private stopTracks() {
+    this.stream.getTracks().forEach((track) => track.stop());
   }
 
   private recorderOnstop() {
