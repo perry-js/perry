@@ -10,9 +10,11 @@
     "allowJs": true,
     "baseUrl": "./",
     "strictPropertyInitialization": false,
+    "preserveConstEnums": true,
+    "strictNullChecks": false,
     "paths": {
       "@/*": ["./src/*"]
     },
-    "lib": ["dom", "es5", "es6", "dom.iterable", "scripthost", "es2015.proxy"]
+    "lib": ["dom", "es2015", "es5", "es6", "dom.iterable", "scripthost", "es2015.proxy"]
   }
 }
