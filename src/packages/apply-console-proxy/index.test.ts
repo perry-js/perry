@@ -10,6 +10,7 @@ const options = {
   sessionStorage: true,
   clearOnReload: true,
   ignoreScriptErrors: true,
+  enableScreenRecording: true,
   plugins: []
 }
 
