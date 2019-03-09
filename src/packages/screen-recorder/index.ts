@@ -1,61 +1,83 @@
 import writeToStore from '@/packages/write-to-store';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
+
+/**
+ * TODO: Remove this declarations once
+ * dom.d.ts gets updated together with W3C Spec
+ */
+declare class MediaRecorder {
+  constructor(stream: MediaStream);
+  stop(): void;
+  start(): void;
+  addEventListener(event: string, handler: Function): void;
+  removeEventListener(event: string, handler: Function): void;
+}
+
+declare class BlobEvent {
+  data: Blob;
+}
 
 export interface ScreenRecorderOptions {
   videoName: string;
-  encodingType: string,
+  encodingType: string;
 }
 
-export class ScreenRecorder<T extends ScreenRecorderOptions> {
-  private recorder;
-  private stream;
-  private data;
+export default class ScreenRecorder<T extends ScreenRecorderOptions> {
   private options: T;
+  private data: Array<Blob> = [];
+  private stream: MediaStream;
+  private recorder: MediaRecorder;
 
   public constructor(options: T) {
     this.options = options;
   }
 
   public async start(): Promise<void> {
-    if (!this.isEnabled() || !this.isBrowserCompatible()) {
+    if (!this.isBrowserCompatible()) {
       return;
     }
 
-    const constraints = { video: { mediaSource: "screen" } };
+    const constraints = { video: { mediaSource: 'screen' } };
 
     try {
       this.stream = await this.getDisplayMedia(constraints);
-    } catch (err) {
+      this.setupMediaRecorder();
+    } catch (error) {
       writeToStore({
-        name: 'record',
+        name: 'perryscreenrecorder',
         property: 'onerror',
         params: {
-          message: 'an error occured while trying to access the screen',
-          error: err,
+          error: error,
+          message: 'An error occurred when trying to access DisplayMedia for Screen Recording.',
         },
       });
-      return;
+
+      throw error;
     }
+  }
 
-    // @ts-ignore
-    this.recorder = new MediaRecorder(this.stream);
+  private setupMediaRecorder() {
     this.data = [];
+    this.recorder = new MediaRecorder(this.stream);
 
-    this.recorder.ondataavailable = (evt) => this.data.push(evt.data);
+    this.recorder.addEventListener('stop', this.onRecorderStopEvent);
+    this.recorder.addEventListener('error', this.onRecorderErrorEvent);
+    this.recorder.addEventListener('dataavailable', this.onRecorderDataAvailableEvent);
 
     this.recorder.start();
-
-    await new Promise((resolve, reject) => {
-      this.recorder.onstop = () => {
-        this.recorderOnstop();
-        // kill all tracks
-        this.stopTracks();
-        resolve();
-      };
-      this.recorder.onerror = reject;
-    });
   }
+
+  onRecorderStopEvent = () => {
+    this.recorderOnStop();
+    this.stopStreamTracks();
+
+    this.recorder.removeEventListener("stop", this.onRecorderStopEvent);
+    this.recorder.removeEventListener("error", this.onRecorderErrorEvent);
+    this.recorder.removeEventListener("dataavailable", this.onRecorderDataAvailableEvent);
+  }
+
+  onRecorderErrorEvent = (error: Error) => console.error(error);
+
+  onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);
 
   public stop() {
     if (!this.recorder) {
@@ -65,56 +87,68 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
     this.recorder.stop();
   }
 
-  private stopTracks() {
-    this.stream.getTracks().forEach((track) => track.stop());
+  private stopStreamTracks() {
+    this.stream.getTracks().forEach(track => track.stop());
   }
 
-  private recorderOnstop() {
-    // create file to DL
-    const node = document.createElement('a');
-    node.setAttribute('id', 'video');
-    node.innerText = this.options.videoName;
+  private getStreamSettings() {
+    const tracks = this.stream.getTracks();
+    const settings = tracks.map(track => track.getSettings())[0];
+    return settings;
+  }
 
+  private recorderOnStop() {
+    const settings = this.getStreamSettings();
     const video = new Blob(this.data, { type: this.options.encodingType });
     const reader = new FileReader();
     reader.readAsDataURL(video);
-    
-    reader.onloadend = () => {
+
+    reader.addEventListener('loadend', () => {
       const base64EncodedVideo = reader.result.toString();
-      node.setAttribute('href', base64EncodedVideo);
-      node.setAttribute('download', `${this.options.videoName}.webm`);
-      document.getElementsByTagName('body')[0].appendChild(node);
 
       writeToStore({
-        name: 'record',
+        name: 'perryscreenrecorder',
         property: 'onfinish',
         params: {
-          message: 'record is done',
+          message: 'Recording is done. File is a base64 encoded webm video.',
           file: base64EncodedVideo,
+          settings: settings,
         },
       });
-    };
+
+      /**
+       * Clean up recording data from class instance.
+       */
+      this.data = [];
+    });
   }
 
   private getDisplayMedia(constraints): Promise<MediaStream> {
-    // if IE `navigator.getDisplayMedia` needs to be used
+    /**
+     * If running on IE, then `navigator.getDisplayMedia`
+     * should be used instead of `navigator.mediaDevices.getDisplayMedia`.
+     */
     if (typeof navigator.getDisplayMedia === 'function') {
       return navigator.getDisplayMedia(constraints);
     }
     
-    // @ts-ignore
-    return navigator.mediaDevices.getDisplayMedia(constraints);
+    /**
+     * TODO: Clean this `any` hack once getDisplayMedia
+     * gets more stable.
+     */
+    const mediaDevices = (navigator.mediaDevices as any);
+
+    return mediaDevices.getDisplayMedia(constraints);
   }
 
   private isBrowserCompatible(): boolean {
     if (navigator && 'mediaDevices' in navigator) {
-      // @ts-ignore
       if (typeof MediaRecorder === 'undefined') {
         writeToStore({
-          name: 'record',
+          name: 'perryscreenrecorder',
           property: 'onrecord',
           params: {
-            message: 'MediaRecorder class seems unavailable in this browser',
+            message: 'MediaRecorder Class seems unavailable in this browser.',
           },
         });
     
@@ -124,22 +158,14 @@ export class ScreenRecorder<T extends ScreenRecorderOptions> {
       return true;
     }
     
-    // write warning in store
     writeToStore({
-      name: 'record',
+      name: 'perryscreenrecorder',
       property: 'onrecord',
       params: {
-        message: 'mediaDevices API seems unavailable in this browser',
+        message: 'MediaDevices API seems unavailable in this browser.',
       },
     });
+
     return false;
   }
-
-  private isEnabled(): boolean {
-    return FeatureToggleStore.is(Features.WINDOW_SCREEN_RECORD);
-  }
-}
-
-export default function screenRecorder(options: ScreenRecorderOptions): ScreenRecorder<ScreenRecorderOptions> {
-  return new ScreenRecorder(options);
 }

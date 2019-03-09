@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://localhost:8097"></script>
   <title>Perry.js Preview</title>
-
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
   <style>
     .preview {
       padding: 1.8em;
@@ -21,7 +22,7 @@
       font-size: 11px;
       color: rgba(0, 0, 0, 0.5);
       display: block;
-      content: 'PERRY.JS PREVIEW';
+      content: 'PERRY.JS PREVIEW AND CODE';
       position: absolute;
     }
 
@@ -30,6 +31,39 @@
       justify-content: center;
       flex-direction: column;
       margin: 1em 6em;
+    }
+
+    .pulse {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1FA49F;
+      cursor: pointer;
+      box-shadow: 0 0 0 rgba(31, 164, 159, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    .pulse:hover {
+      animation: none;
+    }
+
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(31, 164, 159, 0.4);
+        box-shadow: 0 0 0 0 rgba(31, 164, 159, 0.4);
+      }
+      70% {
+        -moz-box-shadow: 0 0 0 10px rgba(31, 164, 159, 0);
+        box-shadow: 0 0 0 10px rgba(31, 164, 159, 0);
+      }
+      100% {
+        -moz-box-shadow: 0 0 0 0 rgba(31, 164, 159, 0);
+        box-shadow: 0 0 0 0 rgba(31, 164, 159, 0);
+      }
     }
   </style>
 </head>
@@ -80,9 +114,52 @@
       <button id="action-throw-handled-exception"><span style="color: #f00">Throw Handled Exception</span></button>
       <button id="action-throw-unhandled-exception"><span style="color: #f00">Throw Unhandled Exception</span></button>
       <button id="clear-local-storage"><span style="color: #449;">Clear Local Storage</span></button>
+
+      <pre>
+        <code class="html">
+&lt;script src=&quot;/bundle.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  const perry = new Perry({
+    log: true,
+    clicks: true,
+    enableScreenRecording: true,
+    plugins: [
+      function ConsoleLogPlugin(reportInfo) {
+        console.log(&quot;[Perry Report Info]:&quot;, reportInfo);
+        console.log(&quot;[Perry Report Info]:&quot;, [
+          &quot;&quot;,
+          &quot;This was printed by the ConsoleLogPlugin.&quot;,
+          &quot;It is implemented inline into this test page.&quot;,
+          &quot;To know more about how to implement a Perry Plugin:&quot;,
+          &quot;Checkout this page src code or the github repository.&quot;
+        ].join(&quot;\n&quot;));
+      }
+    ]
+  });
+
+  document.getElementById(&quot;action-log&quot;).addEventListener(&quot;click&quot;, () =&gt; console.log('ama simple info log'));
+  document.getElementById(&quot;action-warn&quot;).addEventListener(&quot;click&quot;, () =&gt; console.warn('ama warning'));
+  document.getElementById(&quot;action-error&quot;).addEventListener(&quot;click&quot;, () =&gt; console.error('ama error'));
+  document.getElementById(&quot;action-throw-unhandled-exception&quot;).addEventListener(&quot;click&quot;, () =&gt; { throw new Error('ama boom') });
+  document.getElementById(&quot;action-throw-handled-exception&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+    try {
+      throw new Error('ama boom');
+    } catch (e) {
+      perry.notify(e);
+    }
+  })
+  document.getElementById(&quot;clear-local-storage&quot;).addEventListener(&quot;click&quot;, () =&gt; { localStorage.clear() })
+&lt;/script&gt;
+        </code>
+      </pre>
     </div>
   </div>
 
+  <div class="pulse"></div>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
   <script src="/bundle.js"></script>
 
   <script>
@@ -90,6 +167,7 @@
     const perry = new Perry({
       log: true,
       clicks: true,
+      enableScreenRecording: true,
       plugins: [
         function ConsoleLogPlugin(reportInfo) {
           console.log("[Perry Report Info]:", reportInfo);
