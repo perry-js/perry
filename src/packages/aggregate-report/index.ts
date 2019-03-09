@@ -20,7 +20,12 @@ const aggregateReport =  (reportInfo: PerryReportInfo): PerryReport => ({
   ],
   cookies: document.cookie,
   clicks: getItemFor("document.onclick"),
-  notify: getItemFor("perry.notify")
+  notify: getItemFor("perry.notify"),
+  recorder: [
+    ...orArray(getItemFor("perryscreenrecorder.onrecord")),
+    ...orArray(getItemFor("perryscreenrecorder.onerror")),
+    ...orArray(getItemFor("perryscreenrecorder.onfinish")),
+  ]
 });
 
 export default aggregateReport
