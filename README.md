@@ -90,3 +90,4 @@ The demo page will reload as well when code changes.
  - Armando Magalhaes (armando.mag95@gmail.com)
  - Guilherme Lima (guilhermelimak@gmail.com)
  - Vitor Margis (vitor@margis.com.br)
+ - Jean Baudin (baudin.jean@gmail.com)

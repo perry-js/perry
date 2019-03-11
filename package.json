@@ -12,7 +12,12 @@
     "dev": "preact watch --template src/index.ejs"
   },
   "keywords": [],
-  "author": "Zouhir <zouhir@zouhir.org>",
+  "contributors": [
+    "Armando Magalhaes <armando.mag95@gmail.com> (https://armand1m.github.io)",
+    "Guilherme Lima <guilhermelimak@gmail.com> (https://github.com/guilhermelimak)",
+    "Vitor Margis <vitor.margis@gmail.com> (https://github.com/vitormargis)",
+    "Jean Baudin <baudin.jean@gmail.com> (https://github.com/jackTheRipper)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.1.1",
