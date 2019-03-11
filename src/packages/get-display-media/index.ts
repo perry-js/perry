@@ -1,9 +1,9 @@
 /**
  * ## getDisplayMedia
- * 
+ *
  * This methods returns the most reliable
  * way to use getDisplayMedia from the user's browser
- * 
+ *
  * @param constraints MediaStreamConstraints
  */
 const getDisplayMedia = (constraints: object): Promise<MediaStream> => {
