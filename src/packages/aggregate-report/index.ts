@@ -1,5 +1,5 @@
-import PerryReport from '@/interfaces/PerryReport';
-import PerryReportInfo from '@/interfaces/PerryReportInfo';
+import PerryReport from "@/interfaces/PerryReport";
+import PerryReportInfo from "@/interfaces/PerryReportInfo";
 
 const getItemFor = (method: string) =>
   JSON.parse(localStorage.getItem(getKeyFor(method)));
@@ -19,13 +19,13 @@ const aggregateReport =  (reportInfo: PerryReportInfo): PerryReport => ({
   notify: orArray(getItemFor("perry.notify")),
   errors: [
     ...orArray(getItemFor("console.error")),
-    ...orArray(getItemFor("window.onerror"))
+    ...orArray(getItemFor("window.onerror")),
   ],
   recorder: [
     ...orArray(getItemFor("perryscreenrecorder.onrecord")),
     ...orArray(getItemFor("perryscreenrecorder.onerror")),
     ...orArray(getItemFor("perryscreenrecorder.onfinish")),
-  ]
+  ],
 });
 
-export default aggregateReport
+export default aggregateReport;

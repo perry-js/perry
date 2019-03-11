@@ -1,14 +1,14 @@
-import { h, FunctionalComponent } from "preact"
+import { FunctionalComponent, h } from "preact";
 
-import Modal from "rebass/dist/Modal"
-import Subhead from "rebass/dist/Subhead"
-import Divider from "rebass/dist/Divider"
-import Box from "grid-styled/dist/Box"
-import { Fixed } from "rebass/dist/Position"
-import LabeledInput from "@/components/LabeledInput"
-import Button from "rebass/dist/Button"
-import ButtonOutline from "rebass/dist/ButtonOutline"
+import LabeledInput from "@/components/LabeledInput";
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import Box from "grid-styled/dist/Box";
+import Button from "rebass/dist/Button";
+import ButtonOutline from "rebass/dist/ButtonOutline";
+import Divider from "rebass/dist/Divider";
+import Modal from "rebass/dist/Modal";
+import { Fixed } from "rebass/dist/Position";
+import Subhead from "rebass/dist/Subhead";
 
 interface ModalProps {
   form: PerryReportInfo;
@@ -33,7 +33,7 @@ const PreviewModal: FunctionalComponent<ModalProps> = ({
     />
     <Modal
       p={4}
-      w={1/2}
+      w={1 / 2}
     >
       <Box>
         <Subhead>
@@ -78,6 +78,6 @@ PreviewModal.defaultProps = {
   onSubmit: (_reportInfo) => {},
   onDiscard: () => {},
   onFieldChange: (_property) => {},
-}
+};
 
-export default PreviewModal
+export default PreviewModal;

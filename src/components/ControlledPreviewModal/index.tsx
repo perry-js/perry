@@ -1,6 +1,6 @@
-import { h, Component } from "preact"
 import PreviewModal from "@/components/PreviewModal";
 import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import { Component, h } from "preact";
 
 interface ControlledPreviewModalProps {
   open: boolean;
@@ -9,22 +9,22 @@ interface ControlledPreviewModalProps {
 }
 
 export default class ControlledPreviewModal extends Component<ControlledPreviewModalProps, PerryReportInfo> {
-  state = {
-    title: "",
-    description: "",
-    screenshotUrl: ""
-  };
 
-  static defaultProps = {
+  public static defaultProps = {
     open: false,
     onSubmit: () => {},
-    onDiscard: () => {}
+    onDiscard: () => {},
+  };
+  public state = {
+    title: "",
+    description: "",
+    screenshotUrl: "",
   };
 
-  handleFieldChange = ({ target: { name, value }}: any) =>
-    this.setState({ [name]: value });
+  public handleFieldChange = ({ target: { name, value }}: any) =>
+    this.setState({ [name]: value })
 
-  render() {
+  public render() {
     const {
       open,
       onSubmit,

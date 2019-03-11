@@ -1,7 +1,7 @@
-import Text from "rebass/dist/Text"
-import Button from "rebass/dist/Button"
+import Button from "rebass/dist/Button";
+import Text from "rebass/dist/Text";
 
-const buttonSize = 40
+const buttonSize = 40;
 
 export const WidgetButton = Button.extend`
   position: fixed;
@@ -37,7 +37,7 @@ export const WidgetButton = Button.extend`
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     border: 1px solid #ddd;
   }
-`
+`;
 
 export const StyledLabel = Text.extend`
   transition: all 0.3s;
@@ -50,4 +50,4 @@ export const StyledLabel = Text.extend`
   ${WidgetButton}:hover & {
     opacity: 1;
   }
-`
+`;

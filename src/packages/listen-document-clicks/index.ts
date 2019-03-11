@@ -1,11 +1,11 @@
-import PerryOptions from '@/interfaces/PerryOptions';
-import writeToStore from '@/packages/write-to-store';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
-import mapHTMLElementToElementData from '@/packages/map-html-element-to-element-data';
+import PerryOptions from "@/interfaces/PerryOptions";
+import FeatureToggleStore from "@/packages/feature-toggle-store";
+import Features from "@/packages/features";
+import mapHTMLElementToElementData from "@/packages/map-html-element-to-element-data";
+import writeToStore from "@/packages/write-to-store";
 
 export default function listenDocumentClicks(options: PerryOptions): void {
-  document.onclick = function (event: MouseEvent) {
+  document.onclick = function(event: MouseEvent) {
     if (!FeatureToggleStore.is(Features.DOCUMENT_CLICK_LISTENER)) {
       return;
     }
@@ -15,13 +15,13 @@ export default function listenDocumentClicks(options: PerryOptions): void {
 
     /** casting EventTarget type to HTMLElement type */
     const element: HTMLElement = event.target as HTMLElement;
-    
+
     /** couldn't get view.visualViewport from Window type */
     const viewport: any = (view as any).visualViewport;
-    
+
     options.clicks && writeToStore({
-      name: 'document',
-      property: 'onclick',
+      name: "document",
+      property: "onclick",
       params: {
         event: {
           type: event.type,
@@ -34,7 +34,7 @@ export default function listenDocumentClicks(options: PerryOptions): void {
           offsetX: event.offsetX,
           offsetY: event.offsetY,
           /** couldn't get event.path from MouseEvent type */
-          path: (event as any).path.map(mapHTMLElementToElementData)
+          path: (event as any).path.map(mapHTMLElementToElementData),
         },
         target: mapHTMLElementToElementData(element),
         screen: {
@@ -49,8 +49,8 @@ export default function listenDocumentClicks(options: PerryOptions): void {
           scale: viewport.scale,
           width: viewport.width,
           height: viewport.height,
-        }
-      }
+        },
+      },
     });
   };
 }

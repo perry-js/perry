@@ -1,8 +1,8 @@
-import { h, FunctionalComponent } from "preact"
-import Base from "rebass/dist/Base"
-import Circle from "rebass/dist/Circle"
+import { FunctionalComponent, h } from "preact";
+import Base from "rebass/dist/Base";
+import Circle from "rebass/dist/Circle";
 
-import BugIcon from "@/components/BugIcon"
+import BugIcon from "@/components/BugIcon";
 import WidgetStatus from "@/interfaces/WidgetStatus";
 
 interface WidgetIconProps {
@@ -31,7 +31,7 @@ const IconForStatus = {
 };
 
 const WidgetIcon: FunctionalComponent<WidgetIconProps> = ({
-  status
+  status,
 }) => {
   const IconComponent = IconForStatus[status];
 
@@ -42,4 +42,4 @@ const WidgetIcon: FunctionalComponent<WidgetIconProps> = ({
   );
 };
 
-export default WidgetIcon
+export default WidgetIcon;

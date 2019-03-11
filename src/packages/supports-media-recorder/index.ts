@@ -1,5 +1,5 @@
-import MediaRecorder from '@/interfaces/dom/MediaRecorder';
+import MediaRecorder from "@/interfaces/dom/MediaRecorder";
 
-const supportsMediaRecorder = () => typeof MediaRecorder !== 'undefined';
+const supportsMediaRecorder = () => typeof MediaRecorder !== "undefined";
 
 export default supportsMediaRecorder;
