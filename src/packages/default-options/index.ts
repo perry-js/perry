@@ -9,6 +9,7 @@ const defaultOptions: PerryOptions = {
   localStorage: false,
   sessionStorage: false,
   clearOnReload: false,
+  clearOnStart: true,
   ignoreScriptErrors: false,
   enableScreenRecording: true,
   plugins: []

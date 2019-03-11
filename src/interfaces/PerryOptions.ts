@@ -7,6 +7,7 @@ export default interface PerryOptions {
   localStorage: boolean,
   sessionStorage: boolean,
   clearOnReload: boolean,
+  clearOnStart: boolean,
   ignoreScriptErrors: boolean,
   enableScreenRecording: boolean,
   /**

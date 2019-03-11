@@ -1,21 +1,8 @@
+import defaultOptions from '@/packages/default-options';
 import applyConsoleProxy from './';
-
-const options = {
-  log: true,
-  warn: true,
-  error: true,
-  clicks: true,
-  cookies: true,
-  localStorage: true,
-  sessionStorage: true,
-  clearOnReload: true,
-  ignoreScriptErrors: true,
-  enableScreenRecording: true,
-  plugins: []
-}
 
 describe('Apply Console Proxy', () => {
   it('should return undefined', () => {
-    expect(applyConsoleProxy(options)).toBeUndefined();
+    expect(applyConsoleProxy(defaultOptions)).toBeUndefined();
   });
 });

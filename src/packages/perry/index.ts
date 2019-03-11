@@ -39,56 +39,65 @@ import ScreenRecorder from '@/packages/screen-recorder';
 
 /** Perry.js class definition */
 export default class Perry {
-  public notify = notify;
-  private readonly screenRecorder;
-  private finalOptions: PerryOptions;
+  public readonly notify = notify;
+  private readonly options: PerryOptions;
+  private readonly screenRecorder: ScreenRecorder;
 
   constructor(options: PerryOptions = defaultOptions) {
-    this.finalOptions = {
+    this.options = {
       ...defaultOptions,
       ...options,
     };
 
-    if (!isValidOptions(this.finalOptions)) {
+    if (!isValidOptions(this.options)) {
       throw new Error("Your options are invalid. Please respect the options schema defined in the docs.");
     }
 
-    if (this.finalOptions.enableScreenRecording) {
+    if (this.options.enableScreenRecording) {
       this.screenRecorder = new ScreenRecorder({
         videoName: 'video',
         encodingType: 'video/webm',
       });
     }
 
-    this.componentWillMount();
+    this.options.clearOnReload && clearStore();
+
+    setupListeners(this.options);
+
     this.render();
   }
 
-  componentWillMount() {
-    const options = this.finalOptions;
-    options.clearOnReload && clearStore();
-    setupListeners(options);
+  start = async () => {
+    this.options.clearOnStart && clearStore();
+    startListeners();
+    this.options.enableScreenRecording && await this.screenRecorder.start();
+  }
+
+  stop = async () => {
+    stopListeners();
+    this.options.enableScreenRecording && await this.screenRecorder.stop();
+  }
+
+  submit = async (reportInfo: PerryReportInfo) => {
+    const report = aggregateReport(reportInfo);
+  
+    this.options.plugins.map(plugin => plugin(report));
+  
+    return report;
   }
 
   render() {
-    const options = this.finalOptions;
-
     const props: WidgetProps = {
-      onStartRecording: () => {
-        startListeners();
-        options.enableScreenRecording && this.screenRecorder.start();
+      onStartRecording: async () => {
+        try {
+          await this.start();
+        } catch (e) {
+          await this.stop();
+          throw new Error("Failed to start recording. Stopped all listeners and recorders.")
+        }
       },
-      onStopRecording: () => {
-        stopListeners();
-        options.enableScreenRecording && this.screenRecorder.stop();
-      },
-      onSubmit: (reportInfo: PerryReportInfo) => {
-        const report = aggregateReport(reportInfo);
-
-        options.plugins.map(plugin => plugin(report));
-
-        return report;
-      }
+      onStopRecording: this.stop,
+      onSubmit: this.submit,
     };
 
     renderWidget(props);

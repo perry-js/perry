@@ -1,12 +1,11 @@
-import { h } from "preact";
-import habitat from "preact-habitat";
+import { h, render } from "preact";
 import Widget from "@/components/Widget";
 import WidgetProps from "@/interfaces/WidgetProps";
 
-const renderWidget = (props: WidgetProps) =>
-  habitat(() => <Widget {...props} />).render({
-    selector: 'body',
-    clean: false,
-  });
+const renderWidget = (props: WidgetProps) => {
+  const container = document.createElement("div");
+  document.body.appendChild(container);
+  render(<Widget {...props} />, container);
+}
 
 export default renderWidget;

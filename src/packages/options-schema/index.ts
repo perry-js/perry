@@ -12,6 +12,7 @@ export default object({
   sessionStorage: boolean(),
   ignoreScriptErrors: boolean(),
   clearOnReload: boolean(),
+  clearOnStart: boolean(),
   enableScreenRecording: boolean(),
   plugins: array(),
 }).noUnknown();

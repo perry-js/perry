@@ -7,7 +7,7 @@ import Widget from "./"
 
 describe("Widget Snapshot", () => {
   it("should render with content", () => {
-    const tree = render(<Widget onSubmit={() => {}} />);
+    const tree = render(<Widget />);
     expect(tree).toMatchSnapshot();
   });
 });

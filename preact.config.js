@@ -1,9 +1,12 @@
 import path from 'path';
-import preactCliTypeScript from 'preact-cli-plugin-typescript'
 
 export default (config, env, helpers) => {
-  preactCliTypeScript(config)
-  
+  config.module.loaders.push({
+    enforce: 'pre',
+    test: /\.tsx?$/,
+    loader: 'awesome-typescript-loader'
+  })
+
   delete config.entry.polyfills;
   config.output.filename = "[name].js";
 
@@ -18,6 +21,7 @@ export default (config, env, helpers) => {
 
   config.resolve.alias = {
     ...config.resolve.alias,
+    'preact-cli-entrypoint': path.resolve(process.cwd(), 'src', 'index'),
     '@': path.resolve(__dirname, 'src/')
   };
 };
