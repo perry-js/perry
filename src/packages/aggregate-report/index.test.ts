@@ -1,5 +1,6 @@
-import aggregateReport from './';
+import PerryReport from '@/interfaces/PerryReport';
 import PerryReportInfo from '@/interfaces/PerryReportInfo';
+import aggregateReport from './';
 
 const reportInfo : PerryReportInfo = {
   title: 'Testing',
@@ -7,20 +8,20 @@ const reportInfo : PerryReportInfo = {
   screenshotUrl: 'http://urlscreenshot.com',
 };
 
-const expectedReport = {
-    "clicks": null,
-    "cookies": "",
-    "description": "Testing this aggregateReport",
-    "errors": [],
-    "logs": null,
-    "notify": null,
-    "screenshotUrl":
-    "http://urlscreenshot.com",
-    "title": "Testing",
-    "warns": null
-}
+const expectedReport: PerryReport = {
+  "logs": [],
+  "warns": [],
+  "clicks": [],
+  "errors": [],
+  "notify": [],
+  "recorder": [],
+  "cookies": document.cookie,
+  "title": reportInfo.title,
+  "description": reportInfo.description,
+  "screenshotUrl": reportInfo.screenshotUrl,
+};
 
-describe('Aggregate Report', () => {
+describe('aggregateReport', () => {
   it('should return an object that matches the expected report', () => {
     expect(aggregateReport(reportInfo)).toEqual(expectedReport);
   });

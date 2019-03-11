@@ -7,6 +7,11 @@ export default interface PerryOptions {
   localStorage: boolean,
   sessionStorage: boolean,
   clearOnReload: boolean,
+  clearOnStart: boolean,
   ignoreScriptErrors: boolean,
+  enableScreenRecording: boolean,
+  /**
+   * TODO: Give a type to the Plugin Function signature itself.
+   */
   plugins: Array<Function>
 };

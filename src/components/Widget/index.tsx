@@ -27,11 +27,11 @@ class Widget extends Component<WidgetProps, WidgetState> {
 
   setStatus = (status: WidgetStatus) =>
     this.setState({ status })
-
-  nextStep = () => {
+  
+  next = async () => {
     switch (this.state.status) {
       case WidgetStatus.IDLE:
-        this.props.onStartRecording();
+        await this.props.onStartRecording();
         return this.setStatus(WidgetStatus.RECORDING)
       case WidgetStatus.RECORDING:
         this.props.onStopRecording();
@@ -57,7 +57,7 @@ class Widget extends Component<WidgetProps, WidgetState> {
 
     return (
       <Provider>
-        <WidgetButton onClick={this.nextStep}>
+        <WidgetButton onClick={this.next}>
           <WidgetIcon status={status} />
           <StyledLabel>{getLabelForState(status)}</StyledLabel>
         </WidgetButton>
