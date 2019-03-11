@@ -1,4 +1,4 @@
-export default interface PerryReportInfo {
+export default interface IPerryReportInfo {
   title?: string;
   description?: string;
   screenshotUrl?: string;

@@ -1,14 +1,14 @@
-import PerryStoreEvent from "@/interfaces/PerryStoreEvent"
+import PerryStoreEvent from "@/interfaces/PerryStoreEvent";
 
-export default interface PerryReport {
+export default interface IPerryReport {
   title?: string;
   description?: string;
   screenshotUrl?: string;
   cookies: string;
-  logs: Array<PerryStoreEvent>;
-  warns: Array<PerryStoreEvent>;
-  errors: Array<PerryStoreEvent>;
-  clicks: Array<PerryStoreEvent>;
-  notify: Array<PerryStoreEvent>;
-  recorder: Array<PerryStoreEvent>;
+  logs: ReadonlyArray<PerryStoreEvent>;
+  warns: ReadonlyArray<PerryStoreEvent>;
+  errors: ReadonlyArray<PerryStoreEvent>;
+  clicks: ReadonlyArray<PerryStoreEvent>;
+  notify: ReadonlyArray<PerryStoreEvent>;
+  recorder: ReadonlyArray<PerryStoreEvent>;
 }

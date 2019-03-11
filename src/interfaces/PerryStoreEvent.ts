@@ -1,4 +1,4 @@
-export default interface PerryStoreEvent {
-  params: any,
-  timestamp: number
-};
+export default interface IPerryStoreEvent {
+  params: any;
+  timestamp: number;
+}

@@ -4,10 +4,10 @@
  */
 declare class MediaRecorder {
   constructor(stream: MediaStream);
-  stop(): void;
-  start(): void;
-  addEventListener(event: string, handler: Function): void;
-  removeEventListener(event: string, handler: Function): void;
+  public stop(): void;
+  public start(): void;
+  public addEventListener(event: string, handler: (event: Event) => void): void;
+  public removeEventListener(event: string, handler: (event: Event) => void): void;
 }
 
 export default MediaRecorder;
