@@ -1,8 +1,8 @@
 import ControlledPreviewModal from "@/components/ControlledPreviewModal";
 import WidgetIcon from "@/components/WidgetIcon";
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
-import WidgetProps from "@/interfaces/WidgetProps";
-import WidgetStatus from "@/interfaces/WidgetStatus";
+import WidgetStatus from "@/enums/WidgetStatus";
+import IPerryReportInfo from "@/interfaces/IPerryReportInfo";
+import IWidgetProps from "@/interfaces/IWidgetProps";
 import getLabelForState from "@/packages/get-label-for-widget-state";
 import { Component, h } from "preact";
 import Provider from "rebass/dist/Provider";
@@ -14,7 +14,7 @@ export interface IWidgetState {
   status: WidgetStatus;
 }
 
-class Widget extends Component<WidgetProps, IWidgetState> {
+class Widget extends Component<IWidgetProps, IWidgetState> {
   public state = {
     isModalOpen: false,
     status: WidgetStatus.IDLE,
@@ -46,7 +46,7 @@ class Widget extends Component<WidgetProps, IWidgetState> {
     this.toggleModal();
   }
 
-  public handleSubmit = (reportInfo: PerryReportInfo) => {
+  public handleSubmit = (reportInfo: IPerryReportInfo) => {
     this.setStatus(WidgetStatus.IDLE);
     this.toggleModal();
     this.props.onSubmit(reportInfo);

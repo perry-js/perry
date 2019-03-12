@@ -1,5 +1,5 @@
-import IPerryReport from "@/interfaces/PerryReport";
-import IPerryReportInfo from "@/interfaces/PerryReportInfo";
+import IPerryReport from "@/interfaces/IPerryReport";
+import IPerryReportInfo from "@/interfaces/IPerryReportInfo";
 
 export type PerryPlugin = (reportInfo: IPerryReportInfo) => IPerryReport;
 

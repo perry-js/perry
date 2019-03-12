@@ -1,4 +1,4 @@
-import PerryOptions from "@/interfaces/PerryOptions";
+import IPerryOptions from "@/interfaces/IPerryOptions";
 import FeatureToggleStore from "@/packages/feature-toggle-store";
 import Features from "@/packages/features";
 import writeToStore from "@/packages/write-to-store";
@@ -22,7 +22,7 @@ const createHandlerFactory: HandlerFactory =
         return instance[property](...params);
       };
 
-export default function applyConsoleProxy(options: PerryOptions): void {
+export default function applyConsoleProxy(options: IPerryOptions): void {
   (window.console as any) = new Proxy(window.console, {
     get(instance, property) {
       if (!FeatureToggleStore.is(Features.CONSOLE_LISTENER)) {

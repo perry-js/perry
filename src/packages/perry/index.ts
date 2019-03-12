@@ -1,11 +1,11 @@
 /** Widget Component Props interface */
-import WidgetProps from "@/interfaces/WidgetProps";
+import IWidgetProps from "@/interfaces/IWidgetProps";
 
 /** Perry Options interface */
-import PerryOptions from "@/interfaces/PerryOptions";
+import IPerryOptions from "@/interfaces/IPerryOptions";
 
 /** Perry Report Info interface */
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import IPerryReportInfo from "@/interfaces/IPerryReportInfo";
 
 /** Options validator, created with Yup. */
 import isValidOptions from "@/packages/is-valid-options";
@@ -40,10 +40,10 @@ import ScreenRecorder from "@/packages/screen-recorder";
 /** Perry.js class definition */
 export default class Perry {
   public readonly notify = notify;
-  private readonly options: PerryOptions;
+  private readonly options: IPerryOptions;
   private readonly screenRecorder: ScreenRecorder;
 
-  constructor(options: PerryOptions = defaultOptions) {
+  constructor(options: IPerryOptions = defaultOptions) {
     this.options = {
       ...defaultOptions,
       ...options,
@@ -89,7 +89,7 @@ export default class Perry {
     }
   }
 
-  public submit = async (reportInfo: PerryReportInfo) => {
+  public submit = async (reportInfo: IPerryReportInfo) => {
     const report = aggregateReport(reportInfo);
 
     this.options.plugins.map((plugin) => plugin(report));
@@ -98,7 +98,7 @@ export default class Perry {
   }
 
   public render() {
-    const props: WidgetProps = {
+    const props: IWidgetProps = {
       onStartRecording: async () => {
         try {
           await this.start();

@@ -1,5 +1,5 @@
-import PerryReport from "@/interfaces/PerryReport";
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import PerryReport from "@/interfaces/IPerryReport";
+import PerryReportInfo from "@/interfaces/IPerryReportInfo";
 
 const getItemFor = (method: string) =>
   JSON.parse(localStorage.getItem(getKeyFor(method)));

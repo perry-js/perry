@@ -1,12 +1,16 @@
-import PerryOptions from "@/interfaces/PerryOptions";
+import IPerryOptions from "@/interfaces/IPerryOptions";
 import FeatureToggleStore from "@/packages/feature-toggle-store";
 import Features from "@/packages/features";
 import mapHTMLElementToElementData from "@/packages/map-html-element-to-element-data";
 import writeToStore from "@/packages/write-to-store";
 
-export default function listenDocumentClicks(options: PerryOptions): void {
+export default function listenDocumentClicks(options: IPerryOptions): void {
   document.onclick = (event: MouseEvent) => {
     if (!FeatureToggleStore.is(Features.DOCUMENT_CLICK_LISTENER)) {
+      return;
+    }
+
+    if (!options.clicks) {
       return;
     }
 
@@ -18,10 +22,6 @@ export default function listenDocumentClicks(options: PerryOptions): void {
 
     /** couldn't get view.visualViewport from Window type */
     const viewport: any = (view as any).visualViewport;
-
-    if (!options.clicks) {
-      return;
-    }
 
     writeToStore({
       name: "document",

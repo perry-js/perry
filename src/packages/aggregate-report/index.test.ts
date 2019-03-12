@@ -1,5 +1,5 @@
-import PerryReport from "@/interfaces/PerryReport";
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import PerryReport from "@/interfaces/IPerryReport";
+import PerryReportInfo from "@/interfaces/IPerryReportInfo";
 import aggregateReport from "./";
 
 const reportInfo: PerryReportInfo = {
@@ -22,7 +22,7 @@ const expectedReport: PerryReport = {
 };
 
 describe("aggregateReport", () => {
-  it("should return an object that matches the expected report", () => {
+  it("should return an empty report by default", () => {
     expect(aggregateReport(reportInfo)).toEqual(expectedReport);
   });
 });

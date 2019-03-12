@@ -1,4 +1,4 @@
-import PerryOptions from "@/interfaces/PerryOptions";
+import IPerryOptions from "@/interfaces/IPerryOptions";
 import FeatureToggleStore from "@/packages/feature-toggle-store";
 import Features from "@/packages/features";
 import writeToStore from "@/packages/write-to-store";
@@ -6,7 +6,7 @@ import writeToStore from "@/packages/write-to-store";
 const isScriptError = (message: string): boolean =>
   message.toLowerCase().indexOf("script error") > -1;
 
-export default function listenWindowErrors(options: PerryOptions): void {
+export default function listenWindowErrors(options: IPerryOptions): void {
   const handler = (
     message: string,
     url: string,
@@ -18,16 +18,16 @@ export default function listenWindowErrors(options: PerryOptions): void {
       return;
     }
 
+    if (!options.error) {
+      return;
+    }
+
     /** Don't record Scripting errors due to browser security blocks. */
     /** Any solutions for this will be appreciated. */
     /** See: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror#notes */
     const isUnhandableError = isScriptError(message);
 
     if (isUnhandableError && options.ignoreScriptErrors) {
-      return;
-    }
-
-    if (!options.error) {
       return;
     }
 

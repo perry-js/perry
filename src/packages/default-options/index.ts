@@ -1,6 +1,6 @@
-import PerryOptions from "@/interfaces/PerryOptions";
+import IPerryOptions from "@/interfaces/IPerryOptions";
 
-const defaultOptions: PerryOptions = {
+const defaultOptions: IPerryOptions = {
   clearOnReload: false,
   clearOnStart: true,
   clicks: false,
