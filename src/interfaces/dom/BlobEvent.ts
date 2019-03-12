@@ -1,5 +1,5 @@
 declare class BlobEvent {
-  data: Blob;
+  public data: Blob;
 }
 
 export default BlobEvent;

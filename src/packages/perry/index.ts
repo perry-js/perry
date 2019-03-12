@@ -1,49 +1,49 @@
 /** Widget Component Props interface */
-import WidgetProps from '@/interfaces/WidgetProps';
+import IWidgetProps from "@/interfaces/IWidgetProps";
 
 /** Perry Options interface */
-import PerryOptions from '@/interfaces/PerryOptions';
+import IPerryOptions from "@/interfaces/IPerryOptions";
 
 /** Perry Report Info interface */
-import PerryReportInfo from '@/interfaces/PerryReportInfo';
+import IPerryReportInfo from "@/interfaces/IPerryReportInfo";
 
 /** Options validator, created with Yup. */
-import isValidOptions from '@/packages/is-valid-options';
+import isValidOptions from "@/packages/is-valid-options";
 
 /** Default options as a plain js object */
-import defaultOptions from '@/packages/default-options';
+import defaultOptions from "@/packages/default-options";
 
 /** Clears perry store */
-import clearStore from '@/packages/clear-store';
+import clearStore from "@/packages/clear-store";
 
 /** Aggregates info and creates PerryReport */
-import aggregateReport from '@/packages/aggregate-report';
+import aggregateReport from "@/packages/aggregate-report";
 
 /** Renders the widget into document */
-import renderWidget from '@/packages/render-widget';
+import renderWidget from "@/packages/render-widget";
 
 /** Setup the listeners and proxies */
-import setupListeners from '@/packages/setup-listeners';
+import setupListeners from "@/packages/setup-listeners";
 
 /** Toggles the feature switches to true so the listeners can start to watch */
-import startListeners from '@/packages/start-listeners';
+import startListeners from "@/packages/start-listeners";
 
 /** Toggles the feature switches to false so the listeners stop watching */
-import stopListeners from '@/packages/stop-listeners';
+import stopListeners from "@/packages/stop-listeners";
 
 /** Perry stateless notifier */
-import notify from '@/packages/perry-notify';
+import notify from "@/packages/perry-notify";
 
 /** Screen recorder */
-import ScreenRecorder from '@/packages/screen-recorder';
+import ScreenRecorder from "@/packages/screen-recorder";
 
 /** Perry.js class definition */
 export default class Perry {
   public readonly notify = notify;
-  private readonly options: PerryOptions;
+  private readonly options: IPerryOptions;
   private readonly screenRecorder: ScreenRecorder;
 
-  constructor(options: PerryOptions = defaultOptions) {
+  constructor(options: IPerryOptions = defaultOptions) {
     this.options = {
       ...defaultOptions,
       ...options,
@@ -55,45 +55,56 @@ export default class Perry {
 
     if (this.options.enableScreenRecording) {
       this.screenRecorder = new ScreenRecorder({
-        videoName: 'video',
-        encodingType: 'video/webm',
+        encodingType: "video/webm",
+        videoName: "video",
       });
     }
 
-    this.options.clearOnReload && clearStore();
+    if (this.options.clearOnReload) {
+      clearStore();
+    }
 
     setupListeners(this.options);
 
     this.render();
   }
 
-  start = async () => {
-    this.options.clearOnStart && clearStore();
+  public start = async () => {
+    if (this.options.clearOnReload) {
+      clearStore();
+    }
+
     startListeners();
-    this.options.enableScreenRecording && await this.screenRecorder.start();
+
+    if (this.options.enableScreenRecording) {
+      await this.screenRecorder.start();
+    }
   }
 
-  stop = async () => {
+  public stop = async () => {
     stopListeners();
-    this.options.enableScreenRecording && await this.screenRecorder.stop();
+
+    if (this.options.enableScreenRecording) {
+      await this.screenRecorder.stop();
+    }
   }
 
-  submit = async (reportInfo: PerryReportInfo) => {
+  public submit = async (reportInfo: IPerryReportInfo) => {
     const report = aggregateReport(reportInfo);
-  
-    this.options.plugins.map(plugin => plugin(report));
-  
+
+    this.options.plugins.map((plugin) => plugin(report));
+
     return report;
   }
 
-  render() {
-    const props: WidgetProps = {
+  public render() {
+    const props: IWidgetProps = {
       onStartRecording: async () => {
         try {
           await this.start();
         } catch (e) {
           await this.stop();
-          throw new Error("Failed to start recording. Stopped all listeners and recorders.")
+          throw new Error("Failed to start recording. Stopped all listeners and recorders.");
         }
       },
       onStopRecording: this.stop,
@@ -102,4 +113,4 @@ export default class Perry {
 
     renderWidget(props);
   }
-};
+}

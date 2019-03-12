@@ -1,30 +1,30 @@
-import { h, Component } from "preact"
 import PreviewModal from "@/components/PreviewModal";
-import PerryReportInfo from "@/interfaces/PerryReportInfo";
+import IPerryReportInfo from "@/interfaces/IPerryReportInfo";
+import { Component, h } from "preact";
 
-interface ControlledPreviewModalProps {
+interface IControlledPreviewModalProps {
   open: boolean;
-  onSubmit?: (info: PerryReportInfo) => void;
+  onSubmit?: (info: IPerryReportInfo) => void;
   onDiscard?: () => void;
 }
 
-export default class ControlledPreviewModal extends Component<ControlledPreviewModalProps, PerryReportInfo> {
-  state = {
-    title: "",
-    description: "",
-    screenshotUrl: ""
-  };
+export default class ControlledPreviewModal extends Component<IControlledPreviewModalProps, IPerryReportInfo> {
 
-  static defaultProps = {
+  public static defaultProps = {
+    onDiscard: () => { /* empty function */ },
+    onSubmit: () => { /* empty function */ },
     open: false,
-    onSubmit: () => {},
-    onDiscard: () => {}
+  };
+  public state = {
+    description: "",
+    screenshotUrl: "",
+    title: "",
   };
 
-  handleFieldChange = ({ target: { name, value }}: any) =>
-    this.setState({ [name]: value });
+  public handleFieldChange = ({ target: { name, value }}: any) =>
+    this.setState({ [name]: value })
 
-  render() {
+  public render() {
     const {
       open,
       onSubmit,

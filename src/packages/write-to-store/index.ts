@@ -1,23 +1,23 @@
-import PerryStoreEvent from '@/interfaces/PerryStoreEvent';
+import IPerryStoreEvent from "@/interfaces/IPerryStoreEvent";
 
 export default function writeToStore({
   name,
   property,
-  params
+  params,
 }): void {
   const key = `perry::${name}.${property}::history`;
 
-  const history: ReadonlyArray<PerryStoreEvent> =
+  const history: ReadonlyArray<IPerryStoreEvent> =
     JSON.parse(localStorage.getItem(key)) || [];
 
-  const event: PerryStoreEvent = {
+  const event: IPerryStoreEvent = {
     params,
-    timestamp: Date.now()
+    timestamp: Date.now(),
   };
 
-  const newHistory: ReadonlyArray<PerryStoreEvent> = [
+  const newHistory: ReadonlyArray<IPerryStoreEvent> = [
     ...history,
-    event
+    event,
   ];
 
   localStorage.setItem(key, JSON.stringify(newHistory));

@@ -1,7 +1,7 @@
 enum WidgetStatus {
   RECORDING,
   STOPPED,
-  IDLE
+  IDLE,
 }
 
 export default WidgetStatus;

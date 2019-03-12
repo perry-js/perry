@@ -1,32 +1,32 @@
-import BlobEvent from '@/interfaces/dom/BlobEvent';
-import MediaRecorder from '@/interfaces/dom/MediaRecorder';
-import writeToStore from '@/packages/write-to-store';
-import getDisplayMedia from '@/packages/get-display-media';
-import mapBlobListToBase64 from '@/packages/map-blob-list-to-base64';
-import supportsMediaDevices from '@/packages/supports-media-devices';
-import supportsMediaRecorder from '@/packages/supports-media-recorder';
+import BlobEvent from "@/interfaces/dom/BlobEvent";
+import MediaRecorder from "@/interfaces/dom/MediaRecorder";
+import getDisplayMedia from "@/packages/get-display-media";
+import mapBlobListToBase64 from "@/packages/map-blob-list-to-base64";
+import supportsMediaDevices from "@/packages/supports-media-devices";
+import supportsMediaRecorder from "@/packages/supports-media-recorder";
+import writeToStore from "@/packages/write-to-store";
 
 const STORE_CONFIGURATION = {
-  name: 'perryscreenrecorder',
+  name: "perryscreenrecorder",
   properties: {
-    onError: 'onerror',
-    onStart: 'onstart',
-    onFinish: 'onfinish',
-  }
+    onError: "onerror",
+    onFinish: "onfinish",
+    onStart: "onstart",
+  },
 };
 
-export interface ScreenRecorderOptions {
+export interface IScreenRecorderOptions {
   videoName: string;
   encodingType: string;
 }
 
 export default class ScreenRecorder {
-  private data: Array<Blob> = [];
+  private data: Blob[] = [];
   private stream: MediaStream;
   private recorder: MediaRecorder;
-  private readonly options: ScreenRecorderOptions;
+  private readonly options: IScreenRecorderOptions;
 
-  public constructor(options: ScreenRecorderOptions) {
+  public constructor(options: IScreenRecorderOptions) {
     this.options = options;
   }
 
@@ -35,37 +35,38 @@ export default class ScreenRecorder {
       return;
     }
 
-    const constraints = { video: { mediaSource: 'screen' } };
-  
+    const constraints = { video: { mediaSource: "screen" } };
+
     this.data = [];
 
     try {
       this.stream = await getDisplayMedia(constraints);
-    } catch(e) {
+    } catch (e) {
       throw new Error("Failed to get DisplayMedia Stream.");
     }
 
     this.recorder = new MediaRecorder(this.stream);
-  
-    this.recorder.addEventListener('stop', this.onRecorderStopEvent);
-    this.recorder.addEventListener('error', this.onRecorderErrorEvent);
-    this.recorder.addEventListener('dataavailable', this.onRecorderDataAvailableEvent);
-  
+
+    this.recorder.addEventListener("stop", this.onRecorderStopEvent);
+    this.recorder.addEventListener("error", this.onRecorderErrorEvent);
+    this.recorder.addEventListener("dataavailable", this.onRecorderDataAvailableEvent);
+
     this.recorder.start();
   }
 
-  onRecorderStopEvent = () => {
+  public onRecorderStopEvent = () => {
     this.recorderOnStop();
     this.stopStreamTracks();
 
-    this.recorder.removeEventListener('stop', this.onRecorderStopEvent);
-    this.recorder.removeEventListener('error', this.onRecorderErrorEvent);
-    this.recorder.removeEventListener('dataavailable', this.onRecorderDataAvailableEvent);
+    this.recorder.removeEventListener("stop", this.onRecorderStopEvent);
+    this.recorder.removeEventListener("error", this.onRecorderErrorEvent);
+    this.recorder.removeEventListener("dataavailable", this.onRecorderDataAvailableEvent);
   }
 
-  onRecorderErrorEvent = (error: Error) => console.error(error);
+  /* tslint:disable-next-line */
+  public onRecorderErrorEvent = (error: BlobEvent) => console.error(error);
 
-  onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);
+  public onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);
 
   public async stop(): Promise<void> {
     if (!this.recorder) {
@@ -76,12 +77,12 @@ export default class ScreenRecorder {
   }
 
   private stopStreamTracks(): void {
-    this.stream.getTracks().forEach(track => track.stop());
+    this.stream.getTracks().forEach((track) => track.stop());
   }
 
   private getStreamSettings(): MediaTrackSettings {
     const tracks = this.stream.getTracks();
-    const settings = tracks.map(track => track.getSettings())[0];
+    const settings = tracks.map((track) => track.getSettings())[0];
     return settings;
   }
 
@@ -95,12 +96,12 @@ export default class ScreenRecorder {
 
     writeToStore({
       name: STORE_CONFIGURATION.name,
-      property: STORE_CONFIGURATION.properties.onFinish,
       params: {
-        message: 'Recording is done. File is a base64 encoded webm video.',
         file: base64EncodedVideo,
-        settings: settings,
+        message: "Recording is done. File is a base64 encoded webm video.",
+        settings,
       },
+      property: STORE_CONFIGURATION.properties.onFinish,
     });
 
     /**
@@ -117,24 +118,24 @@ export default class ScreenRecorder {
     if (!supportsMediaRecorder()) {
       writeToStore({
         name: STORE_CONFIGURATION.name,
-        property: STORE_CONFIGURATION.properties.onStart,
         params: {
-          message: 'MediaRecorder Class seems unavailable in this browser.',
+          message: "MediaRecorder Class seems unavailable in this browser.",
         },
+        property: STORE_CONFIGURATION.properties.onStart,
       });
-  
+
       return false;
     }
 
     if (!supportsMediaDevices()) {
       writeToStore({
         name: STORE_CONFIGURATION.name,
-        property: STORE_CONFIGURATION.properties.onStart,
         params: {
-          message: 'MediaDevices API seems unavailable in this browser.',
+          message: "MediaDevices API seems unavailable in this browser.",
         },
+        property: STORE_CONFIGURATION.properties.onStart,
       });
-  
+
       return false;
     }
 

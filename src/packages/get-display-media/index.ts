@@ -11,10 +11,10 @@ const getDisplayMedia = (constraints: object): Promise<MediaStream> => {
    * If running on IE, then `navigator.getDisplayMedia`
    * should be used instead of `navigator.mediaDevices.getDisplayMedia`.
    */
-  if (typeof navigator.getDisplayMedia === 'function') {
+  if (typeof navigator.getDisplayMedia === "function") {
     return navigator.getDisplayMedia(constraints);
   }
-  
+
   /**
    * TODO: Clean this `any` hack once getDisplayMedia
    * gets more stable.

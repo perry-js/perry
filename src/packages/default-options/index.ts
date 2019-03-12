@@ -1,18 +1,18 @@
-import PerryOptions from "@/interfaces/PerryOptions"
+import IPerryOptions from "@/interfaces/IPerryOptions";
 
-const defaultOptions: PerryOptions = {
-  log: false,
-  warn: true,
-  error: true,
-  clicks: false,
-  cookies: false,
-  localStorage: false,
-  sessionStorage: false,
+const defaultOptions: IPerryOptions = {
   clearOnReload: false,
   clearOnStart: true,
-  ignoreScriptErrors: false,
+  clicks: false,
+  cookies: false,
   enableScreenRecording: true,
-  plugins: []
+  error: true,
+  ignoreScriptErrors: false,
+  localStorage: false,
+  log: false,
+  plugins: [],
+  sessionStorage: false,
+  warn: true,
 };
 
-export default defaultOptions
+export default defaultOptions;

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:ci": "CI=1 npm test",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
@@ -30,6 +31,7 @@
     "preact-render-to-string": "^3.7.0",
     "preact-widget-scripts": "^0.6.0",
     "ts-jest": "^22.4.6",
+    "tslint": "^5.13.1",
     "typescript": "^3.3.3333"
   },
   "dependencies": {

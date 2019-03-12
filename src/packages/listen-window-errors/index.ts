@@ -1,20 +1,24 @@
-import writeToStore from '@/packages/write-to-store';
-import PerryOptions from '@/interfaces/PerryOptions';
-import Features from '@/packages/features';
-import FeatureToggleStore from '@/packages/feature-toggle-store';
+import IPerryOptions from "@/interfaces/IPerryOptions";
+import FeatureToggleStore from "@/packages/feature-toggle-store";
+import Features from "@/packages/features";
+import writeToStore from "@/packages/write-to-store";
 
 const isScriptError = (message: string): boolean =>
-  message.toLowerCase().indexOf("script error") > -1
+  message.toLowerCase().indexOf("script error") > -1;
 
-export default function listenWindowErrors(options: PerryOptions): void {
-  const handler = function (
+export default function listenWindowErrors(options: IPerryOptions): void {
+  const handler = (
     message: string,
     url: string,
     line: number,
     column: number,
     error: any,
-  ): void {
+  ): void => {
     if (!FeatureToggleStore.is(Features.WINDOW_ERROR_LISTENER)) {
+      return;
+    }
+
+    if (!options.error) {
       return;
     }
 
@@ -22,25 +26,23 @@ export default function listenWindowErrors(options: PerryOptions): void {
     /** Any solutions for this will be appreciated. */
     /** See: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror#notes */
     const isUnhandableError = isScriptError(message);
-    
+
     if (isUnhandableError && options.ignoreScriptErrors) {
       return;
     }
 
-    options.error && writeToStore({
-      name: isUnhandableError
-        ? 'script'
-        : 'window',
-      property: 'onerror',
+    writeToStore({
+      name: isUnhandableError ? "script" : "window",
       params: {
-        message,
-        url,
-        line,
         column,
+        line,
+        message,
         stack: error && error.stack,
-      }
+        url,
+      },
+      property: "onerror",
     });
-  }
+  };
 
   window.onerror = handler;
 }
