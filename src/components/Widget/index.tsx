@@ -9,12 +9,12 @@ import Provider from "rebass/dist/Provider";
 
 import { StyledLabel, WidgetButton } from "./index.style";
 
-export interface WidgetState {
+export interface IWidgetState {
   isModalOpen: boolean;
   status: WidgetStatus;
 }
 
-class Widget extends Component<WidgetProps, WidgetState> {
+class Widget extends Component<WidgetProps, IWidgetState> {
   public state = {
     isModalOpen: false,
     status: WidgetStatus.IDLE,

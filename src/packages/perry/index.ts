@@ -55,12 +55,14 @@ export default class Perry {
 
     if (this.options.enableScreenRecording) {
       this.screenRecorder = new ScreenRecorder({
-        videoName: "video",
         encodingType: "video/webm",
+        videoName: "video",
       });
     }
 
-    this.options.clearOnReload && clearStore();
+    if (this.options.clearOnReload) {
+      clearStore();
+    }
 
     setupListeners(this.options);
 
@@ -68,14 +70,23 @@ export default class Perry {
   }
 
   public start = async () => {
-    this.options.clearOnStart && clearStore();
+    if (this.options.clearOnReload) {
+      clearStore();
+    }
+
     startListeners();
-    this.options.enableScreenRecording && await this.screenRecorder.start();
+
+    if (this.options.enableScreenRecording) {
+      await this.screenRecorder.start();
+    }
   }
 
   public stop = async () => {
     stopListeners();
-    this.options.enableScreenRecording && await this.screenRecorder.stop();
+
+    if (this.options.enableScreenRecording) {
+      await this.screenRecorder.stop();
+    }
   }
 
   public submit = async (reportInfo: PerryReportInfo) => {

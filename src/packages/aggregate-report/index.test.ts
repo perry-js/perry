@@ -3,22 +3,22 @@ import PerryReportInfo from "@/interfaces/PerryReportInfo";
 import aggregateReport from "./";
 
 const reportInfo: PerryReportInfo = {
-  title: "Testing",
   description: "Testing this aggregateReport",
   screenshotUrl: "http://urlscreenshot.com",
+  title: "Testing",
 };
 
 const expectedReport: PerryReport = {
-  logs: [],
-  warns: [],
   clicks: [],
+  cookies: document.cookie,
+  description: reportInfo.description,
   errors: [],
+  logs: [],
   notify: [],
   recorder: [],
-  cookies: document.cookie,
-  title: reportInfo.title,
-  description: reportInfo.description,
   screenshotUrl: reportInfo.screenshotUrl,
+  title: reportInfo.title,
+  warns: [],
 };
 
 describe("aggregateReport", () => {

@@ -10,12 +10,12 @@ const STORE_CONFIGURATION = {
   name: "perryscreenrecorder",
   properties: {
     onError: "onerror",
-    onStart: "onstart",
     onFinish: "onfinish",
+    onStart: "onstart",
   },
 };
 
-export interface ScreenRecorderOptions {
+export interface IScreenRecorderOptions {
   videoName: string;
   encodingType: string;
 }
@@ -24,9 +24,9 @@ export default class ScreenRecorder {
   private data: Blob[] = [];
   private stream: MediaStream;
   private recorder: MediaRecorder;
-  private readonly options: ScreenRecorderOptions;
+  private readonly options: IScreenRecorderOptions;
 
-  public constructor(options: ScreenRecorderOptions) {
+  public constructor(options: IScreenRecorderOptions) {
     this.options = options;
   }
 
@@ -63,7 +63,8 @@ export default class ScreenRecorder {
     this.recorder.removeEventListener("dataavailable", this.onRecorderDataAvailableEvent);
   }
 
-  public onRecorderErrorEvent = (error: Error) => console.error(error);
+  /* tslint:disable-next-line */
+  public onRecorderErrorEvent = (error: BlobEvent) => console.error(error);
 
   public onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);
 
@@ -95,12 +96,12 @@ export default class ScreenRecorder {
 
     writeToStore({
       name: STORE_CONFIGURATION.name,
-      property: STORE_CONFIGURATION.properties.onFinish,
       params: {
-        message: "Recording is done. File is a base64 encoded webm video.",
         file: base64EncodedVideo,
+        message: "Recording is done. File is a base64 encoded webm video.",
         settings,
       },
+      property: STORE_CONFIGURATION.properties.onFinish,
     });
 
     /**
@@ -117,10 +118,10 @@ export default class ScreenRecorder {
     if (!supportsMediaRecorder()) {
       writeToStore({
         name: STORE_CONFIGURATION.name,
-        property: STORE_CONFIGURATION.properties.onStart,
         params: {
           message: "MediaRecorder Class seems unavailable in this browser.",
         },
+        property: STORE_CONFIGURATION.properties.onStart,
       });
 
       return false;
@@ -129,10 +130,10 @@ export default class ScreenRecorder {
     if (!supportsMediaDevices()) {
       writeToStore({
         name: STORE_CONFIGURATION.name,
-        property: STORE_CONFIGURATION.properties.onStart,
         params: {
           message: "MediaDevices API seems unavailable in this browser.",
         },
+        property: STORE_CONFIGURATION.properties.onStart,
       });
 
       return false;

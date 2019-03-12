@@ -5,12 +5,12 @@ import writeToStore from "@/packages/write-to-store";
 const notify = (error: Error): void =>
   FeatureToggleStore.is(Features.NOTIFY_LISTENER) && writeToStore({
     name: "perry",
-    property: "notify",
     params: {
-      name: error.name,
       message: error.message,
+      name: error.name,
       stack: error.stack,
     },
+    property: "notify",
   });
 
 export default notify;

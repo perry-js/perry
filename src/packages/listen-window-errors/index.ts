@@ -7,13 +7,13 @@ const isScriptError = (message: string): boolean =>
   message.toLowerCase().indexOf("script error") > -1;
 
 export default function listenWindowErrors(options: PerryOptions): void {
-  const handler = function(
+  const handler = (
     message: string,
     url: string,
     line: number,
     column: number,
     error: any,
-  ): void {
+  ): void => {
     if (!FeatureToggleStore.is(Features.WINDOW_ERROR_LISTENER)) {
       return;
     }
@@ -27,18 +27,20 @@ export default function listenWindowErrors(options: PerryOptions): void {
       return;
     }
 
-    options.error && writeToStore({
-      name: isUnhandableError
-        ? "script"
-        : "window",
-      property: "onerror",
+    if (!options.error) {
+      return;
+    }
+
+    writeToStore({
+      name: isUnhandableError ? "script" : "window",
       params: {
-        message,
-        url,
-        line,
         column,
+        line,
+        message,
         stack: error && error.stack,
+        url,
       },
+      property: "onerror",
     });
   };
 

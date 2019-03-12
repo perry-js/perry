@@ -3,15 +3,21 @@ import FeatureToggleStore from "@/packages/feature-toggle-store";
 import Features from "@/packages/features";
 import writeToStore from "@/packages/write-to-store";
 
-const createHandlerFactory: Function =
-  (instance: Console, property: string): Function =>
-    (enabled: boolean): Function =>
+type ConsoleCallSignature = (...params: any[]) => void;
+type Handler = (enabled: boolean) => ConsoleCallSignature;
+type HandlerFactory = (instance: Console, property: string | number | symbol) => Handler;
+
+const createHandlerFactory: HandlerFactory =
+  (instance: Console, property: string): Handler =>
+    (enabled: boolean): ConsoleCallSignature =>
       (...params: any[]) => {
-        enabled && writeToStore({
-          name: "console",
-          params,
-          property,
-        });
+        if (enabled) {
+          writeToStore({
+            name: "console",
+            params,
+            property,
+          });
+        }
 
         return instance[property](...params);
       };
