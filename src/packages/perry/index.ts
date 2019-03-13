@@ -1,6 +1,3 @@
-/** Widget Component Props interface */
-import IWidgetProps from "@/interfaces/IWidgetProps";
-
 /** Perry Options interface */
 import IPerryOptions from "@/interfaces/IPerryOptions";
 
@@ -65,19 +62,22 @@ export default class Perry {
     }
 
     setupListeners(this.options);
-
-    this.render();
   }
 
   public start = async () => {
-    if (this.options.clearOnReload) {
-      clearStore();
-    }
+    try {
+      if (this.options.clearOnReload) {
+        clearStore();
+      }
 
-    startListeners();
+      startListeners();
 
-    if (this.options.enableScreenRecording) {
-      await this.screenRecorder.start();
+      if (this.options.enableScreenRecording) {
+        await this.screenRecorder.start();
+      }
+    } catch (e) {
+      await this.stop();
+      throw new Error("Failed to start recording. Stopped all listeners and recorders.");
     }
   }
 
@@ -97,20 +97,9 @@ export default class Perry {
     return report;
   }
 
-  public render() {
-    const props: IWidgetProps = {
-      onStartRecording: async () => {
-        try {
-          await this.start();
-        } catch (e) {
-          await this.stop();
-          throw new Error("Failed to start recording. Stopped all listeners and recorders.");
-        }
-      },
-      onStopRecording: this.stop,
-      onSubmit: this.submit,
-    };
-
-    renderWidget(props);
-  }
+  public render = () => renderWidget({
+    onStartRecording: this.start,
+    onStopRecording: this.stop,
+    onSubmit: this.submit,
+  })
 }
