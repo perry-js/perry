@@ -1,5 +1,6 @@
 import BlobEvent from "@/interfaces/dom/BlobEvent";
 import MediaRecorder from "@/interfaces/dom/MediaRecorder";
+import IPerryScreenRecorder from "@/interfaces/IPerryScreenRecorder";
 import getDisplayMedia from "@/packages/get-display-media";
 import mapBlobListToBase64 from "@/packages/map-blob-list-to-base64";
 import supportsMediaDevices from "@/packages/supports-media-devices";
@@ -20,7 +21,7 @@ export interface IScreenRecorderOptions {
   encodingType: string;
 }
 
-export default class ScreenRecorder {
+export default class ScreenRecorder implements IPerryScreenRecorder {
   private data: Blob[] = [];
   private stream: MediaStream;
   private recorder: MediaRecorder;
