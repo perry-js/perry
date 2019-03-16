@@ -13,6 +13,11 @@ export default (config, env, helpers) => {
   let { plugin } = helpers.getPluginsByName(config, "ExtractTextPlugin")[0];
   plugin.options.disable = true;
 
+  config.output.publicPath =
+    process.env.PUBLIC_PATH
+  || process.env.URL
+  || process.env.DEPLOY_PRIME_URL;
+
   if (env.production) {
     config.output.library = "perry";
     config.output.libraryTarget = "umd";
