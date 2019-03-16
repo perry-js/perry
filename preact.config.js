@@ -1,5 +1,14 @@
 import path from 'path';
 
+const getPublicPath = () => {
+  const url = 
+    process.env.PUBLIC_PATH
+    || process.env.URL
+    || process.env.DEPLOY_PRIME_URL;
+  
+  return url + "/";
+};
+
 export default (config, env, helpers) => {
   config.module.loaders.push({
     enforce: 'pre',
@@ -12,6 +21,8 @@ export default (config, env, helpers) => {
 
   let { plugin } = helpers.getPluginsByName(config, "ExtractTextPlugin")[0];
   plugin.options.disable = true;
+
+  config.output.publicPath = getPublicPath();
 
   if (env.production) {
     config.output.library = "perry";
