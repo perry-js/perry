@@ -344,8 +344,7 @@
       ]
     });
 
-   /* Attachs listeners to this page code */
-    document.getElementById("action-render-widget").addEventListener("click", () => perry.render());
+    /* Attachs listeners to this page code */
     document.getElementById("action-log").addEventListener("click", () => console.log('ama simple info log'));
     document.getElementById("action-warn").addEventListener("click", () => console.warn('ama warning'));
     document.getElementById("action-error").addEventListener("click", () => console.error('ama error'));
@@ -356,6 +355,23 @@
       } catch (e) {
         perry.notify(e);
       }
+    });
+
+    const renderWidgetButton = document.getElementById("action-render-widget");
+
+    renderWidgetButton.addEventListener("click", () => {
+      const initialState = renderWidgetButton.innerText;
+      renderWidgetButton.innerText = "Loading widget..";
+
+      perry.render()
+        .then(() => {
+          renderWidgetButton.innerText = "Widget is rendered";
+          renderWidgetButton.setAttribute("disabled", "true");
+        })
+        .catch((e) => {
+          renderWidgetButton.innerText = initialState;
+          console.error(e);
+        });
     });
   </script>
 </body>
