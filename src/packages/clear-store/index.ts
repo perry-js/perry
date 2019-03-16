@@ -1,1 +1,1 @@
-export default localStorage.clear;
+export default () => localStorage.clear();

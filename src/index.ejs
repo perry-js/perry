@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="http://localhost:8097"></script>
   <title>Perry.js Preview</title>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
@@ -53,39 +52,6 @@
       flex-direction: column;
       margin: 1em 6em;
     }
-
-    .pulse {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: block;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #1FA49F;
-      cursor: pointer;
-      box-shadow: 0 0 0 rgba(31, 164, 159, 0.4);
-      animation: pulse 2s infinite;
-    }
-
-    .pulse:hover {
-      animation: none;
-    }
-
-    @keyframes pulse {
-      0% {
-        -moz-box-shadow: 0 0 0 0 rgba(31, 164, 159, 0.4);
-        box-shadow: 0 0 0 0 rgba(31, 164, 159, 0.4);
-      }
-      70% {
-        -moz-box-shadow: 0 0 0 10px rgba(31, 164, 159, 0);
-        box-shadow: 0 0 0 10px rgba(31, 164, 159, 0);
-      }
-      100% {
-        -moz-box-shadow: 0 0 0 0 rgba(31, 164, 159, 0);
-        box-shadow: 0 0 0 0 rgba(31, 164, 159, 0);
-      }
-    }
   </style>
 </head>
 
@@ -115,6 +81,11 @@
       </ul>
 
       <p>
+        All components in Perry are lazy loaded by default.<br />
+        It means that you load Perry's features on demand as you actually use them.
+      </p>
+
+      <p>
         Perry also follows a plugin based approach for sending payloads to external endpoints.
         You are able to provide functions to the <code>plugins</code> option that will process
         the Perry Report Info payload and do whatever they want with them.<br />
@@ -142,17 +113,17 @@
           <tr>
             <td><code>constructor</code></td>
             <td><code>new Perry(options: PerryOptions): Perry</code></td>
-            <td>Returns an instance from Perry with the listeners setup.</td>
+            <td>Returns an instance of Perry.</td>
           </tr>
           <tr>
             <td><code>notify</code></td>
-            <td><code>perry.notify(error: Error): void</code></td>
+            <td><code>perry.notify(error: Error): Promise&lt;void&gt;</code></td>
             <td>A programatic API so you can let perry know of errors without it having to catch them. Useful when handling errors.</td>
           </tr>
           <tr>
             <td><code>render</code></td>
-            <td><code>perry.render(): void</code></td>
-            <td>Creates and appends a <code>#perry-widget</code> element into the document body and renders Perry Widget inside of it.</td>
+            <td><code>perry.render(): Promise&lt;void&gt;</code></td>
+            <td>Fetches the Perry Widget component, appends a <code>#perry-widget</code> element into the document body and renders Perry Widget inside of it.</td>
           </tr>
           <tr>
             <td><code>start</code></td>
@@ -167,7 +138,7 @@
           <tr>
             <td><code>submit</code></td>
             <td><code>perry.submit(reportInfo: IPerryReportInfo): Promise&lt;IPerryReport&gt;</code></td>
-            <td>Aggregates the whole reporting session into the structure defined in the <code>IPerryReport</code> interface, invokes all plugins giving it as an argument and then returns it.</td>
+            <td>Aggregates the whole reporting session into the structure defined in the <code>IPerryReport</code> interface, invokes all plugins giving it as an argument and then returns it. Resolves after executing all the plugins configured.</td>
           </tr>
         </tbody>
       </table>      
@@ -264,9 +235,17 @@
     <div class="box preview">
       <p>
         Perry is already taking care of this page you're reading right now.<br />
+        To render the Perry Widget, you can click in the button below.<br />
+        You can also play with <code>perry.start()</code>, <code>perry.stop()</code> and <code>perry.submit()</code> in the DevTools console.<br /><br/>
         This page has a ConsoleLogPlugin implemented for Perry.<br /><br />
         Open DevTools, start recording, play around, submit the form, and see your console.
       </p>
+
+      <div class="row">
+        <button id="action-render-widget" class="button-primary">Render Perry Widget</button>
+      </div>
+
+      <br />
 
       <button id="action-log">Console: <span style="color: #449;">Log</span></button>
       <button id="action-warn">Console: <span style="color: #f80">Warn</span></button>
@@ -279,9 +258,26 @@
 &lt;script src=&quot;/bundle.js&quot;&gt;&lt;/script&gt;
 
 &lt;script&gt;
+  /* This is an example plugin for handling perry's report */
+  function ConsoleLogPlugin(reportInfo) {
+    console.log(&quot;[Perry Report Info]:&quot;, reportInfo);
+    console.log(&quot;[Perry Report Info]:&quot;, [
+      &quot;&quot;,
+      &quot;This was printed by the ConsoleLogPlugin.&quot;,
+      &quot;It is implemented inline into this test page.&quot;,
+      &quot;To know more about how to implement a Perry Plugin:&quot;,
+      &quot;Checkout this page src code or the github repository.&quot;
+    ].join(&quot;\n&quot;));
+
+    alert([
+      &quot;[Perry Report Info]: Please check your console logs to see the recording report.&quot;,
+      &quot;Sorry for the alert as well, we'll get rid of it soon! &lt;3&quot;
+    ].join(&quot;\n&quot;));
+  }
+
   /* Initialize Perry.js */
   const perry = new Perry({
-    /* Enables log monitoring */
+    /* Enables log recording */
     log: true,
     /* Enables click recording */
     clicks: true,
@@ -289,28 +285,12 @@
     enableScreenRecording: true,
     /* Plugins are ways to handle the bug reporting submission */
     plugins: [
-      function ConsoleLogPlugin(reportInfo) {
-        console.log(&quot;[Perry Report Info]:&quot;, reportInfo);
-        console.log(&quot;[Perry Report Info]:&quot;, [
-          &quot;&quot;,
-          &quot;This was printed by the ConsoleLogPlugin.&quot;,
-          &quot;It is implemented inline into this test page.&quot;,
-          &quot;To know more about how to implement a Perry Plugin:&quot;,
-          &quot;Checkout this page src code or the github repository.&quot;
-        ].join(&quot;\n&quot;));
-
-        alert([
-          &quot;[Perry Report Info]: Please check your console logs to see the recording report.&quot;,
-          &quot;Sorry for the alert as well, we'll get rid of it soon! &lt;3&quot;
-        ].join(&quot;\n&quot;));
-      }
+      ConsoleLogPlugin,
     ]
   });
 
-  /* Renders Perry Widget */
-  perry.render();
-
   /* Attachs listeners to this page code */
+  document.getElementById(&quot;action-render-widget&quot;).addEventListener(&quot;click&quot;, () =&gt; perry.render());
   document.getElementById(&quot;action-log&quot;).addEventListener(&quot;click&quot;, () =&gt; console.log('ama simple info log'));
   document.getElementById(&quot;action-warn&quot;).addEventListener(&quot;click&quot;, () =&gt; console.warn('ama warning'));
   document.getElementById(&quot;action-error&quot;).addEventListener(&quot;click&quot;, () =&gt; console.error('ama error'));
@@ -328,16 +308,31 @@
     </div>
   </div>
 
-  <div class="pulse"></div>
-  
   <script>hljs.initHighlightingOnLoad();</script>
   
   <script src="/bundle.js"></script>
 
   <script>
+    /* This is an example plugin for handling perry's report */
+    function ConsoleLogPlugin(reportInfo) {
+      console.log("[Perry Report Info]:", reportInfo);
+      console.log("[Perry Report Info]:", [
+        "",
+        "This was printed by the ConsoleLogPlugin.",
+        "It is implemented inline into this test page.",
+        "To know more about how to implement a Perry Plugin:",
+        "Checkout this page src code or the github repository."
+      ].join("\n"));
+
+      alert([
+        "[Perry Report Info]: Please check your console logs to see the recording report.",
+        "Sorry for the alert as well, we'll get rid of it soon! <3"
+      ].join("\n"));
+    }    document.getElementById("action-render-widget").addEventListener("click", () => perry.render());
+
     /* Initialize Perry.js */
     const perry = new Perry({
-      /* Enables log monitoring */
+      /* Enables log recording */
       log: true,
       /* Enables click recording */
       clicks: true,
@@ -345,27 +340,12 @@
       enableScreenRecording: true,
       /* Plugins are ways to handle the bug reporting submission */
       plugins: [
-        function ConsoleLogPlugin(reportInfo) {
-          console.log("[Perry Report Info]:", reportInfo);
-          console.log("[Perry Report Info]:", [
-            "",
-            "This was printed by the ConsoleLogPlugin.",
-            "It is implemented inline into this test page.",
-            "To know more about how to implement a Perry Plugin:",
-            "Checkout this page src code or the github repository."
-          ].join("\n"));
-
-          alert([
-            "[Perry Report Info]: Please check your console logs to see the recording report.",
-            "Sorry for the alert as well, we'll get rid of it soon! <3"
-          ].join("\n"));
-        }
+        ConsoleLogPlugin,
       ]
     });
 
-    /* Renders Perry Widget */
-    perry.render();
-
+   /* Attachs listeners to this page code */
+    document.getElementById("action-render-widget").addEventListener("click", () => perry.render());
     document.getElementById("action-log").addEventListener("click", () => console.log('ama simple info log'));
     document.getElementById("action-warn").addEventListener("click", () => console.warn('ama warning'));
     document.getElementById("action-error").addEventListener("click", () => console.error('ama error'));
