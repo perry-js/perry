@@ -27,6 +27,7 @@
   - [Using a CDN](#using-a-cdn)
   - [Using NPM](#using-npm)
 - [API](#api)
+- [Options](#options)
 - [Contributing](#contributing)
   - [Getting started](#getting-started-1)
   - [Pull Requests](#pull-requests)
@@ -170,6 +171,7 @@ const perry = new Perry({
 ```
 
 ## API
+
 <table>
   <thead>
     <tr>
@@ -211,6 +213,8 @@ const perry = new Perry({
     </tr>
   </tbody>
 </table>      
+
+## Options
 
 <table>
   <thead>
