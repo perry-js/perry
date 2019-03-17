@@ -40,7 +40,7 @@ Perry.js is an Agnostic Bug Reporter tool that you can just plug in any website.
 
 It allows you to record bug reports in web applications regardless of how they're built. It supports a programmatic API but also comes with a Preact Widget that can be loaded on the fly (thanks to Webpack Code Splitting).
 
-You can know more about it's capabilities at https://perry-js.netlify.com/
+You can learn more about it's capabilities at https://perry-js.netlify.com/
 
 Perry.js is still in active development and can be experimented in internal environments.
 
