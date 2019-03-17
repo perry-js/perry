@@ -343,12 +343,12 @@ We'll review it as soon as possible as well =)
 
 ## Collaborators
 
- - Armando Magalhaes (armando.mag95@gmail.com)
- - Guilherme Lima (guilhermelimak@gmail.com)
- - Vitor Margis (vitor@margis.com.br)
- - Jean Baudin (baudin.jean@gmail.com)
- - Nayara Alves (https://github.com/diemoritat)
- - Iago Angelim Cavalcante (https://github.com/iagocavalcante)
+ - [Armando Magalhaes](https://github.com/armand1m) (armando.mag95@gmail.com)
+ - [Guilherme Lima](https://github.com/guilhermelimak) (guilhermelimak@gmail.com)
+ - [Vitor Margis](https://github.com/vitormargis) (vitor@margis.com.br)
+ - [Jean Baudin](https://github.com/jackTheRipper) (baudin.jean@gmail.com)
+ - [Nayara Alves](https://github.com/diemoritat)
+ - [Iago Angelim Cavalcante](https://github.com/iagocavalcante) (iagoangelimc@gmail.com)
 
 ## License
 
