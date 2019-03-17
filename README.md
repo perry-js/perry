@@ -7,7 +7,7 @@
 <br />
 
 <div align="center">
-  <strong>Perry is a spy. His job is to help you and your mates to fight against bugs.</strong>
+  <strong>Perry is a spy. His job is to help finding bugs in your application.</strong>
   <br />
   <br />
   <a href="#alternative-installation-methods"><img src="https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg" alt="module formats: umd, cjs, esm"></a>
@@ -36,9 +36,15 @@
 
 ## Description
 
-Perry.js is a Bug Reporter tool that you can just plug in your website whenever you want. It allows your colleagues to record sessions in your website and submit them to a Firebase instance so you can inspect them later and work in further automation.
+Perry.js is an Agnostic Bug Reporter tool that you can just plug in any website.
 
-Perry.js is still in active development and shall not be used in Production.
+It allows you to record bug reports in web applications regardless of how they're built. It supports a programmatic API but also comes with a Preact Widget that can be loaded on the fly (thanks to Webpack Code Splitting).
+
+You can know more about it's capabilities at https://perry-js.netlify.com/
+
+Perry.js is still in active development and can be experimented in internal environments.
+
+We still do not recommend Perry for log transporting, but we do recommend giving it a try for QA bug reporting.
 
 You can find some implementation examples in these repo's:
 
