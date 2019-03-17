@@ -347,6 +347,8 @@ We'll review it as soon as possible as well =)
  - Guilherme Lima (guilhermelimak@gmail.com)
  - Vitor Margis (vitor@margis.com.br)
  - Jean Baudin (baudin.jean@gmail.com)
+ - Nayara Alves (https://github.com/diemoritat)
+ - Iago Angelim Cavalcante (https://github.com/iagocavalcante)
 
 ## License
 
