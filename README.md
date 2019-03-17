@@ -42,9 +42,9 @@ Perry.js is still in active development and shall not be used in Production.
 
 You can find some implementation examples in these repo's:
 
- - React _(using CDN)_: https://github.com/armand1m/perry-react-cdn-example
- - Vanilla _(using CDN)_: https://github.com/armand1m/perry-vanilla-parcel-example
- - Vue _(using CDN)_: https://github.com/armand1m/perry-vue-cdn-example
+ - React _(using CDN)_: https://github.com/perry-js/perry-react-cdn-example
+ - Vanilla _(using CDN)_: https://github.com/perry-js/perry-vanilla-parcel-example
+ - Vue _(using CDN)_: https://github.com/perry-js/perry-vue-cdn-example
 
 More examples are being built currently too.
 
