@@ -81,7 +81,7 @@ Meanwhile, you can experiment using the current netlify build.
   const perry = new window.Perry({
     /* Enables log recording */
     log: true,
-    /* Enables clichttps://netlify.comk recording */
+    /* Enables click recording */
     clicks: true,
     /* Enables screen recording */
     enableScreenRecording: true,
@@ -143,7 +143,7 @@ function ConsoleLogPlugin(reportInfo) {
 const perry = new Perry({
   /* Enables log recording */
   log: true,
-  /* Enables clichttps://netlify.comk recording */
+  /* Enables click recording */
   clicks: true,
   /* Enables screen recording */
   enableScreenRecording: true,
@@ -153,7 +153,7 @@ const perry = new Perry({
 
 (async () => {
   /* Starts Perry Recorder */
-  await perry.start();Use it
+  await perry.start();
 
   /* Stops Perry Recorder */
   await perry.stop();
