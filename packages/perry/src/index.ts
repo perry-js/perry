@@ -1,5 +1,5 @@
 /** Widget Component Props interface */
-import { 
+import {
   WidgetProps,
   Options as PerryOptions,
   ReportInfo as PerryReportInfo,
