@@ -6,10 +6,10 @@ import IPerryScreenRecorder from "@/interfaces/IPerryScreenRecorder";
 import aggregateReport from "@/packages/aggregate-report";
 import clearStore from "@/packages/clear-store";
 import defaultOptions from "@/packages/default-options";
-import isValidOptions from "@/packages/is-valid-options";
 import startListeners from "@/packages/start-listeners";
 import stopListeners from "@/packages/stop-listeners";
 
+import fetchIsValidOptions from "@/packages/is-valid-options/async";
 import fetchNotify from "@/packages/perry-notify/async";
 import fetchRenderWidget from "@/packages/render-widget/async";
 import fetchScreenRecorder from "@/packages/screen-recorder/async";
@@ -31,13 +31,11 @@ class Perry {
       ...options,
     };
 
-    if (!isValidOptions(this.options)) {
-      throw new Error("Your options are invalid. Please respect the options schema defined in the docs.");
-    }
-
     if (this.options.clearOnReload) {
       clearStore();
     }
+
+    this.validate();
   }
 
   /**
@@ -178,6 +176,25 @@ class Perry {
         encodingType: "video/webm",
         videoName: "video",
       });
+    }
+  }
+
+  /**
+   * ## `perry.validate()`
+   *
+   * Runs some verification over the options provided
+   * by the user in the constructor.
+   *
+   * It should be invoked only from the constructor.
+   *
+   * @throws {Error}
+   * @returns {Promise<void>} `Promise<void>`
+   */
+  private validate = async () => {
+    const isValidOptions = await fetchIsValidOptions();
+
+    if (!isValidOptions(this.options)) {
+      throw new Error("Your options are invalid. Please respect the options schema defined in the docs.");
     }
   }
 }
