@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "./packages/*"
+  ],
   "scripts": {
     "test": "jest",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
-    "dev": "preact watch --template src/index.ejs"
+    "dev": "preact watch --template src/index.ejs",
+    "lerna:compile": "lerna run compile"
   },
   "keywords": [],
   "author": "Zouhir <zouhir@zouhir.org>",
@@ -19,13 +24,15 @@
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
     "jest": "^21.2.1",
+    "lerna": "^3.13.1",
     "node-sass": "^4.5.3",
     "preact-cli": "^2.0.2",
     "preact-cli-plugin-typescript": "^0.2.2",
     "preact-render-to-string": "^3.7.0",
     "preact-widget-scripts": "^0.6.0",
     "sass-loader": "^6.0.6",
-    "ts-jest": "^22.4.6"
+    "ts-jest": "^22.4.6",
+    "typescript": "^3.3.3333"
   },
   "dependencies": {
     "grid-styled": "^4.1.1",
