@@ -22,5 +22,11 @@
   "devDependencies": {
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/feature-toggle-store": "file:../feature-toggle-store",
+    "@perry/features": "file:../features",
+    "@perry/perry-interfaces": "file:../perry-interfaces",
+    "@perry/write-to-store": "file:../write-to-store"
   }
 }

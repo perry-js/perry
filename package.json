@@ -8,14 +8,14 @@
     "./packages/*"
   ],
   "scripts": {
-    "test": "lerna run test",
-    "test:ci": "lerna run test",
-    "lint": "lerna run lint",
+    "test": "lerna run --parallel test",
+    "test:ci": "CI=1 npm run test",
+    "lint": "lerna run --parallel lint",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
+    "build": "lerna run build",
     "serve": "npm run build && preact serve",
     "dev": "preact watch --template src/index.ejs",
-    "lerna:build": "lerna run build"
+    "install": "lerna bootstrap"
   },
   "keywords": [],
   "contributors": [
