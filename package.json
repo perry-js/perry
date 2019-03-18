@@ -8,7 +8,7 @@
     "./packages/*"
   ],
   "scripts": {
-    "test": "lerna run --parallel test",
+    "test": "jest",
     "test:ci": "CI=1 npm run test",
     "lint": "lerna run --parallel lint",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
@@ -60,7 +60,7 @@
       "tsx",
       "js"
     ],
-    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
+    "testRegex": "/packages/.*/src/.*\\.test\\.(ts|tsx)$",
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
@@ -77,8 +77,13 @@
         "statements": 100
       }
     },
+    "modulePathIgnorePatterns": [
+      "<root>/build",
+      "<root>/packages/*/build"
+    ],
     "moduleDirectories": [
       "node_modules",
+      "packages", 
       "src"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"

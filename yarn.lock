@@ -956,18 +956,18 @@
 "@perry/apply-console-proxy@file:packages/apply-console-proxy":
   version "0.1.0"
   dependencies:
-    "@perry/features" "file:../../.cache/yarn/v4/npm-@perry-apply-console-proxy-0.1.0-0fee67fe-33da-4c6d-8872-e5edfafe0466-1552937722963/node_modules/@perry/features"
-    "@perry/write-to-store" "file:../../.cache/yarn/v4/npm-@perry-apply-console-proxy-0.1.0-0fee67fe-33da-4c6d-8872-e5edfafe0466-1552937722963/node_modules/@perry/write-to-store"
+    "@perry/features" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-apply-console-proxy-0.1.0-3b2c2cb5-1091-43c1-b368-7943ff4a8215-1552939622215/node_modules/@perry/features"
+    "@perry/write-to-store" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-apply-console-proxy-0.1.0-3b2c2cb5-1091-43c1-b368-7943ff4a8215-1552939622215/node_modules/@perry/write-to-store"
 
 "@perry/default-feature-toggle-store@file:packages/default-feature-toggle-store":
   version "0.1.0"
   dependencies:
-    "@perry/features" "file:../../.cache/yarn/v4/npm-@perry-default-feature-toggle-store-0.1.0-7814572e-878b-494c-b871-46076a5edd64-1552937722957/node_modules/@perry/features"
+    "@perry/features" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-default-feature-toggle-store-0.1.0-0b886e13-90bb-4bab-9d45-109b1bcd7b10-1552939622201/node_modules/@perry/features"
 
 "@perry/feature-toggle-store@file:packages/feature-toggle-store":
   version "0.1.0"
   dependencies:
-    "@perry/default-feature-toggle-store" "file:../../.cache/yarn/v4/npm-@perry-feature-toggle-store-0.1.0-8fb0ed00-f7c5-4ca5-bacc-b70198565ad1-1552937722964/node_modules/@perry/default-feature-toggle-store"
+    "@perry/default-feature-toggle-store" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-feature-toggle-store-0.1.0-4b33e274-af26-4e51-a05e-9d48c2f6386a-1552939622205/node_modules/@perry/default-feature-toggle-store"
 
 "@perry/features@file:packages/features":
   version "0.1.0"
@@ -981,22 +981,29 @@
 "@perry/listen-document-clicks@file:packages/listen-document-clicks":
   version "0.1.0"
   dependencies:
-    "@perry/map-mouse-event-to-perry-event" "file:../../.cache/yarn/v4/npm-@perry-listen-document-clicks-0.1.0-e18ca266-c343-43be-b42a-c26e464cccee-1552937722963/node_modules/@perry/map-mouse-event-to-perry-event"
+    "@perry/map-mouse-event-to-perry-event" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-listen-document-clicks-0.1.0-679f96c7-2e90-4093-a57e-6be4a659744c-1552939622213/node_modules/@perry/map-mouse-event-to-perry-event"
 
 "@perry/listen-window-errors@file:packages/listen-window-errors":
   version "0.1.0"
+  dependencies:
+    "@perry/feature-toggle-store" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-listen-window-errors-0.1.0-c66cb1a2-08d6-4149-a1d4-287a9cc37817-1552939622212/node_modules/@perry/feature-toggle-store"
+    "@perry/features" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-listen-window-errors-0.1.0-c66cb1a2-08d6-4149-a1d4-287a9cc37817-1552939622212/node_modules/@perry/features"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-listen-window-errors-0.1.0-c66cb1a2-08d6-4149-a1d4-287a9cc37817-1552939622212/node_modules/@perry/perry-interfaces"
+    "@perry/write-to-store" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-listen-window-errors-0.1.0-c66cb1a2-08d6-4149-a1d4-287a9cc37817-1552939622212/node_modules/@perry/write-to-store"
 
 "@perry/map-blob-list-to-base64@file:packages/map-blob-list-to-base64":
   version "0.1.0"
 
 "@perry/map-html-element-to-element-data@file:packages/map-html-element-to-element-data":
   version "0.1.0"
+  dependencies:
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-map-html-element-to-element-data-0.1.0-284410d2-f671-4c03-803b-6b9201b088d1-1552939622203/node_modules/@perry/perry-interfaces"
 
 "@perry/map-mouse-event-to-perry-event@file:packages/map-mouse-event-to-perry-event":
   version "0.1.0"
   dependencies:
-    "@perry/map-html-element-to-element-data" "file:../../.cache/yarn/v4/npm-@perry-map-mouse-event-to-perry-event-0.1.0-e37b1c00-5f7c-4edf-95b1-20b564e7e90a-1552937722958/node_modules/@perry/map-html-element-to-element-data"
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-map-mouse-event-to-perry-event-0.1.0-e37b1c00-5f7c-4edf-95b1-20b564e7e90a-1552937722958/node_modules/@perry/perry-interfaces"
+    "@perry/map-html-element-to-element-data" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-map-mouse-event-to-perry-event-0.1.0-500f8dfe-2835-41d8-8839-d6328715df4f-1552939622202/node_modules/@perry/map-html-element-to-element-data"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-map-mouse-event-to-perry-event-0.1.0-500f8dfe-2835-41d8-8839-d6328715df4f-1552939622202/node_modules/@perry/perry-interfaces"
 
 "@perry/options-schema@file:packages/options-schema":
   version "0.1.0"
@@ -1006,42 +1013,42 @@
 "@perry/perry-components@file:packages/perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/get-label-for-widget-state" "file:../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-c2ccd4b7-9d6f-4272-bed6-d852de1c4870-1552937722961/node_modules/@perry/get-label-for-widget-state"
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-c2ccd4b7-9d6f-4272-bed6-d852de1c4870-1552937722961/node_modules/@perry/perry-interfaces"
+    "@perry/get-label-for-widget-state" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-perry-components-0.1.0-1430291f-a232-400b-882a-d129f34fcaa1-1552939622209/node_modules/@perry/get-label-for-widget-state"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-perry-components-0.1.0-1430291f-a232-400b-882a-d129f34fcaa1-1552939622209/node_modules/@perry/perry-interfaces"
     grid-styled "^5.0.2"
     preact "^8.4.2"
     preact-compat "^3.18.4"
     rebass "^3.0.1"
     styled-components "^4.1.3"
 
-"@perry/perry-interfaces@file:packages/perry-interfaces", "@perry/perry-interfaces@file:packages/write-to-store/../perry-interfaces":
+"@perry/perry-interfaces@file:packages/perry-interfaces":
   version "0.1.0"
 
 "@perry/perry-notifiy@file:packages/perry-notify":
   version "0.1.0"
   dependencies:
-    "@perry/write-to-store" "file:../../.cache/yarn/v4/npm-@perry-perry-notifiy-0.1.0-ff30fe95-573c-4992-b409-510cf39de8b3-1552937722959/node_modules/@perry/write-to-store"
+    "@perry/write-to-store" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-perry-notifiy-0.1.0-0e968f09-d107-4fff-a0f5-6bafa741ad33-1552939622204/node_modules/@perry/write-to-store"
 
 "@perry/render-widget@file:packages/render-widget":
   version "0.1.0"
   dependencies:
-    "@perry/perry-components" "file:../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-c7671705-9f84-4162-a98b-bbadcc1f095c-1552937722959/node_modules/@perry/perry-components"
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-c7671705-9f84-4162-a98b-bbadcc1f095c-1552937722959/node_modules/@perry/perry-interfaces"
+    "@perry/perry-components" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-render-widget-0.1.0-e9e91721-86df-4fdf-b8ba-a5ef8da6b5ef-1552939622206/node_modules/@perry/perry-components"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-render-widget-0.1.0-e9e91721-86df-4fdf-b8ba-a5ef8da6b5ef-1552939622206/node_modules/@perry/perry-interfaces"
     preact "^8.4.2"
 
 "@perry/setup-listeners@file:packages/setup-listeners":
   version "0.1.0"
   dependencies:
-    "@perry/apply-console-proxy" "file:../../.cache/yarn/v4/npm-@perry-setup-listeners-0.1.0-3c1dc6bf-af7d-470a-8d51-96bb4d5c1138-1552937722960/node_modules/@perry/apply-console-proxy"
-    "@perry/listen-document-clicks" "file:../../.cache/yarn/v4/npm-@perry-setup-listeners-0.1.0-3c1dc6bf-af7d-470a-8d51-96bb4d5c1138-1552937722960/node_modules/@perry/listen-document-clicks"
-    "@perry/listen-window-errors" "file:../../.cache/yarn/v4/npm-@perry-setup-listeners-0.1.0-3c1dc6bf-af7d-470a-8d51-96bb4d5c1138-1552937722960/node_modules/@perry/listen-window-errors"
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-setup-listeners-0.1.0-3c1dc6bf-af7d-470a-8d51-96bb4d5c1138-1552937722960/node_modules/@perry/perry-interfaces"
+    "@perry/apply-console-proxy" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-setup-listeners-0.1.0-96ac0973-b585-4ee5-8650-da1bb6c3556b-1552939622207/node_modules/@perry/apply-console-proxy"
+    "@perry/listen-document-clicks" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-setup-listeners-0.1.0-96ac0973-b585-4ee5-8650-da1bb6c3556b-1552939622207/node_modules/@perry/listen-document-clicks"
+    "@perry/listen-window-errors" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-setup-listeners-0.1.0-96ac0973-b585-4ee5-8650-da1bb6c3556b-1552939622207/node_modules/@perry/listen-window-errors"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-setup-listeners-0.1.0-96ac0973-b585-4ee5-8650-da1bb6c3556b-1552939622207/node_modules/@perry/perry-interfaces"
 
 "@perry/start-listeners@file:packages/start-listeners":
   version "0.1.0"
   dependencies:
-    "@perry/feature-toggle-store" "file:../../.cache/yarn/v4/npm-@perry-start-listeners-0.1.0-c5dca48a-9691-4ca5-bc59-4b223dbd7861-1552937722961/node_modules/@perry/feature-toggle-store"
-    "@perry/features" "file:../../.cache/yarn/v4/npm-@perry-start-listeners-0.1.0-c5dca48a-9691-4ca5-bc59-4b223dbd7861-1552937722961/node_modules/@perry/features"
+    "@perry/feature-toggle-store" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-start-listeners-0.1.0-8df29970-d179-46ad-96b0-cab7410a78e6-1552939622208/node_modules/@perry/feature-toggle-store"
+    "@perry/features" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-start-listeners-0.1.0-8df29970-d179-46ad-96b0-cab7410a78e6-1552939622208/node_modules/@perry/features"
 
 "@perry/supports-media-devices@file:packages/supports-media-devices":
   version "0.1.0"
@@ -1049,12 +1056,12 @@
 "@perry/supports-media-recorder@file:packages/supports-media-recorder":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-supports-media-recorder-0.1.0-275d6e32-3611-4514-817c-a5797796f8f6-1552937722962/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-supports-media-recorder-0.1.0-13f4e892-0fdd-4c01-a917-a2dab95acd0e-1552939622212/node_modules/@perry/perry-interfaces"
 
 "@perry/write-to-store@file:packages/write-to-store":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-write-to-store-0.1.0-bed7147e-0748-492b-9cc6-2df1b312eee8-1552937722957/node_modules/@perry/write-to-store/../perry-interfaces"
+    "@perry/perry-interfaces" "file:../../AppData/Local/Yarn/Cache/v4/npm-@perry-write-to-store-0.1.0-b21a7550-14c9-446a-8f8b-847abe7cb590-1552939622216/node_modules/@perry/perry-interfaces"
 
 "@types/babel__core@^7.1.0":
   version "7.1.0"
