@@ -110,6 +110,6 @@ export default class Perry {
     this.screenRecorder = new ScreenRecorder({
       encodingType: "video/webm",
       videoName: "video",
-    });
+    }, store);
   }
 }

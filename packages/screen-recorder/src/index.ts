@@ -1,9 +1,8 @@
 import getDisplayMedia from "@perry/get-media-display";
 import mapBlobListToBase64 from "@perry/map-blob-list-to-base64";
-import { BlobEvent, IPerryScreenRecorder, MediaRecorder } from "@perry/perry-interfaces";
+import { BlobEvent, IPerryScreenRecorder, IPerryStore, MediaRecorder } from "@perry/perry-interfaces";
 import supportsMediaDevices from "@perry/supports-media-devices";
 import supportsMediaRecorder from "@perry/supports-media-recorder";
-import writeToStore from "@perry/write-to-store";
 
 const STORE_CONFIGURATION = {
   name: "perryscreenrecorder",
@@ -23,10 +22,12 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
   private data: Blob[] = [];
   private stream: MediaStream;
   private recorder: MediaRecorder;
+  private readonly store: IPerryStore;
   private readonly options: IScreenRecorderOptions;
 
-  public constructor(options: IScreenRecorderOptions) {
+  public constructor(options: IScreenRecorderOptions, store: IPerryStore) {
     this.options = options;
+    this.store = store;
   }
 
   public async start(): Promise<void> {
@@ -93,7 +94,7 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
       encodingType: this.options.encodingType,
     });
 
-    writeToStore({
+    this.store.write({
       name: STORE_CONFIGURATION.name,
       params: {
         file: base64EncodedVideo,
@@ -115,7 +116,7 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
    */
   private isBrowserCompatible(): boolean {
     if (!supportsMediaRecorder()) {
-      writeToStore({
+      this.store.write({
         name: STORE_CONFIGURATION.name,
         params: {
           message: "MediaRecorder Class seems unavailable in this browser.",
@@ -127,7 +128,7 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
     }
 
     if (!supportsMediaDevices()) {
-      writeToStore({
+      this.store.write({
         name: STORE_CONFIGURATION.name,
         params: {
           message: "MediaDevices API seems unavailable in this browser.",
