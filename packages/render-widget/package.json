@@ -26,7 +26,6 @@
   "dependencies": {
     "@perry/perry-components": "file:../perry-components",
     "@perry/perry-interfaces": "file:../perry-interfaces",
-    "preact": "^8.4.2",
-    "preact-habitat": "^3.2.2"
+    "preact": "^8.4.2"
   }
 }

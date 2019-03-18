@@ -1,15 +1,6 @@
-import BugIcon from "./BugIcon";
-import ControlledPreviewModal from "./ControlledPreviewModal";
-import LabeledInput from "./LabeledInput";
-import PreviewModal from "./PreviewModal";
-import Widget from "./Widget";
-import WidgetIcon from "./WidgetIcon";
-
-export {
-  BugIcon,
-  ControlledPreviewModal,
-  LabeledInput,
-  PreviewModal,
-  Widget,
-  WidgetIcon,
-};
+export { default as BugIcon } from "./BugIcon";
+export { default as ControlledPreviewModal } from "./ControlledPreviewModal";
+export { default as LabeledInput } from "./LabeledInput";
+export { default as PreviewModal } from "./PreviewModal";
+export { default as Widget } from "./Widget";
+export { default as WidgetIcon } from "./WidgetIcon";

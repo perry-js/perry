@@ -2,7 +2,7 @@
 import {
   IPerryOptions,
   IPerryReportInfo,
-  IScreenRecorder as IPerryScreenRecorder,
+  IPerryScreenRecorder,
 } from "@perry/perry-interfaces";
 
 /** Options validator, created with Yup. */
