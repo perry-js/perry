@@ -1,6 +1,5 @@
 import { FunctionalComponent, h } from "preact";
 
-import LabeledInput from "../LabeledInput";
 import { IPerryReportInfo } from "@perry/perry-interfaces";
 import Box from "grid-styled/dist/Box";
 import Button from "rebass/dist/Button";
@@ -9,6 +8,7 @@ import Divider from "rebass/dist/Divider";
 import Modal from "rebass/dist/Modal";
 import { Fixed } from "rebass/dist/Position";
 import Subhead from "rebass/dist/Subhead";
+import LabeledInput from "../LabeledInput";
 
 interface IModalProps {
   form: IPerryReportInfo;

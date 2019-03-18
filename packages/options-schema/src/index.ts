@@ -1,6 +1,6 @@
-import object from 'yup/lib/object';
-import boolean from 'yup/lib/boolean';
-import array from 'yup/lib/array';
+import array from "yup/lib/array";
+import boolean from "yup/lib/boolean";
+import object from "yup/lib/object";
 
 export default object({
   clearOnReload: boolean(),

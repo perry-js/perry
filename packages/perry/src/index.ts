@@ -1,27 +1,27 @@
 /** Widget Component Props interface */
-import { 
-  IScreenRecorder as IPerryScreenRecorder,
+import {
   IPerryOptions,
   IPerryReportInfo,
-} from '@perry/perry-interfaces';
+  IScreenRecorder as IPerryScreenRecorder,
+} from "@perry/perry-interfaces";
 
 /** Options validator, created with Yup. */
-import isValidOptions from '@perry/is-valid-options';
+import isValidOptions from "@perry/is-valid-options";
 
 /** Default options as a plain js object */
-import defaultOptions from '@perry/default-options';
+import defaultOptions from "@perry/default-options";
 
 /** Clears perry store */
-import clearStore from '@perry/clear-store';
+import clearStore from "@perry/clear-store";
 
 /** Aggregates info and creates PerryReport */
-import aggregateReport from '@perry/aggregate-report';
+import aggregateReport from "@perry/aggregate-report";
 
 /** Toggles the feature switches to true so the listeners can start to watch */
-import startListeners from '@perry/start-listeners';
+import startListeners from "@perry/start-listeners";
 
 /** Toggles the feature switches to false so the listeners stop watching */
-import stopListeners from '@perry/stop-listeners';
+import stopListeners from "@perry/stop-listeners";
 
 export default class Perry {
   private readonly options: IPerryOptions;

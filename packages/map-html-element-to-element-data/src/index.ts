@@ -1,4 +1,4 @@
-import { IPerryElementData } from '@perry/perry-interfaces';
+import { IPerryElementData } from "@perry/perry-interfaces";
 
 const mapClassListToArray =
   (classList: DOMTokenList = ({} as DOMTokenList)): ReadonlyArray<string> =>

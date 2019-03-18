@@ -1,6 +1,6 @@
-import { h, render } from "preact";
 import { Widget } from "@perry/perry-components";
 import { IWidgetProps } from "@perry/perry-interfaces";
+import { h, render } from "preact";
 
 const PERRY_WIDGET_CONTAINER_ID = "perry-widget";
 

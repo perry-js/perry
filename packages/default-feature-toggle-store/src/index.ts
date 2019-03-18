@@ -1,4 +1,4 @@
-import Features from '@perry/features';
+import Features from "@perry/features";
 
 export default {
   [Features.CONSOLE_LISTENER]: false,

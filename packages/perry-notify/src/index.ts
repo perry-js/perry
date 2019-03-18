@@ -1,6 +1,6 @@
-import writeToStore from '@perry/write-to-store';
-import Features from '@perry/features';
-import FeatureToggleStore from '@perry/feature-toggle-store';
+import FeatureToggleStore from "@perry/feature-toggle-store";
+import Features from "@perry/features";
+import writeToStore from "@perry/write-to-store";
 
 const notify = (error: Error): void => {
   if (!FeatureToggleStore.is(Features.NOTIFY_LISTENER)) {

@@ -1,6 +1,6 @@
-import { h, Component } from "preact"
-import PreviewModal from "../PreviewModal";
 import { IPerryReportInfo } from "@perry/perry-interfaces";
+import { Component, h } from "preact";
+import PreviewModal from "../PreviewModal";
 
 interface IControlledPreviewModalProps {
   open: boolean;
