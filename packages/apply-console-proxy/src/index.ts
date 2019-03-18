@@ -1,7 +1,7 @@
-import { IPerryOptions } from '@perry/perry-interfaces';
-import writeToStore from '@perry/write-to-store';
-import Features from '@perry/features';
-import FeatureToggleStore from '@perry/feature-toggle-store';
+import FeatureToggleStore from "@perry/feature-toggle-store";
+import Features from "@perry/features";
+import { IPerryOptions } from "@perry/perry-interfaces";
+import writeToStore from "@perry/write-to-store";
 
 type ConsoleCallSignature = (...params: any[]) => void;
 type Handler = (enabled: boolean) => ConsoleCallSignature;
@@ -18,7 +18,7 @@ const createHandlerFactory: HandlerFactory =
             property,
           });
         }
-        
+
         return instance[property](...params);
       };
 

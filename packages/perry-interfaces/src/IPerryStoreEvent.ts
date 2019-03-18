@@ -1,4 +1,4 @@
 export default interface IPerryStoreEvent {
-  params: any,
-  timestamp: number
-};
+  params: any;
+  timestamp: number;
+}

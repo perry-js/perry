@@ -1,4 +1,4 @@
-import defaultFeatureToggleStore from '@perry/default-feature-toggle-store';
+import defaultFeatureToggleStore from "@perry/default-feature-toggle-store";
 
 const STORE = defaultFeatureToggleStore;
 

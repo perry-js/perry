@@ -1,5 +1,5 @@
-import aggregateReport from './';
-import { IPerryReportInfo, IPerryReport } from '@perry/perry-interfaces';
+import { IPerryReport, IPerryReportInfo } from "@perry/perry-interfaces";
+import aggregateReport from "./";
 
 const reportInfo: IPerryReportInfo = {
   description: "Testing this aggregateReport",

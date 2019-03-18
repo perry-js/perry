@@ -1,5 +1,5 @@
-import Features from '@perry/features';
-import FeatureToggleStore from '@perry/feature-toggle-store';
+import FeatureToggleStore from "@perry/feature-toggle-store";
+import Features from "@perry/features";
 
 export default function startListeners() {
   FeatureToggleStore.enable(Features.CONSOLE_LISTENER);

@@ -1,5 +1,5 @@
-import { IViewport } from "@perry/perry-interfaces";
 import mapHTMLElementToElementData from "@perry/map-html-element-to-element-data";
+import { IViewport } from "@perry/perry-interfaces";
 
 export const mapHTMLElementToSerializableTarget = (element: HTMLElement) =>
   mapHTMLElementToElementData(element);

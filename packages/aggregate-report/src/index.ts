@@ -1,7 +1,7 @@
 import {
   IPerryReport,
   IPerryReportInfo,
-} from '@perry/perry-interfaces';
+} from "@perry/perry-interfaces";
 
 const getItemFor = (method: string) =>
   JSON.parse(localStorage.getItem(getKeyFor(method)));

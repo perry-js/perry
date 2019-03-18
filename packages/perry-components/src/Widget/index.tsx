@@ -1,13 +1,13 @@
-import { h, Component } from "preact";
-import Provider from "rebass/dist/Provider";
-import WidgetIcon from "../WidgetIcon";
-import ControlledPreviewModal from '../ControlledPreviewModal';
+import getLabelForState from "@perry/get-label-for-widget-state";
 import {
   IPerryReportInfo,
-  WidgetStatus,
   IWidgetProps,
+  WidgetStatus,
 } from "@perry/perry-interfaces";
-import getLabelForState from "@perry/get-label-for-widget-state";
+import { Component, h } from "preact";
+import Provider from "rebass/dist/Provider";
+import ControlledPreviewModal from "../ControlledPreviewModal";
+import WidgetIcon from "../WidgetIcon";
 
 import { StyledLabel, WidgetButton } from "./index.style";
 

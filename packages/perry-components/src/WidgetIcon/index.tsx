@@ -2,8 +2,8 @@ import { FunctionalComponent, h } from "preact";
 import Base from "rebass/dist/Base";
 import Circle from "rebass/dist/Circle";
 
-import BugIcon from "../BugIcon"
 import { WidgetStatus } from "@perry/perry-interfaces";
+import BugIcon from "../BugIcon";
 
 interface IWidgetIconProps {
   status: WidgetStatus;

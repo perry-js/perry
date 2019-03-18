@@ -1,4 +1,4 @@
-import { IPerryOptions } from "@perry/perry-interfaces"
+import { IPerryOptions } from "@perry/perry-interfaces";
 
 const defaultOptions: IPerryOptions = {
   clearOnReload: false,

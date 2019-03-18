@@ -1,10 +1,10 @@
-import writeToStore from '@perry/write-to-store';
-import { IPerryOptions } from '@perry/perry-interfaces';
-import Features from '@perry/features';
-import FeatureToggleStore from '@perry/feature-toggle-store';
+import FeatureToggleStore from "@perry/feature-toggle-store";
+import Features from "@perry/features";
+import { IPerryOptions } from "@perry/perry-interfaces";
+import writeToStore from "@perry/write-to-store";
 
 const isScriptError = (message: string): boolean =>
-  message.toLowerCase().indexOf('script error') > -1
+  message.toLowerCase().indexOf("script error") > -1;
 
 export default function listenWindowErrors(options: IPerryOptions): void {
   const handler = (

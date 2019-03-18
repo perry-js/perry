@@ -1,4 +1,4 @@
-import defaultFeatureToggleStore from '.';
+import defaultFeatureToggleStore from ".";
 
 describe("Default Feature Toogle Store", () => {
   it("should Features.CONSOLE_LISTENER return false", () => {

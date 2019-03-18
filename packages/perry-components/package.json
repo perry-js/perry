@@ -5,8 +5,9 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -21,16 +22,17 @@
     "preact-render-to-string": "^4.1.0",
     "preact-widget-scripts": "^0.6.0",
     "sass-loader": "^7.1.0",
+    "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "@perry/get-label-for-widget-state": "file:../get-label-for-widget-state",
+    "@perry/perry-interfaces": "file:../perry-interfaces",
     "grid-styled": "^5.0.2",
     "preact": "^8.4.2",
     "preact-compat": "^3.18.4",
     "preact-habitat": "^3.2.2",
     "rebass": "^3.0.1",
-    "styled-components": "^4.1.3",
-    "@perry/perry-interfaces": "file:../perry-interfaces",
-    "@perry/get-label-for-widget-state": "file:../get-label-for-widget-state"
+    "styled-components": "^4.1.3"
   }
 }

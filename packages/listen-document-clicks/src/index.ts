@@ -1,8 +1,8 @@
-import { IPerryOptions } from '@perry/perry-interfaces';
-import writeToStore from '@perry/write-to-store';
-import Features from '@perry/features';
-import FeatureToggleStore from '@perry/feature-toggle-store';
+import FeatureToggleStore from "@perry/feature-toggle-store";
+import Features from "@perry/features";
 import mapMouseEventToPerryEvent from "@perry/map-mouse-event-to-perry-event";
+import { IPerryOptions } from "@perry/perry-interfaces";
+import writeToStore from "@perry/write-to-store";
 
 function listenDocumentClicks(options: IPerryOptions): void {
   document.onclick = (event: MouseEvent) => {

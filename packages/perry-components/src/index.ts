@@ -1,9 +1,9 @@
-import BugIcon from './BugIcon';
-import ControlledPreviewModal from './ControlledPreviewModal';
-import LabeledInput from './LabeledInput';
-import PreviewModal from './PreviewModal';
-import Widget from './Widget';
-import WidgetIcon from './WidgetIcon';
+import BugIcon from "./BugIcon";
+import ControlledPreviewModal from "./ControlledPreviewModal";
+import LabeledInput from "./LabeledInput";
+import PreviewModal from "./PreviewModal";
+import Widget from "./Widget";
+import WidgetIcon from "./WidgetIcon";
 
 export {
   BugIcon,

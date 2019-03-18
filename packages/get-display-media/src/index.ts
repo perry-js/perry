@@ -2,7 +2,7 @@
  * ## getDisplayMedia
  *
  * This methods returns the most reliable
- * way to use getDisplayMedia from the user's browser
+ * way to use getDisplayMedia from the user"s browser
  *
  * @param constraints MediaStreamConstraints
  */

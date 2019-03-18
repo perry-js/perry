@@ -10,12 +10,12 @@
   "scripts": {
     "test": "jest",
     "test:ci": "CI=1 npm test",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint": "lerna run lint",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
     "serve": "npm run build && preact serve",
     "dev": "PUBLIC_PATH=http://localhost:8080/ preact watch --template src/index.ejs",
-    "lerna:compile": "lerna run compile"
+    "lerna:build": "lerna run build"
   },
   "keywords": [],
   "contributors": [

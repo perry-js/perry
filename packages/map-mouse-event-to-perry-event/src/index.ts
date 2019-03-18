@@ -8,7 +8,7 @@ const mapMouseEventToPerryEvent = (event: MouseEvent) => {
   /** casting EventTarget type to HTMLElement type */
   const element = event.target as HTMLElement;
 
-  /** couldn't get view.visualViewport from Window type */
+  /** couldn"t get view.visualViewport from Window type */
   const viewport = (view as any).visualViewport as IViewport;
 
   return {
