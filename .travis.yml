@@ -6,5 +6,6 @@ environment:
   - CI=1
 script:
   - yarn bootstrap
+  - yarn build
   - yarn lint
   - yarn test:ci
