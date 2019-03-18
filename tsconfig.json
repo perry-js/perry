@@ -7,8 +7,11 @@
     "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "h",
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "strictNullChecks": false,
     "declaration": true,
     "strictPropertyInitialization": false,
-    "lib": ["dom", "es5", "es6", "dom.iterable", "scripthost", "es2015.proxy"]
+    "lib": ["dom", "es2015", "es5", "es6", "dom.iterable", "scripthost", "es2015.proxy"]
   }
 }

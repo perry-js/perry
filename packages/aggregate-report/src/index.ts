@@ -1,6 +1,6 @@
 import {
-  Report as PerryReport,
-  ReportInfo as PerryReportInfo,
+  IPerryReport,
+  IPerryReportInfo,
 } from '@perry/perry-interfaces';
 
 const getItemFor = (method: string) =>
@@ -10,19 +10,24 @@ const getKeyFor = (method: string) => `perry::${method}::history`;
 
 const orArray = (expression: any) => expression || [];
 
-const aggregateReport =  (reportInfo: PerryReportInfo): PerryReport => ({
-  title: reportInfo.title,
+const aggregateReport =  (reportInfo: IPerryReportInfo): IPerryReport => ({
+  clicks: orArray(getItemFor("document.onclick")),
+  cookies: document.cookie,
   description: reportInfo.description,
-  screenshotUrl: reportInfo.screenshotUrl,
-  logs: getItemFor("console.log"),
-  warns: getItemFor("console.warn"),
   errors: [
     ...orArray(getItemFor("console.error")),
-    ...orArray(getItemFor("window.onerror"))
+    ...orArray(getItemFor("window.onerror")),
   ],
-  cookies: document.cookie,
-  clicks: getItemFor("document.onclick"),
-  notify: getItemFor("perry.notify")
+  logs: orArray(getItemFor("console.log")),
+  notify: orArray(getItemFor("perry.notify")),
+  recorder: [
+    ...orArray(getItemFor("perryscreenrecorder.onrecord")),
+    ...orArray(getItemFor("perryscreenrecorder.onerror")),
+    ...orArray(getItemFor("perryscreenrecorder.onfinish")),
+  ],
+  screenshotUrl: reportInfo.screenshotUrl,
+  title: reportInfo.title,
+  warns: orArray(getItemFor("console.warn")),
 });
 
-export default aggregateReport
+export default aggregateReport;

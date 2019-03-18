@@ -1,4 +1,4 @@
-export default interface ElementData {
+export default interface IPerryElementData  {
   id: string,
   dataset: object,
   tagName: string,

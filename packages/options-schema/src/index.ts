@@ -3,14 +3,16 @@ import boolean from 'yup/lib/boolean';
 import array from 'yup/lib/array';
 
 export default object({
-  log: boolean(),
-  warn: boolean(),
-  error: boolean(),
+  clearOnReload: boolean(),
+  clearOnStart: boolean(),
   clicks: boolean(),
   cookies: boolean(),
-  localStorage: boolean(),
-  sessionStorage: boolean(),
+  enableScreenRecording: boolean(),
+  error: boolean(),
   ignoreScriptErrors: boolean(),
-  clearOnReload: boolean(),
+  localStorage: boolean(),
+  log: boolean(),
   plugins: array(),
+  sessionStorage: boolean(),
+  warn: boolean(),
 }).noUnknown();

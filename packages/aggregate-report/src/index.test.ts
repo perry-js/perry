@@ -1,27 +1,27 @@
 import aggregateReport from './';
-import { ReportInfo as PerryReportInfo} from '@perry/perry-interfaces';
+import { IPerryReportInfo, IPerryReport } from '@perry/perry-interfaces';
 
-const reportInfo : PerryReportInfo = {
-  title: 'Testing',
-  description: 'Testing this aggregateReport',
-  screenshotUrl: 'http://urlscreenshot.com',
+const reportInfo: IPerryReportInfo = {
+  description: "Testing this aggregateReport",
+  screenshotUrl: "http://urlscreenshot.com",
+  title: "Testing",
 };
 
-const expectedReport = {
-    "clicks": null,
-    "cookies": "",
-    "description": "Testing this aggregateReport",
-    "errors": [],
-    "logs": null,
-    "notify": null,
-    "screenshotUrl":
-    "http://urlscreenshot.com",
-    "title": "Testing",
-    "warns": null
-}
+const expectedReport: IPerryReport = {
+  clicks: [],
+  cookies: document.cookie,
+  description: reportInfo.description,
+  errors: [],
+  logs: [],
+  notify: [],
+  recorder: [],
+  screenshotUrl: reportInfo.screenshotUrl,
+  title: reportInfo.title,
+  warns: [],
+};
 
-describe('Aggregate Report', () => {
-  it('should return an object that matches the expected report', () => {
+describe("aggregateReport", () => {
+  it("should return an empty report by default", () => {
     expect(aggregateReport(reportInfo)).toEqual(expectedReport);
   });
 });

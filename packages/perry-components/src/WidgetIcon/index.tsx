@@ -1,11 +1,11 @@
-import { h, FunctionalComponent } from "preact"
-import Base from "rebass/dist/Base"
-import Circle from "rebass/dist/Circle"
+import { FunctionalComponent, h } from "preact";
+import Base from "rebass/dist/Base";
+import Circle from "rebass/dist/Circle";
 
 import BugIcon from "../BugIcon"
 import { WidgetStatus } from "@perry/perry-interfaces";
 
-interface WidgetIconProps {
+interface IWidgetIconProps {
   status: WidgetStatus;
 }
 
@@ -30,8 +30,8 @@ const IconForStatus = {
   [WidgetStatus.STOPPED]: StoppedIcon,
 };
 
-const WidgetIcon: FunctionalComponent<WidgetIconProps> = ({
-  status
+const WidgetIcon: FunctionalComponent<IWidgetIconProps> = ({
+  status,
 }) => {
   const IconComponent = IconForStatus[status];
 
@@ -42,4 +42,4 @@ const WidgetIcon: FunctionalComponent<WidgetIconProps> = ({
   );
 };
 
-export default WidgetIcon
+export default WidgetIcon;

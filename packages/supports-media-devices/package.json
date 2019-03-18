@@ -1,0 +1,24 @@
+{
+  "name": "@perry/supports-media-devices",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/perry-js/perry.git"
+  },
+  "author": "perry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perry-js/perry/issues"
+  },
+  "homepage": "https://github.com/perry-js/perry#readme",
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  }
+}

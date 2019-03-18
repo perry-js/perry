@@ -1,0 +1,32 @@
+{
+  "name": "@perry/screen-recorder",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/perry-js/perry.git"
+  },
+  "author": "perry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perry-js/perry/issues"
+  },
+  "homepage": "https://github.com/perry-js/perry#readme",
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/get-media-display": "file:../get-display-media",
+    "@perry/map-blob-list-to-base64": "file:../map-blob-list-to-base64",
+    "@perry/perry-interfaces": "file:../perry-interfaces",
+    "@perry/supports-media-devices": "file:../supports-media-devices",
+    "@perry/supports-media-recorder": "file:../supports-media-recorder",
+    "@perry/write-to-store": "file:../write-to-store"
+  }
+}

@@ -3,63 +3,63 @@ import Provider from "rebass/dist/Provider";
 import WidgetIcon from "../WidgetIcon";
 import ControlledPreviewModal from '../ControlledPreviewModal';
 import {
-  ReportInfo as PerryReportInfo,
+  IPerryReportInfo,
   WidgetStatus,
-  WidgetProps,
+  IWidgetProps,
 } from "@perry/perry-interfaces";
 import getLabelForState from "@perry/get-label-for-widget-state";
 
 import { StyledLabel, WidgetButton } from "./index.style";
 
-export interface WidgetState {
-  isModalOpen: boolean,
-  status: WidgetStatus,
+export interface IWidgetState {
+  isModalOpen: boolean;
+  status: WidgetStatus;
 }
 
-class Widget extends Component<WidgetProps, WidgetState> {
-  state = {
+class Widget extends Component<IWidgetProps, IWidgetState> {
+  public state = {
     isModalOpen: false,
     status: WidgetStatus.IDLE,
-  }
+  };
 
-  toggleModal = () =>
+  public toggleModal = () =>
     this.setState(({ isModalOpen }) => ({
-      isModalOpen: !isModalOpen
+      isModalOpen: !isModalOpen,
     }))
 
-  setStatus = (status: WidgetStatus) =>
+  public setStatus = (status: WidgetStatus) =>
     this.setState({ status })
 
-  nextStep = () => {
+  public next = async () => {
     switch (this.state.status) {
       case WidgetStatus.IDLE:
-        this.props.onStartRecording();
-        return this.setStatus(WidgetStatus.RECORDING)
+        await this.props.onStartRecording();
+        return this.setStatus(WidgetStatus.RECORDING);
       case WidgetStatus.RECORDING:
         this.props.onStopRecording();
-        return this.setStatus(WidgetStatus.STOPPED)
+        return this.setStatus(WidgetStatus.STOPPED);
       case WidgetStatus.STOPPED:
-        return this.toggleModal()
+        return this.toggleModal();
     }
   }
 
-  handleDiscard = () => {
-    this.setStatus(WidgetStatus.IDLE)
-    this.toggleModal()
+  public handleDiscard = () => {
+    this.setStatus(WidgetStatus.IDLE);
+    this.toggleModal();
   }
 
-  handleSubmit = (reportInfo: PerryReportInfo) => {
-    this.setStatus(WidgetStatus.IDLE)
-    this.toggleModal()
-    this.props.onSubmit(reportInfo)
+  public handleSubmit = (reportInfo: IPerryReportInfo) => {
+    this.setStatus(WidgetStatus.IDLE);
+    this.toggleModal();
+    this.props.onSubmit(reportInfo);
   }
 
-  render() {
+  public render() {
     const { status, isModalOpen } = this.state;
 
     return (
       <Provider>
-        <WidgetButton onClick={this.nextStep}>
+        <WidgetButton onClick={this.next}>
           <WidgetIcon status={status} />
           <StyledLabel>{getLabelForState(status)}</StyledLabel>
         </WidgetButton>
@@ -69,7 +69,7 @@ class Widget extends Component<WidgetProps, WidgetState> {
           onDiscard={this.handleDiscard}
         />
       </Provider>
-    )
+    );
   }
 }
 

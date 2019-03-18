@@ -22,9 +22,10 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "@perry/perry-interfaces": "file:../perry-interfaces",
+    "@perry/perry-notifiy": "file:../perry-notify",
     "@perry/render-widget": "file:../render-widget",
     "@perry/setup-listeners": "file:../setup-listeners",
-    "@perry/start-listeners": "file:../start-listeners",
-    "@perry/perry-notifiy": "file:../perry-notify"
+    "@perry/start-listeners": "file:../start-listeners"
   }
 }

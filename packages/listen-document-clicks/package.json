@@ -22,5 +22,8 @@
     "eslint": "^5.15.2",
     "jest": "^24.5.0",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/map-mouse-event-to-perry-event": "file:../map-mouse-event-to-perry-event"
   }
 }
