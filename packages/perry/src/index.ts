@@ -1,27 +1,16 @@
-/** Widget Component Props interface */
 import {
   IPerryOptions,
   IPerryReportInfo,
   IPerryScreenRecorder,
 } from "@perry/perry-interfaces";
 
-/** Options validator, created with Yup. */
-import isValidOptions from "@perry/is-valid-options";
+import store from "@perry/store";
 
-/** Default options as a plain js object */
-import defaultOptions from "@perry/default-options";
-
-/** Clears perry store */
-import clearStore from "@perry/clear-store";
-
-/** Aggregates info and creates PerryReport */
-import aggregateReport from "@perry/aggregate-report";
-
-/** Toggles the feature switches to true so the listeners can start to watch */
-import startListeners from "@perry/start-listeners";
-
-/** Toggles the feature switches to false so the listeners stop watching */
-import stopListeners from "@perry/stop-listeners";
+import aggregateReport from "./lib/aggregate-report";
+import defaultOptions from "./lib/default-options";
+import isValidOptions from "./lib/is-valid-options";
+import startListeners from "./lib/start-listeners";
+import stopListeners from "./lib/stop-listeners";
 
 export default class Perry {
   private readonly options: IPerryOptions;
@@ -39,7 +28,7 @@ export default class Perry {
     }
 
     if (this.options.clearOnReload) {
-      clearStore();
+      store.clear();
     }
   }
 
@@ -48,7 +37,7 @@ export default class Perry {
       await this.setupListeners();
 
       if (this.options.clearOnStart) {
-        clearStore();
+        store.clear();
       }
 
       startListeners();
@@ -81,9 +70,9 @@ export default class Perry {
 
   public notify = async (error: Error) => {
     const { default: notify } =
-      await import(/* webpackChunkName: "perry-notify" */ "@perry/perry-notify");
+      await import(/* webpackChunkName: "perry-notify" */ "./lib/notify");
 
-    return notify(error);
+    return notify(error, store);
   }
 
   public render = async () => {
@@ -103,9 +92,9 @@ export default class Perry {
     }
 
     const { default: setupListeners } =
-      await import(/* webpackChunkName: "perry-setup-listeners" */ "@perry/setup-listeners");
+      await import(/* webpackChunkName: "perry-setup-listeners" */ "./lib/setup-listeners");
 
-    setupListeners(this.options);
+    setupListeners(this.options, store);
 
     this.hasListenersReady = true;
   }

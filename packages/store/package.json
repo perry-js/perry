@@ -1,5 +1,5 @@
 {
-  "name": "@perry/perry",
+  "name": "@perry/store",
   "version": "0.1.0",
   "description": "",
   "main": "build/index.js",
@@ -24,8 +24,6 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@perry/perry-interfaces": "file:../perry-interfaces",
-    "@perry/store": "file:../store",
-    "@perry/render-widget": "file:../render-widget"
+    "@perry/perry-interfaces": "file:../perry-interfaces"
   }
 }
