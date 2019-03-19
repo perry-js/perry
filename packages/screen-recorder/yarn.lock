@@ -2,27 +2,13 @@
 # yarn lockfile v1
 
 
-"@perry/get-media-display@file:../get-display-media":
+"@perry/compat@file:../compat":
   version "0.1.0"
-
-"@perry/map-blob-list-to-base64@file:../map-blob-list-to-base64":
-  version "0.1.0"
+  dependencies:
+    "@perry/perry-interfaces" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-compat-0.1.0-4de530a1-145c-4cc6-b58d-084438cb5fe9-1552983594115/node_modules/@perry/perry-interfaces"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
   version "0.1.0"
-
-"@perry/supports-media-devices@file:../supports-media-devices":
-  version "0.1.0"
-
-"@perry/supports-media-recorder@file:../supports-media-recorder":
-  version "0.1.0"
-  dependencies:
-    "@perry/perry-interfaces" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-supports-media-recorder-0.1.0-c5f73967-06d1-4419-a11d-e18099d0ef71-1552918975430/node_modules/@perry/perry-interfaces"
-
-"@perry/write-to-store@file:../write-to-store":
-  version "0.1.0"
-  dependencies:
-    "@perry/perry-interfaces" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-write-to-store-0.1.0-ab53e9d4-c29c-4992-b40f-cde5a66514cf-1552918975439/node_modules/@perry/perry-interfaces"
 
 ansi-regex@^2.0.0:
   version "2.1.1"

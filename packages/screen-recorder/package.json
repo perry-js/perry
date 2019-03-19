@@ -24,10 +24,7 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@perry/get-media-display": "file:../get-display-media",
-    "@perry/map-blob-list-to-base64": "file:../map-blob-list-to-base64",
-    "@perry/perry-interfaces": "file:../perry-interfaces",
-    "@perry/supports-media-devices": "file:../supports-media-devices",
-    "@perry/supports-media-recorder": "file:../supports-media-recorder"
+    "@perry/compat": "file:../compat",
+    "@perry/perry-interfaces": "file:../perry-interfaces"
   }
 }
