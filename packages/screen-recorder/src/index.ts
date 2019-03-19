@@ -1,6 +1,5 @@
+import supportsMediaDevices from "@perry/compat";
 import { BlobEvent, IPerryScreenRecorder, IPerryStore, MediaRecorder } from "@perry/perry-interfaces";
-import supportsMediaDevices from "@perry/supports-media-devices";
-import supportsMediaRecorder from "@perry/supports-media-recorder";
 
 import getDisplayMedia from "./get-display-media";
 import mapBlobListToBase64 from "./map-blob-list-to-base64";
