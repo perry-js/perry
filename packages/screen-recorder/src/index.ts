@@ -1,9 +1,10 @@
-import getDisplayMedia from "@perry/get-media-display";
-import mapBlobListToBase64 from "@perry/map-blob-list-to-base64";
 import { BlobEvent, IPerryScreenRecorder, MediaRecorder } from "@perry/perry-interfaces";
 import supportsMediaDevices from "@perry/supports-media-devices";
 import supportsMediaRecorder from "@perry/supports-media-recorder";
 import writeToStore from "@perry/write-to-store";
+
+import getDisplayMedia from "./get-display-media";
+import mapBlobListToBase64 from "./map-blob-list-to-base64";
 
 const STORE_CONFIGURATION = {
   name: "perryscreenrecorder",

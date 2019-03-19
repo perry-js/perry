@@ -1,5 +1,5 @@
 {
-  "name": "@perry/map-blob-list-to-base64",
+  "name": "@perry/compat",
   "version": "0.1.0",
   "description": "",
   "main": "build/index.js",
@@ -22,5 +22,8 @@
   "devDependencies": {
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/perry-interfaces": "file:../perry-interfaces"
   }
 }
