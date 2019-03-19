@@ -5,9 +5,15 @@
 "@perry/compat@file:../compat":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-compat-0.1.0-4de530a1-145c-4cc6-b58d-084438cb5fe9-1552983594115/node_modules/@perry/perry-interfaces"
+    "@perry/types" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-compat-0.1.0-d358828a-f133-43f1-84ab-bc49320a7e99-1552997003849/node_modules/@perry/types"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
+  version "0.1.0"
+  dependencies:
+    "@perry/compat" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-perry-interfaces-0.1.0-3fea9794-f406-4de9-a660-69e65aa32963-1552997003862/node_modules/@perry/compat"
+    "@perry/types" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-perry-interfaces-0.1.0-3fea9794-f406-4de9-a660-69e65aa32963-1552997003862/node_modules/@perry/types"
+
+"@perry/types@file:../types":
   version "0.1.0"
 
 ansi-regex@^2.0.0:

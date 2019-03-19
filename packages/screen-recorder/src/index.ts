@@ -1,6 +1,6 @@
-import supportsMediaDevices from "@perry/compat";
-import { BlobEvent, IPerryScreenRecorder, IPerryStore, MediaRecorder } from "@perry/perry-interfaces";
-
+/// <reference types="@perry/types" />
+import { supportsMediaDevices, supportsMediaRecorder } from "@perry/compat";
+import { IPerryScreenRecorder, IPerryStore } from "@perry/perry-interfaces";
 import getDisplayMedia from "./get-display-media";
 import mapBlobListToBase64 from "./map-blob-list-to-base64";
 
@@ -47,9 +47,9 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
 
     this.recorder = new MediaRecorder(this.stream);
 
-    this.recorder.addEventListener("stop", this.onRecorderStopEvent);
-    this.recorder.addEventListener("error", this.onRecorderErrorEvent);
-    this.recorder.addEventListener("dataavailable", this.onRecorderDataAvailableEvent);
+    this.recorder.onstop(this.onRecorderStopEvent);
+    this.recorder.onerror(this.onRecorderErrorEvent);
+    this.recorder.ondataavailable(this.onRecorderDataAvailableEvent);
 
     this.recorder.start();
   }
@@ -57,14 +57,10 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
   public onRecorderStopEvent = () => {
     this.recorderOnStop();
     this.stopStreamTracks();
-
-    this.recorder.removeEventListener("stop", this.onRecorderStopEvent);
-    this.recorder.removeEventListener("error", this.onRecorderErrorEvent);
-    this.recorder.removeEventListener("dataavailable", this.onRecorderDataAvailableEvent);
   }
 
   /* tslint:disable-next-line */
-  public onRecorderErrorEvent = (error: BlobEvent) => console.error(error);
+  public onRecorderErrorEvent = (error: MediaRecorderErrorEvent) => console.error(error);
 
   public onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);
 

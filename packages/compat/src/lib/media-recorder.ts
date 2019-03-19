@@ -1,5 +1,4 @@
-import { MediaRecorder } from "@perry/perry-interfaces";
-
+/// <reference types="@perry/types" />
 const supportsMediaRecorder = () => typeof MediaRecorder !== "undefined";
 
 export default supportsMediaRecorder;

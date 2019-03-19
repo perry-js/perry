@@ -24,6 +24,6 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@perry/perry-interfaces": "file:../perry-interfaces"
+    "@perry/types": "file:../types"
   }
 }

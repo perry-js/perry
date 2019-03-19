@@ -23,5 +23,9 @@
     "eslint": "^5.15.2",
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/compat": "file:../compat",
+    "@perry/types": "file:../types"
   }
 }

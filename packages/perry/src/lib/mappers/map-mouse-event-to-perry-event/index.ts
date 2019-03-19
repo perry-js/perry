@@ -1,7 +1,8 @@
 import { IViewport } from "@perry/perry-interfaces";
+import { IPerryStoreWriteParams } from "@perry/perry-interfaces/build/IPerryStore";
 import * as mappers from "./mappers";
 
-const mapMouseEventToPerryEvent = (event: MouseEvent) => {
+const mapMouseEventToPerryEvent = (event: MouseEvent): IPerryStoreWriteParams => {
   const view: Window = event.view;
   const screen: Screen = view.screen;
 

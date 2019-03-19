@@ -1,7 +1,7 @@
-import { IViewport } from "@perry/perry-interfaces";
+import { IPerryElementData, IViewport } from "@perry/perry-interfaces";
 import mapHTMLElementToElementData from "../map-html-element-to-element-data";
 
-export const mapHTMLElementToSerializableTarget = (element: HTMLElement) =>
+export const mapHTMLElementToSerializableTarget = (element: HTMLElement): IPerryElementData =>
   mapHTMLElementToElementData(element);
 
 export const mapMouseEventToSerializableMouseEvent = (event: MouseEvent) => ({

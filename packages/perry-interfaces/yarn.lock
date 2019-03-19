@@ -18,6 +18,14 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@perry/compat@file:../compat":
+  version "0.1.0"
+  dependencies:
+    "@perry/types" "file:../../../../AppData/Local/Yarn/Cache/v4/npm-@perry-compat-0.1.0-88f68ad0-0d13-4d10-85b5-9b71cd10b0c4-1552996912932/node_modules/@perry/types"
+
+"@perry/types@file:../types":
+  version "0.1.0"
+
 acorn-jsx@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.0.1.tgz#32a064fd925429216a09b141102bfdd185fae40e"

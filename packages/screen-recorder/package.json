@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@perry/compat": "file:../compat",
-    "@perry/perry-interfaces": "file:../perry-interfaces"
+    "@perry/perry-interfaces": "file:../perry-interfaces",
+    "@perry/types": "file:../types"
   }
 }

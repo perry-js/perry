@@ -1,5 +1,6 @@
 import {
   IPerryOptions,
+  IPerryReport,
   IPerryReportInfo,
   IPerryScreenRecorder,
 } from "@perry/perry-interfaces";
@@ -60,7 +61,7 @@ export default class Perry {
     }
   }
 
-  public submit = async (reportInfo: IPerryReportInfo = {}) => {
+  public submit = async (reportInfo: IPerryReportInfo = {}): Promise<IPerryReport> => {
     const report = aggregateReport(reportInfo);
 
     this.options.plugins.map((plugin) => plugin(report));

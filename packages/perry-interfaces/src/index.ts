@@ -1,5 +1,3 @@
-export { default as BlobEvent } from "./dom/BlobEvent";
-export { default as MediaRecorder } from "./dom/MediaRecorder";
 export { default as WidgetStatus } from "./enums/WidgetStatus";
 export { default as IPerryElementData } from "./IPerryElementData";
 export { default as IPerryOptions, PerryPlugin } from "./IPerryOptions";

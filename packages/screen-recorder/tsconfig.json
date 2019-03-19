@@ -2,6 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "build"
+    "outDir": "build",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@perry/compat/@types"
+    ]
   }
 }
