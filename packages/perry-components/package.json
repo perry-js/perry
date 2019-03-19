@@ -24,7 +24,6 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@perry/get-label-for-widget-state": "file:../get-label-for-widget-state",
     "@perry/perry-interfaces": "file:../perry-interfaces",
     "grid-styled": "^5.0.2",
     "preact": "^8.4.2",

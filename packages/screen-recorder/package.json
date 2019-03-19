@@ -28,7 +28,6 @@
     "@perry/map-blob-list-to-base64": "file:../map-blob-list-to-base64",
     "@perry/perry-interfaces": "file:../perry-interfaces",
     "@perry/supports-media-devices": "file:../supports-media-devices",
-    "@perry/supports-media-recorder": "file:../supports-media-recorder",
-    "@perry/write-to-store": "file:../write-to-store"
+    "@perry/supports-media-recorder": "file:../supports-media-recorder"
   }
 }
