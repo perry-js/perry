@@ -59,6 +59,7 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
     this.stopStreamTracks();
   }
 
+  /* disabling because we actually want currently to console it */
   /* tslint:disable-next-line */
   public onRecorderErrorEvent = (error: MediaRecorderErrorEvent) => console.error(error);
 

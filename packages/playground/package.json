@@ -1,13 +1,11 @@
 {
-  "name": "@perry/compat",
+  "name": "@perry/playground",
   "version": "0.1.0",
   "description": "",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "tsc",
-    "lint": "tslint --project ."
+    "serve": "preact serve",
+    "build": "preact build --no-prerender --clean --template index.ejs --service-worker false",
+    "start": "preact watch --template index.ejs"
   },
   "repository": {
     "type": "git",
@@ -20,10 +18,9 @@
   },
   "homepage": "https://github.com/perry-js/perry#readme",
   "devDependencies": {
-    "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "preact-cli": "^2.0.2"
   },
   "dependencies": {
-    "@perry/types": "file:../types"
+    "@perry/perry": "file:../perry"
   }
 }

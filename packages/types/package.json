@@ -5,7 +5,8 @@
   "main": "",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "echo \"Error: no lint specified\" && exit 0"
   },
   "repository": {
     "type": "git",
