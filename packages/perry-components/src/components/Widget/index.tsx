@@ -4,13 +4,10 @@ import {
   WidgetStatus,
 } from "@perry/perry-interfaces";
 import { Component, h } from "preact";
-import Provider from "rebass/dist/Provider";
 import ControlledPreviewModal from "../ControlledPreviewModal";
 import WidgetIcon from "../WidgetIcon";
 
 import getLabelForState from "../../lib/get-label-for-widget-state";
-
-import { StyledLabel, WidgetButton } from "./index.style";
 
 export interface IWidgetState {
   isModalOpen: boolean;
@@ -59,17 +56,17 @@ class Widget extends Component<IWidgetProps, IWidgetState> {
     const { status, isModalOpen } = this.state;
 
     return (
-      <Provider>
-        <WidgetButton onClick={this.next}>
+      <div>
+        <button onClick={this.next}>
           <WidgetIcon status={status} />
-          <StyledLabel>{getLabelForState(status)}</StyledLabel>
-        </WidgetButton>
+          <p>{getLabelForState(status)}</p>
+        </button>
         <ControlledPreviewModal
           open={isModalOpen}
           onSubmit={this.handleSubmit}
           onDiscard={this.handleDiscard}
         />
-      </Provider>
+      </div>
     );
   }
 }

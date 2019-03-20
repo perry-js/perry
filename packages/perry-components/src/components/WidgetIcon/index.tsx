@@ -1,33 +1,15 @@
-import { FunctionalComponent, h } from "preact";
-import Base from "rebass/dist/Base";
-import Circle from "rebass/dist/Circle";
-
 import { WidgetStatus } from "@perry/perry-interfaces";
+import { FunctionalComponent, h } from "preact";
 import BugIcon from "../BugIcon";
 
 interface IWidgetIconProps {
   status: WidgetStatus;
 }
 
-const RecordingIcon = Circle.extend`
-  margin: 0;
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-color: #f00;
-`;
-
-const StoppedIcon = Base.extend`
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-color: #f00;
-`;
-
 const IconForStatus = {
   [WidgetStatus.IDLE]: BugIcon,
-  [WidgetStatus.RECORDING]: RecordingIcon,
-  [WidgetStatus.STOPPED]: StoppedIcon,
+  [WidgetStatus.RECORDING]: () => <p>RECORDING</p>,
+  [WidgetStatus.STOPPED]: () => <p>STOPPED</p>,
 };
 
 const WidgetIcon: FunctionalComponent<IWidgetIconProps> = ({
@@ -36,9 +18,7 @@ const WidgetIcon: FunctionalComponent<IWidgetIconProps> = ({
   const IconComponent = IconForStatus[status];
 
   return (
-    <Base mr="5px">
-      <IconComponent />
-    </Base>
+    <IconComponent />
   );
 };
 

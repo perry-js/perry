@@ -1,7 +1,4 @@
-import Box from "grid-styled/dist/Box";
 import { FunctionalComponent, h } from "preact";
-import Input from "rebass/dist/Input";
-import Label from "rebass/dist/Label";
 
 interface InputProps {
   label?: string;
@@ -12,10 +9,12 @@ const LabeledInput: FunctionalComponent<InputProps> = ({
   label,
   ...props
 }) => (
-  <Box mb={3}>
-    <Label>{label}</Label>
-    <Input {...props} />
-  </Box>
+  <div>
+    <label>
+      {label}
+      <input {...props} />
+    </label>
+  </div>
 );
 
 export default LabeledInput;

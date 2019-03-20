@@ -16,19 +16,25 @@
   "author": "perry",
   "license": "MIT",
   "devDependencies": {
-    "preact-cli": "^2.2.1",
-    "preact-cli-plugin-typescript": "^0.2.2",
+    "jest": "^24.5.0",
     "preact-render-to-string": "^4.1.0",
-    "preact-widget-scripts": "^0.6.0",
+    "ts-jest": "^24.0.0",
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
     "@perry/perry-interfaces": "file:../perry-interfaces",
-    "grid-styled": "^4.1.1",
-    "preact": "^8.4.2",
-    "preact-compat": "^3.18.4",
-    "rebass": "^3.0.1",
-    "styled-components": "^3.3.2"
+    "preact": "^8.4.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat"
+    }
   }
 }

@@ -27,5 +27,5 @@
     "@perry/perry-interfaces": "file:../perry-interfaces",
     "@perry/store": "file:../store",
     "@perry/render-widget": "file:../render-widget"
-  }
+  }  
 }

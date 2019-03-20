@@ -9,12 +9,12 @@ interface IControlledPreviewModalProps {
 }
 
 export default class ControlledPreviewModal extends Component<IControlledPreviewModalProps, IPerryReportInfo> {
-
   public static defaultProps = {
-    onDiscard: () => { /* empty function */ },
-    onSubmit: () => { /* empty function */ },
+    onDiscard: () => { /* noop */ },
+    onSubmit: () => { /* noop */ },
     open: false,
   };
+
   public state = {
     description: "",
     screenshotUrl: "",
