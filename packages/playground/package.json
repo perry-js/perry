@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/perry-js/perry#readme",
   "devDependencies": {
+    "ejs-loader": "^0.3.1",
     "preact-cli": "^2.0.2"
   },
   "dependencies": {
