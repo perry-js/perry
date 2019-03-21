@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "workspaces": [
-    "./packages/*"
+    "./packages/*",
+    "./playground/"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -13,7 +14,9 @@
     "test:ci": "CI=1 npm test",
     "lint": "lerna run --parallel lint",
     "build": "lerna run build",
-    "install": "npm run bootstrap"
+    "install": "npm run bootstrap",
+    "clean": "lerna clean",
+    "link": "lerna link"
   },
   "keywords": [],
   "contributors": [
