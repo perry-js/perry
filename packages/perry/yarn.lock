@@ -98,13 +98,6 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/runtime@^7.0.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.0.tgz#d523416573f19aa12784639e631257c7fc58c0aa"
-  integrity sha512-/eftZ45kD0OfOFHAmN02WP6N1NVphY+lBf8c2Q/P9VW3tj+N5NlBBAWfqOLOl96YDGMqpIBO5O/hQNx4A/lAng==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
 "@babel/template@^7.0.0", "@babel/template@^7.1.0", "@babel/template@^7.4.0":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.0.tgz#12474e9c077bae585c5d835a95c0b0b790c25c8b"
@@ -286,31 +279,38 @@
 "@perry/compat@file:../compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-compat-0.1.0-1716843d-689d-4cd3-b9ac-ce18b3f926d2-1553108496683/node_modules/@perry/types"
+    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-compat-0.1.0-36bbd731-ee91-4acb-9399-fe77e01e59e5-1553138204534/node_modules/@perry/types"
 
 "@perry/perry-components@file:../perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-d2eaec63-3417-4eab-8b7d-9810ac1ad67c-1553108496688/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-0b944a30-061b-4bb6-995b-ff9f5a3490ff-1553138204538/node_modules/@perry/perry-interfaces"
     preact "^8.4.2"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-ceec4620-01ac-494d-9a80-121cc27b1781-1553108496680/node_modules/@perry/compat"
-    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-ceec4620-01ac-494d-9a80-121cc27b1781-1553108496680/node_modules/@perry/types"
+    "@perry/compat" "file:../../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-9f73e7b1-6559-466d-a656-2f25c44b311b-1553138204531/node_modules/@perry/compat"
+    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-9f73e7b1-6559-466d-a656-2f25c44b311b-1553138204531/node_modules/@perry/types"
 
 "@perry/render-widget@file:../render-widget":
   version "0.1.0"
   dependencies:
-    "@perry/perry-components" "file:../../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-c583a0e4-cc3e-4591-a4b3-499ef9fbbc1d-1553108496685/node_modules/@perry/perry-components"
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-c583a0e4-cc3e-4591-a4b3-499ef9fbbc1d-1553108496685/node_modules/@perry/perry-interfaces"
+    "@perry/perry-components" "file:../../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-d6ede109-057b-43a6-98f8-5a367715d33a-1553138204535/node_modules/@perry/perry-components"
+    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-d6ede109-057b-43a6-98f8-5a367715d33a-1553138204535/node_modules/@perry/perry-interfaces"
     preact "^8.4.2"
+
+"@perry/screen-recorder@file:../screen-recorder":
+  version "0.1.0"
+  dependencies:
+    "@perry/compat" "file:../../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-455709bf-3d81-4392-ae6a-dc0588b4460c-1553138204540/node_modules/@perry/compat"
+    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-455709bf-3d81-4392-ae6a-dc0588b4460c-1553138204540/node_modules/@perry/perry-interfaces"
+    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-455709bf-3d81-4392-ae6a-dc0588b4460c-1553138204540/node_modules/@perry/types"
 
 "@perry/store@file:../store":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-store-0.1.0-38b306ae-8ec1-42e9-b0ec-5b3398b52266-1553108496690/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-store-0.1.0-b9e3426e-f5c7-4df4-9f94-b4b185fe874d-1553138204542/node_modules/@perry/perry-interfaces"
 
 "@perry/types@file:../types":
   version "0.1.0"
@@ -1196,11 +1196,6 @@ find-up@^3.0.0:
   integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   dependencies:
     locate-path "^3.0.0"
-
-fn-name@~2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-2.0.1.tgz#5214d7537a4d06a4a301c0cc262feb84188002e7"
-  integrity sha1-UhTXU3pNBqSjAcDMJi/rhBiAAuc=
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -2677,11 +2672,6 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-property-expr@^1.5.0:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-1.5.1.tgz#22e8706894a0c8e28d58735804f6ba3a3673314f"
-  integrity sha512-CGuc0VUTGthpJXL36ydB6jnbyOf/rAHFvmVrJlH+Rg0DqqLFQGAP6hIaxD/G0OAmBJPhXDHuEJigrp0e0wFV6g==
-
 psl@^1.1.24, psl@^1.1.28:
   version "1.1.31"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.1.31.tgz#e9aa86d0101b5b105cbe93ac6b784cd547276184"
@@ -2751,11 +2741,6 @@ realpath-native@^1.1.0:
   integrity sha512-wlgPA6cCIIg9gKz0fgAPjnzh4yR/LnXovwuo9hvyGvx3h8nX4+/iLZplfUWasXpqD8BdnGnP5njOFjkUwPzvjA==
   dependencies:
     util.promisify "^1.0.0"
-
-regenerator-runtime@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
-  integrity sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA==
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
@@ -3199,11 +3184,6 @@ symbol-tree@^3.2.2:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
   integrity sha1-rifbOPZgp64uHDt9G8KQgZuFGeY=
 
-synchronous-promise@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.6.tgz#de76e0ea2b3558c1e673942e47e714a930fa64aa"
-  integrity sha512-TyOuWLwkmtPL49LHCX1caIwHjRzcVd62+GF6h8W/jHOeZUFHpnd2XJDVuUlaTaLPH1nuu2M69mfHr5XbQJnf/g==
-
 test-exclude@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/test-exclude/-/test-exclude-5.1.0.tgz#6ba6b25179d2d38724824661323b73e03c0c1de1"
@@ -3253,11 +3233,6 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
-
-toposort@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
-  integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
 tough-cookie@^2.3.3, tough-cookie@^2.3.4:
   version "2.5.0"
@@ -3577,15 +3552,3 @@ yargs@^12.0.2:
     which-module "^2.0.0"
     y18n "^3.2.1 || ^4.0.0"
     yargs-parser "^11.1.1"
-
-yup@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.27.0.tgz#f8cb198c8e7dd2124beddc2457571329096b06e7"
-  integrity sha512-v1yFnE4+u9za42gG/b/081E7uNW9mUj3qtkmelLbW5YPROZzSH/KUUyJu9Wt8vxFJcT9otL/eZopS0YK1L5yPQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fn-name "~2.0.1"
-    lodash "^4.17.11"
-    property-expr "^1.5.0"
-    synchronous-promise "^2.0.6"
-    toposort "^2.0.2"

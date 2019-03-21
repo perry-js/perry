@@ -28,10 +28,9 @@
   },
   "dependencies": {
     "@perry/perry-interfaces": "file:../perry-interfaces",
-    "@perry/screen-recorder": "file:../screen-recorder",
     "@perry/render-widget": "file:../render-widget",
-    "@perry/store": "file:../store",
-    "yup": "^0.27.0"
+    "@perry/screen-recorder": "file:../screen-recorder",
+    "@perry/store": "file:../store"
   },
   "jest": {
     "transform": {
