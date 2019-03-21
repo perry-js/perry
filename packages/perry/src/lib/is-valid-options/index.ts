@@ -36,7 +36,7 @@ function shouldThrow(currentValue: any, expectedType: "array" | "boolean") {
 
 const checkOptions = (options: IPerryOptions) => {
   for (const property in options) {
-    if (!options.hasOwnProperty(property)) {
+    if (options.hasOwnProperty(property)) {
       const currentValue = options[property];
       const expectedType = expectedTypes[property];
 
