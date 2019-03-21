@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "./packages/*",
+    "./playground/"
+  ],
   "scripts": {
-    "test": "jest",
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test",
     "test:ci": "CI=1 npm test",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build --no-prerender --clean --template src/index.ejs --service-worker false",
-    "serve": "npm run build && preact serve",
-    "dev": "PUBLIC_PATH=http://localhost:8080/ preact watch --template src/index.ejs"
+    "lint": "lerna run --parallel lint",
+    "build": "lerna run build",
+    "install": "npm run bootstrap",
+    "clean": "lerna clean",
+    "link": "lerna link"
   },
   "keywords": [],
   "contributors": [
@@ -21,58 +27,6 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^23.1.1",
-    "awesome-typescript-loader": "^3.5.0",
-    "eslint": "^5.15.1",
-    "identity-obj-proxy": "^3.0.0",
-    "if-env": "^1.0.4",
-    "jest": "^21.2.1",
-    "preact-cli": "^2.2.1",
-    "preact-render-to-string": "^3.7.0",
-    "preact-widget-scripts": "^0.6.0",
-    "ts-jest": "^22.4.6",
-    "tslint": "^5.13.1",
-    "typescript": "^3.3.3333"
-  },
-  "dependencies": {
-    "grid-styled": "^4.1.1",
-    "preact": "^8.4.2",
-    "preact-compat": "^3.18.4",
-    "rebass": "^2.0.0-7",
-    "styled-components": "^3.3.2",
-    "yup": "^0.26.10"
-  },
-  "jest": {
-    "verbose": true,
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
-    "testEnvironment": "jsdom",
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|scss|less)$": "identity-obj-proxy",
-      "^react$": "preact-compat",
-      "^react-dom$": "preact-compat",
-      "@/(.*)$": "<rootDir>/src/$1"
-    },
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
+    "lerna": "^3.13.1"
   }
 }

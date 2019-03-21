@@ -8,14 +8,10 @@
     "jsx": "react",
     "jsxFactory": "h",
     "esModuleInterop": true,
-    "allowJs": true,
-    "baseUrl": "./",
-    "strictPropertyInitialization": false,
     "preserveConstEnums": true,
     "strictNullChecks": false,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
+    "declaration": true,
+    "strictPropertyInitialization": false,
     "lib": ["dom", "es2015", "es5", "es6", "dom.iterable", "scripthost", "es2015.proxy"]
   }
 }

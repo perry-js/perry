@@ -1,0 +1,48 @@
+{
+  "name": "@perry/perry-components",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "lint": "tslint --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/perry-js/perry.git"
+  },
+  "author": "perry",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-env": "^7.4.1",
+    "@types/jest": "^24.0.11",
+    "babel-jest": "^24.5.0",
+    "jest": "^24.5.0",
+    "preact-render-to-string": "^4.1.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/perry-interfaces": "file:../perry-interfaces",
+    "preact": "^8.4.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@perry/perry-interfaces)"
+    ]
+  }
+}

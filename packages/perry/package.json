@@ -1,0 +1,50 @@
+{
+  "name": "@perry/perry",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "lint": "tslint --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/perry-js/perry.git"
+  },
+  "author": "perry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perry-js/perry/issues"
+  },
+  "homepage": "https://github.com/perry-js/perry#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@perry/perry-interfaces": "file:../perry-interfaces",
+    "@perry/screen-recorder": "file:../screen-recorder",
+    "@perry/render-widget": "file:../render-widget",
+    "@perry/store": "file:../store",
+    "yup": "^0.27.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "moduleNameMapper": {
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat"
+    }
+  }
+}

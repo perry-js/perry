@@ -1,0 +1,37 @@
+{
+  "name": "@perry/playground",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "workspaces": {
+    "nohoist": [
+      "preact-cli",
+      "babel-loader",
+      "ejs-loader"
+    ]
+  },
+  "scripts": {
+    "serve": "preact serve",
+    "build": "preact build --no-prerender --clean --template index.ejs --service-worker false",
+    "start": "preact watch --template index.ejs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/perry-js/perry.git"
+  },
+  "author": "perry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perry-js/perry/issues"
+  },
+  "homepage": "https://github.com/perry-js/perry#readme",
+  "devDependencies": {
+    "babel-core": "6",
+    "babel-loader": "7.1.5",
+    "ejs-loader": "^0.3.1",
+    "preact-cli": "^2.2.1"
+  },
+  "dependencies": {
+    "@perry/perry": "file:../packages/perry"
+  }
+}
