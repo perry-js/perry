@@ -56,4 +56,4 @@ export default (options: IPerryOptions): boolean => {
     console.error(e);
     return false;
   }
-}
+};
