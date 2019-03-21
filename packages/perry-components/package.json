@@ -16,7 +16,9 @@
   "author": "perry",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.4.1",
     "@types/jest": "^24.0.11",
+    "babel-jest": "^24.5.0",
     "jest": "^24.5.0",
     "preact-render-to-string": "^4.1.0",
     "ts-jest": "^24.0.0",
@@ -29,7 +31,8 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
     },
     "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
     "testEnvironment": "jsdom",
@@ -37,8 +40,8 @@
       "^react$": "preact-compat",
       "^react-dom$": "preact-compat"
     },
-    "modulePaths": [
-      "src"
+    "transformIgnorePatterns": [
+      "node_modules/(?!@perry/perry-interfaces)"
     ]
   }
 }
