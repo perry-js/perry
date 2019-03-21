@@ -2,8 +2,8 @@ const getPublicPath = () => {
   const ROOT_SLASH = "/";
   const url = 
     process.env.PUBLIC_PATH
-    || process.env.URL
-    || process.env.DEPLOY_PRIME_URL;
+    || process.env.DEPLOY_PRIME_URL
+    || process.env.URL;
   
   if (url)  {
     return url + ROOT_SLASH;
