@@ -7,3 +7,5 @@ Access-Control-Allow-Origin = "*"
 Access-Control-Max-Age = "3600"
 Access-Control-Request-Method = "*"
 Cache-Control = "max-age=86400"
+[build]
+publish = "packages/playground/build"
