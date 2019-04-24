@@ -15,11 +15,15 @@ const expectedTypes = {
   warn: "boolean",
 };
 
-function isArray(value) {
+function isArray(value: any) {
   return value && typeof value === "object" && value.constructor === Array;
 }
 
-function throwError(property, currentValue, expectedType) {
+function throwError(
+  property: string,
+  currentValue: string,
+  expectedType: string,
+) {
   throw new Error(
     `[Perry Options]: "${property}" was supposed to be of type "${expectedType}", but received "${currentValue}"`,
   );

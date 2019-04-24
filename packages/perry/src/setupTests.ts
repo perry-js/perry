@@ -9,10 +9,10 @@
     let store = {};
 
     return {
-      getItem(key) {
+      getItem(key: string) {
         return store[key] || null;
       },
-      setItem(key, value) {
+      setItem(key: string, value: any) {
         store[key] = value.toString();
       },
       clear() {
