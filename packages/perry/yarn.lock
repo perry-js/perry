@@ -279,38 +279,38 @@
 "@perry/compat@file:../compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-compat-0.1.0-36bbd731-ee91-4acb-9399-fe77e01e59e5-1553138204534/node_modules/@perry/types"
+    "@perry/types" "file:../types"
 
 "@perry/perry-components@file:../perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-0b944a30-061b-4bb6-995b-ff9f5a3490ff-1553138204538/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../perry-interfaces"
     preact "^8.4.2"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-9f73e7b1-6559-466d-a656-2f25c44b311b-1553138204531/node_modules/@perry/compat"
-    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-9f73e7b1-6559-466d-a656-2f25c44b311b-1553138204531/node_modules/@perry/types"
+    "@perry/compat" "file:../compat"
+    "@perry/types" "file:../types"
 
 "@perry/render-widget@file:../render-widget":
   version "0.1.0"
   dependencies:
-    "@perry/perry-components" "file:../../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-d6ede109-057b-43a6-98f8-5a367715d33a-1553138204535/node_modules/@perry/perry-components"
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-d6ede109-057b-43a6-98f8-5a367715d33a-1553138204535/node_modules/@perry/perry-interfaces"
+    "@perry/perry-components" "file:../perry-components"
+    "@perry/perry-interfaces" "file:../perry-interfaces"
     preact "^8.4.2"
 
 "@perry/screen-recorder@file:../screen-recorder":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-455709bf-3d81-4392-ae6a-dc0588b4460c-1553138204540/node_modules/@perry/compat"
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-455709bf-3d81-4392-ae6a-dc0588b4460c-1553138204540/node_modules/@perry/perry-interfaces"
-    "@perry/types" "file:../../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-455709bf-3d81-4392-ae6a-dc0588b4460c-1553138204540/node_modules/@perry/types"
+    "@perry/compat" "file:../compat"
+    "@perry/perry-interfaces" "file:../perry-interfaces"
+    "@perry/types" "file:../types"
 
 "@perry/store@file:../store":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../../.cache/yarn/v4/npm-@perry-store-0.1.0-b9e3426e-f5c7-4df4-9f94-b4b185fe874d-1553138204542/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../perry-interfaces"
 
 "@perry/types@file:../types":
   version "0.1.0"
@@ -2326,9 +2326,9 @@ minimist@~0.0.1:
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
 mixin-deep@^1.2.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.1.tgz#a49e7268dce1a0d9698e45326c5626df3543d0fe"
-  integrity sha512-8ZItLHeEgaqEvd5lYBXfm4EZSFCX29Jb9K+lAHhDKzReKBQKj3R+7NOF6tjqYi9t4oI8VUfaWITJQm86wnXGNQ==
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.2.tgz#1120b43dc359a785dce65b55b82e257ccf479566"
+  integrity sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
