@@ -1419,46 +1419,46 @@
 "@perry/compat@file:packages/compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../.cache/yarn/v4/npm-@perry-compat-0.1.0-ecb8fc4d-73c3-4121-9637-fd0b8d04e9bd-1554043882530/node_modules/@perry/types"
+    "@perry/types" "file:packages/types"
 
 "@perry/perry-components@file:packages/perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-d0c7589b-b335-4b4d-b4fc-45c90bcd1222-1554043882533/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
     preact "^8.4.2"
 
 "@perry/perry-interfaces@file:packages/perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-771a9aab-429f-4fe4-a662-59292e3b659d-1554043882531/node_modules/@perry/compat"
-    "@perry/types" "file:../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-771a9aab-429f-4fe4-a662-59292e3b659d-1554043882531/node_modules/@perry/types"
+    "@perry/compat" "file:packages/compat"
+    "@perry/types" "file:packages/types"
 
 "@perry/perry@file:packages/perry":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-perry-0.1.0-73a367bc-e651-4ea9-a86d-68c538fdaf97-1554043882533/node_modules/@perry/perry-interfaces"
-    "@perry/render-widget" "file:../../.cache/yarn/v4/npm-@perry-perry-0.1.0-73a367bc-e651-4ea9-a86d-68c538fdaf97-1554043882533/node_modules/@perry/render-widget"
-    "@perry/screen-recorder" "file:../../.cache/yarn/v4/npm-@perry-perry-0.1.0-73a367bc-e651-4ea9-a86d-68c538fdaf97-1554043882533/node_modules/@perry/screen-recorder"
-    "@perry/store" "file:../../.cache/yarn/v4/npm-@perry-perry-0.1.0-73a367bc-e651-4ea9-a86d-68c538fdaf97-1554043882533/node_modules/@perry/store"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
+    "@perry/render-widget" "file:packages/render-widget"
+    "@perry/screen-recorder" "file:packages/screen-recorder"
+    "@perry/store" "file:packages/store"
 
 "@perry/render-widget@file:packages/render-widget":
   version "0.1.0"
   dependencies:
-    "@perry/perry-components" "file:../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-4c9053ec-3092-4bdb-9998-a639c7d5de89-1554043882531/node_modules/@perry/perry-components"
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-4c9053ec-3092-4bdb-9998-a639c7d5de89-1554043882531/node_modules/@perry/perry-interfaces"
+    "@perry/perry-components" "file:packages/perry-components"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
     preact "^8.4.2"
 
 "@perry/screen-recorder@file:packages/screen-recorder":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-7cd55139-c264-4ce5-93d7-f686800d55c9-1554043882532/node_modules/@perry/compat"
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-7cd55139-c264-4ce5-93d7-f686800d55c9-1554043882532/node_modules/@perry/perry-interfaces"
-    "@perry/types" "file:../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-7cd55139-c264-4ce5-93d7-f686800d55c9-1554043882532/node_modules/@perry/types"
+    "@perry/compat" "file:packages/compat"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
+    "@perry/types" "file:packages/types"
 
 "@perry/store@file:packages/store":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../.cache/yarn/v4/npm-@perry-store-0.1.0-e253f278-9aa2-4185-a84b-101b3fb1c962-1554043882532/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
 
 "@perry/types@file:packages/types":
   version "0.1.0"
@@ -3550,6 +3550,11 @@ commander@~2.13.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
   integrity sha512-MVuS359B+YzaWqjCL/c+22gfryv+mCBPHAv3zyVI2GN8EY6IRP8VwtasXn8jyyhvvq84R4ImN1OKRtcbIasjYA==
+
+commander@~2.20.0:
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
+  integrity sha512-7j2y+40w61zy6YC2iRNpUe/NwhNyoXrYpHMrSunaMG64nRnaf96zO/KMQR4OyN/UnE5KLyEBnKHd4aG3rskjpQ==
 
 commander@~2.8.1:
   version "2.8.1"
@@ -5879,9 +5884,9 @@ handle-thing@^1.2.5:
   integrity sha1-/Xqtcmvxpf0W38KbL3pmAdJxOcQ=
 
 handlebars@^4.1.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.1.tgz#6e4e41c18ebe7719ae4d38e5aca3d32fa3dd23d3"
-  integrity sha512-3Zhi6C0euYZL5sM0Zcy7lInLXKQ+YLcF/olbN010mzGQ4XVm50JeyBnMqofHh696GrciGruC7kCcApPDJvVgwA==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.2.0.tgz#57ce8d2175b9bbb3d8b3cf3e4217b1aec8ddcb2e"
+  integrity sha512-Kb4xn5Qh1cxAKvQnzNWZ512DhABzyFNmsaJf3OAkWNa4NkaqWcNI8Tao8Tasi0/F4JD9oyG0YxuFyvyR57d+Gw==
   dependencies:
     neo-async "^2.6.0"
     optimist "^0.6.1"
@@ -8254,9 +8259,9 @@ negotiator@0.6.1:
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
 
 neo-async@^2.5.0, neo-async@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
-  integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
+  integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
 next-tick@^1.0.0:
   version "1.0.0"
@@ -11640,11 +11645,11 @@ uglify-js@^2.8.29:
     uglify-to-browserify "~1.0.0"
 
 uglify-js@^3.1.4:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.5.0.tgz#72cd24773c4961023f4f292ab9531177a0021897"
-  integrity sha512-kY2sHdru6BcIDg+i1SCZ1bpPhZJ6yiE0bEKLEJDC4M/lDSMhr/zVJeuEzvHJGjAXJCizSzUVh9atREf2jnR7yQ==
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.6.0.tgz#704681345c53a8b2079fb6cec294b05ead242ff5"
+  integrity sha512-W+jrUHJr3DXKhrsS7NUVxn3zqMOFn0hL/Ei6v0anCIMoKC93TjcflTagwIHLW7SfMFfiQuktQyFVCFHGUE0+yg==
   dependencies:
-    commander "~2.19.0"
+    commander "~2.20.0"
     source-map "~0.6.1"
 
 uglify-to-browserify@~1.0.0:
