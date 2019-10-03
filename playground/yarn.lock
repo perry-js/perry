@@ -2,57 +2,49 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.0.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.0.tgz#d523416573f19aa12784639e631257c7fc58c0aa"
-  integrity sha512-/eftZ45kD0OfOFHAmN02WP6N1NVphY+lBf8c2Q/P9VW3tj+N5NlBBAWfqOLOl96YDGMqpIBO5O/hQNx4A/lAng==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
 "@perry/compat@file:../packages/compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../../.cache/yarn/v4/npm-@perry-compat-0.1.0-463c952f-2d76-4b3c-9cc7-56ae0cbeb526-1553135243552/node_modules/@perry/types"
+    "@perry/types" "file:../packages/types"
 
 "@perry/perry-components@file:../packages/perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../.cache/yarn/v4/npm-@perry-perry-components-0.1.0-3b6993fb-a83d-443f-a3ac-2979299c468c-1553135243552/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../packages/perry-interfaces"
     preact "^8.4.2"
 
 "@perry/perry-interfaces@file:../packages/perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-84a13d87-f67f-4044-8046-e8f2fb93a9cd-1553135243545/node_modules/@perry/compat"
-    "@perry/types" "file:../../../.cache/yarn/v4/npm-@perry-perry-interfaces-0.1.0-84a13d87-f67f-4044-8046-e8f2fb93a9cd-1553135243545/node_modules/@perry/types"
+    "@perry/compat" "file:../packages/compat"
+    "@perry/types" "file:../packages/types"
 
 "@perry/perry@file:../packages/perry":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../.cache/yarn/v4/npm-@perry-perry-0.1.0-ca811016-d784-4cc8-9b5f-039d69c6d26d-1553135243537/node_modules/@perry/perry-interfaces"
-    "@perry/render-widget" "file:../../../.cache/yarn/v4/npm-@perry-perry-0.1.0-ca811016-d784-4cc8-9b5f-039d69c6d26d-1553135243537/node_modules/@perry/render-widget"
-    "@perry/screen-recorder" "file:../../../.cache/yarn/v4/npm-@perry-perry-0.1.0-ca811016-d784-4cc8-9b5f-039d69c6d26d-1553135243537/node_modules/@perry/screen-recorder"
-    "@perry/store" "file:../../../.cache/yarn/v4/npm-@perry-perry-0.1.0-ca811016-d784-4cc8-9b5f-039d69c6d26d-1553135243537/node_modules/@perry/store"
-    yup "^0.27.0"
+    "@perry/perry-interfaces" "file:../packages/perry-interfaces"
+    "@perry/render-widget" "file:../packages/render-widget"
+    "@perry/screen-recorder" "file:../packages/screen-recorder"
+    "@perry/store" "file:../packages/store"
 
 "@perry/render-widget@file:../packages/render-widget":
   version "0.1.0"
   dependencies:
-    "@perry/perry-components" "file:../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-bc32bb3a-bc6e-4810-adf0-66f933d2adf7-1553135243548/node_modules/@perry/perry-components"
-    "@perry/perry-interfaces" "file:../../../.cache/yarn/v4/npm-@perry-render-widget-0.1.0-bc32bb3a-bc6e-4810-adf0-66f933d2adf7-1553135243548/node_modules/@perry/perry-interfaces"
+    "@perry/perry-components" "file:../packages/perry-components"
+    "@perry/perry-interfaces" "file:../packages/perry-interfaces"
     preact "^8.4.2"
 
 "@perry/screen-recorder@file:../packages/screen-recorder":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-33a15df3-4eaf-48b1-9a4e-03738b992196-1553135243546/node_modules/@perry/compat"
-    "@perry/perry-interfaces" "file:../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-33a15df3-4eaf-48b1-9a4e-03738b992196-1553135243546/node_modules/@perry/perry-interfaces"
-    "@perry/types" "file:../../../.cache/yarn/v4/npm-@perry-screen-recorder-0.1.0-33a15df3-4eaf-48b1-9a4e-03738b992196-1553135243546/node_modules/@perry/types"
+    "@perry/compat" "file:../packages/compat"
+    "@perry/perry-interfaces" "file:../packages/perry-interfaces"
+    "@perry/types" "file:../packages/types"
 
 "@perry/store@file:../packages/store":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../.cache/yarn/v4/npm-@perry-store-0.1.0-1981bf2e-d26d-488c-923d-d587ed24cfbe-1553135243549/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../packages/perry-interfaces"
 
 "@perry/types@file:../packages/types":
   version "0.1.0"
@@ -3083,11 +3075,6 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-fn-name@~2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-2.0.1.tgz#5214d7537a4d06a4a301c0cc262feb84188002e7"
-  integrity sha1-UhTXU3pNBqSjAcDMJi/rhBiAAuc=
-
 follow-redirects@^1.0.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.7.0.tgz#489ebc198dc0e7f64167bd23b03c4c19b5784c76"
@@ -4716,9 +4703,9 @@ mississippi@^2.0.0:
     through2 "^2.0.0"
 
 mixin-deep@^1.2.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.1.tgz#a49e7268dce1a0d9698e45326c5626df3543d0fe"
-  integrity sha512-8ZItLHeEgaqEvd5lYBXfm4EZSFCX29Jb9K+lAHhDKzReKBQKj3R+7NOF6tjqYi9t4oI8VUfaWITJQm86wnXGNQ==
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/mixin-deep/-/mixin-deep-1.3.2.tgz#1120b43dc359a785dce65b55b82e257ccf479566"
+  integrity sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
@@ -5914,11 +5901,6 @@ prop-types@^15.6.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-property-expr@^1.5.0:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-1.5.1.tgz#22e8706894a0c8e28d58735804f6ba3a3673314f"
-  integrity sha512-CGuc0VUTGthpJXL36ydB6jnbyOf/rAHFvmVrJlH+Rg0DqqLFQGAP6hIaxD/G0OAmBJPhXDHuEJigrp0e0wFV6g==
-
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
@@ -6193,11 +6175,6 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
-
-regenerator-runtime@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
-  integrity sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA==
 
 regenerator-transform@^0.10.0:
   version "0.10.1"
@@ -7061,11 +7038,6 @@ sw-toolbox@^3.4.0:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
 
-synchronous-promise@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.6.tgz#de76e0ea2b3558c1e673942e47e714a930fa64aa"
-  integrity sha512-TyOuWLwkmtPL49LHCX1caIwHjRzcVd62+GF6h8W/jHOeZUFHpnd2XJDVuUlaTaLPH1nuu2M69mfHr5XbQJnf/g==
-
 tapable@^0.2.7:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.9.tgz#af2d8bbc9b04f74ee17af2b4d9048f807acd18a8"
@@ -7197,11 +7169,6 @@ toposort@^1.0.0:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/toposort/-/toposort-1.0.7.tgz#2e68442d9f64ec720b8cc89e6443ac6caa950029"
   integrity sha1-LmhELZ9k7HILjMieZEOsbKqVACk=
-
-toposort@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
-  integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
 trim-newlines@^1.0.0:
   version "1.0.0"
@@ -7807,15 +7774,3 @@ yauzl@^2.4.2:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
-
-yup@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.27.0.tgz#f8cb198c8e7dd2124beddc2457571329096b06e7"
-  integrity sha512-v1yFnE4+u9za42gG/b/081E7uNW9mUj3qtkmelLbW5YPROZzSH/KUUyJu9Wt8vxFJcT9otL/eZopS0YK1L5yPQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fn-name "~2.0.1"
-    lodash "^4.17.11"
-    property-expr "^1.5.0"
-    synchronous-promise "^2.0.6"
-    toposort "^2.0.2"
