@@ -1,12 +1,4 @@
 <div align="center">
-  <a href="https://github.com/perry-js">
-    <img alt="perry-js" src="https://github.com/perry-js/perry/blob/master/.github/assets/logo.png?raw=true" height="150px" />
-  </a>
-</div>
-
-<br />
-
-<div align="center">
   <strong>Perry is a spy. His job is to help finding bugs in your application.</strong>
   <br />
   <br />
