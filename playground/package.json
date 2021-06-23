@@ -29,7 +29,7 @@
     "babel-core": "6",
     "babel-loader": "7.1.5",
     "ejs-loader": "^0.3.1",
-    "preact-cli": "^2.2.1"
+    "preact-cli": "^3.2.2"
   },
   "dependencies": {
     "@perry/perry": "file:../packages/perry"
