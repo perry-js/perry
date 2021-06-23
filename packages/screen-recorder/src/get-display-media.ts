@@ -6,13 +6,15 @@
  *
  * @param constraints MediaStreamConstraints
  */
-const getDisplayMedia = (constraints: object): Promise<MediaStream> => {
+const getDisplayMedia = (
+  constraints: object
+): Promise<MediaStream> => {
   /**
    * If running on IE, then `navigator.getDisplayMedia`
    * should be used instead of `navigator.mediaDevices.getDisplayMedia`.
    */
   // @ts-ignore
-  if (typeof navigator.getDisplayMedia === "function") {
+  if (typeof navigator.getDisplayMedia === 'function') {
     // @ts-ignore
     return navigator.getDisplayMedia(constraints);
   }
@@ -21,7 +23,7 @@ const getDisplayMedia = (constraints: object): Promise<MediaStream> => {
    * TODO: Clean this `any` hack once getDisplayMedia
    * gets more stable.
    */
-  const mediaDevices = (navigator.mediaDevices as any);
+  const mediaDevices = navigator.mediaDevices as any;
 
   return mediaDevices.getDisplayMedia(constraints);
 };

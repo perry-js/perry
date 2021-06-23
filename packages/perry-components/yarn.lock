@@ -742,13 +742,13 @@
 "@perry/compat@file:../compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-compat-0.1.0-5c9cca83-65b7-478c-a9ad-833427275271-1624459816963/node_modules/@perry/types"
+    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-compat-0.1.0-7eae3bb7-6cfc-4e0b-a250-85994d8dbf7c-1624485606290/node_modules/@perry/types"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-c366941f-8937-4960-b383-d7174e24b8d5-1624459816961/node_modules/@perry/compat"
-    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-c366941f-8937-4960-b383-d7174e24b8d5-1624459816961/node_modules/@perry/types"
+    "@perry/compat" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-1d19b1dd-313b-44b3-b82e-34cd12c222f8-1624485606287/node_modules/@perry/compat"
+    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-1d19b1dd-313b-44b3-b82e-34cd12c222f8-1624485606287/node_modules/@perry/types"
 
 "@perry/types@file:../types":
   version "0.1.0"
@@ -3154,6 +3154,11 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
+
+prettier@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
+  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
 
 pretty-format@^24.5.0:
   version "24.5.0"

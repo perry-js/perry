@@ -1,11 +1,10 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent, h } from 'preact';
+import { JSXInternal } from 'preact/src/jsx';
 
-interface InputProps {
-  label?: string;
-  [a: string]: any;
-}
+export type LabeledInputProps =
+  JSXInternal.HTMLAttributes<HTMLInputElement>;
 
-const LabeledInput: FunctionalComponent<InputProps> = ({
+const LabeledInput: FunctionalComponent<LabeledInputProps> = ({
   label,
   ...props
 }) => (

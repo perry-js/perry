@@ -5,19 +5,19 @@
 "@perry/compat@file:../compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-compat-0.1.0-10bd6566-317b-4ace-b6f5-894e0fa92e9b-1624460051688/node_modules/@perry/types"
+    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-compat-0.1.0-0732e261-6c41-442c-ba1e-a25816f797ba-1624485541505/node_modules/@perry/types"
 
 "@perry/perry-components@file:../perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-components-0.1.0-bcdfcde1-dfe6-42c0-89a9-eccfc4d25191-1624460051683/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-components-0.1.0-5a5fa6ca-0ead-4abc-bfac-ddb7af3f90c3-1624485541500/node_modules/@perry/perry-interfaces"
     preact "^10.5.13"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-a28fe763-e820-416b-864c-68cf4bf17517-1624460051687/node_modules/@perry/compat"
-    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-a28fe763-e820-416b-864c-68cf4bf17517-1624460051687/node_modules/@perry/types"
+    "@perry/compat" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-6eef7015-7f1b-4728-af55-e079a27746c8-1624485541503/node_modules/@perry/compat"
+    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-6eef7015-7f1b-4728-af55-e079a27746c8-1624485541503/node_modules/@perry/types"
 
 "@perry/types@file:../types":
   version "0.1.0"
@@ -230,6 +230,11 @@ preact@^10.5.13:
   version "10.5.13"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.13.tgz#85f6c9197ecd736ce8e3bec044d08fd1330fa019"
   integrity sha512-q/vlKIGNwzTLu+jCcvywgGrt+H/1P/oIRSD6mV4ln3hmlC+Aa34C7yfPI4+5bzW8pONyVXYS7SvXosy2dKKtWQ==
+
+prettier@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
+  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
 
 resolve@^1.3.2:
   version "1.10.0"

@@ -1,4 +1,4 @@
-import IPerryStoreEvent from "./IPerryStoreEvent";
+import IPerryStoreEvent from './IPerryStoreEvent';
 
 export default interface IPerryReport {
   title?: string;

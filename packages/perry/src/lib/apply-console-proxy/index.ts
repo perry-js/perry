@@ -2,23 +2,20 @@ import { IPerryOptions, IPerryStore } from '@perry/perry-interfaces';
 import FeatureToggleStore from '../feature-toggle-store';
 import Features from '../features';
 
-const createHandlerFactory = (
-  instance: Console,
-  property: string | number | symbol
-) => (
-  enabled: boolean,
-  store: IPerryStore
-) => <T>(...params: T[]) => {
-  if (enabled) {
-    store.write({
-      name: 'console',
-      params,
-      property,
-    });
-  }
+const createHandlerFactory =
+  (instance: Console, property: string | number | symbol) =>
+  (enabled: boolean, store: IPerryStore) =>
+  <T>(...params: T[]) => {
+    if (enabled) {
+      store.write({
+        name: 'console',
+        params,
+        property,
+      });
+    }
 
-  return instance[property](...params);
-};
+    return instance[property](...params);
+  };
 
 export default function applyConsoleProxy(
   options: IPerryOptions,

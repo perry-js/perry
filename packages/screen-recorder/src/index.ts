@@ -1,15 +1,21 @@
 /// <reference types="@perry/types" />
-import { supportsMediaDevices, supportsMediaRecorder } from "@perry/compat";
-import { IPerryScreenRecorder, IPerryStore } from "@perry/perry-interfaces";
-import getDisplayMedia from "./get-display-media";
-import mapBlobListToBase64 from "./map-blob-list-to-base64";
+import {
+  supportsMediaDevices,
+  supportsMediaRecorder,
+} from '@perry/compat';
+import {
+  IPerryScreenRecorder,
+  IPerryStore,
+} from '@perry/perry-interfaces';
+import getDisplayMedia from './get-display-media';
+import mapBlobListToBase64 from './map-blob-list-to-base64';
 
 const STORE_CONFIGURATION = {
-  name: "perryscreenrecorder",
+  name: 'perryscreenrecorder',
   properties: {
-    onError: "onerror",
-    onFinish: "onfinish",
-    onStart: "onstart",
+    onError: 'onerror',
+    onFinish: 'onfinish',
+    onStart: 'onstart',
   },
 };
 
@@ -25,7 +31,10 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
   private readonly store: IPerryStore;
   private readonly options: IScreenRecorderOptions;
 
-  public constructor(options: IScreenRecorderOptions, store: IPerryStore) {
+  public constructor(
+    options: IScreenRecorderOptions,
+    store: IPerryStore
+  ) {
     this.options = options;
     this.store = store;
   }
@@ -35,21 +44,27 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
       return;
     }
 
-    const constraints = { video: { mediaSource: "screen" } };
+    const constraints = { video: { mediaSource: 'screen' } };
 
     this.data = [];
 
     try {
       this.stream = await getDisplayMedia(constraints);
     } catch (e) {
-      throw new Error("Failed to get DisplayMedia Stream.");
+      throw new Error('Failed to get DisplayMedia Stream.');
     }
 
     this.recorder = new MediaRecorder(this.stream);
 
-    this.recorder.addEventListener("stop", this.onRecorderStopEvent)
-    this.recorder.addEventListener("error", this.onRecorderErrorEvent);
-    this.recorder.addEventListener("dataavailable", this.onRecorderDataAvailableEvent);
+    this.recorder.addEventListener('stop', this.onRecorderStopEvent);
+    this.recorder.addEventListener(
+      'error',
+      this.onRecorderErrorEvent
+    );
+    this.recorder.addEventListener(
+      'dataavailable',
+      this.onRecorderDataAvailableEvent
+    );
 
     this.recorder.start();
   }
@@ -57,11 +72,13 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
   public onRecorderStopEvent = () => {
     this.recorderOnStop();
     this.stopStreamTracks();
-  }
+  };
 
-  public onRecorderErrorEvent = (error: MediaRecorderErrorEvent) => console.error(error);
+  public onRecorderErrorEvent = (error: MediaRecorderErrorEvent) =>
+    console.error(error);
 
-  public onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);
+  public onRecorderDataAvailableEvent = (event: BlobEvent) =>
+    this.data.push(event.data);
 
   public async stop(): Promise<void> {
     if (!this.recorder) {
@@ -93,7 +110,8 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
       name: STORE_CONFIGURATION.name,
       params: {
         file: base64EncodedVideo,
-        message: "Recording is done. File is a base64 encoded webm video.",
+        message:
+          'Recording is done. File is a base64 encoded webm video.',
         settings,
       },
       property: STORE_CONFIGURATION.properties.onFinish,
@@ -114,7 +132,8 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
       this.store.write({
         name: STORE_CONFIGURATION.name,
         params: {
-          message: "MediaRecorder Class seems unavailable in this browser.",
+          message:
+            'MediaRecorder Class seems unavailable in this browser.',
         },
         property: STORE_CONFIGURATION.properties.onStart,
       });
@@ -126,7 +145,8 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
       this.store.write({
         name: STORE_CONFIGURATION.name,
         params: {
-          message: "MediaDevices API seems unavailable in this browser.",
+          message:
+            'MediaDevices API seems unavailable in this browser.',
         },
         property: STORE_CONFIGURATION.properties.onStart,
       });

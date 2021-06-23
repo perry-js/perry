@@ -1,4 +1,4 @@
-import IPerryReport from "./IPerryReport";
+import IPerryReport from './IPerryReport';
 
 export type PerryPlugin = (reportInfo: IPerryReport) => void;
 

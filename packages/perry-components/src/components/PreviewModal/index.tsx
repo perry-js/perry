@@ -1,25 +1,25 @@
-import { IPerryReportInfo } from "@perry/perry-interfaces";
-import { FunctionalComponent, h } from "preact";
-import LabeledInput from "../LabeledInput";
+import { IPerryReportInfo } from '@perry/perry-interfaces';
+import { FunctionalComponent, h } from 'preact';
+import LabeledInput, { LabeledInputProps } from '../LabeledInput';
 
 interface IModalProps {
   form: IPerryReportInfo;
   onSubmit: () => void;
   onDiscard: () => void;
-  onFieldChange: (property: string) => void;
+  onFieldChange: LabeledInputProps['onChange'];
 }
 
+const noop = () => {};
+
 const PreviewModal: FunctionalComponent<IModalProps> = ({
-  form,
-  onSubmit,
-  onDiscard,
-  onFieldChange,
+  form = {},
+  onSubmit = noop,
+  onDiscard = noop,
+  onFieldChange = noop,
 }) => (
   <div>
     <div>
-      <h2>
-        Submit report
-      </h2>
+      <h2>Submit report</h2>
       <hr />
       <LabeledInput
         label="Report title"
@@ -34,24 +34,9 @@ const PreviewModal: FunctionalComponent<IModalProps> = ({
         onChange={onFieldChange}
       />
     </div>
-    <button
-      onClick={onSubmit}
-    >
-      Submit
-    </button>
-    <button
-      onClick={onDiscard}
-    >
-      Discard
-    </button>
+    <button onClick={onSubmit}>Submit</button>
+    <button onClick={onDiscard}>Discard</button>
   </div>
 );
-
-PreviewModal.defaultProps = {
-  form: {},
-  onDiscard: () => { /* empty function */ },
-  onFieldChange: () => { /* empty function */ },
-  onSubmit: () => { /* empty function */ },
-};
 
 export default PreviewModal;
