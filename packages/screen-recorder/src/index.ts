@@ -1,12 +1,9 @@
-/// <reference types="@perry/types" />
+/// <reference types="@types/dom-mediacapture-record" />
 import {
   supportsMediaDevices,
   supportsMediaRecorder,
 } from '@perry/compat';
-import {
-  IPerryScreenRecorder,
-  IPerryStore,
-} from '@perry/perry-interfaces';
+import { IPerryStore } from '@perry/perry-interfaces';
 import getDisplayMedia from './get-display-media';
 import mapBlobListToBase64 from './map-blob-list-to-base64';
 
@@ -24,7 +21,7 @@ export interface IScreenRecorderOptions {
   encodingType: string;
 }
 
-export default class ScreenRecorder implements IPerryScreenRecorder {
+export default class ScreenRecorder {
   private data: Blob[] = [];
   private stream: MediaStream;
   private recorder: MediaRecorder;
@@ -80,12 +77,12 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
   public onRecorderDataAvailableEvent = (event: BlobEvent) =>
     this.data.push(event.data);
 
-  public async stop(): Promise<void> {
+  public stop() {
     if (!this.recorder) {
       return;
     }
 
-    await this.recorder.stop();
+    this.recorder.stop();
   }
 
   private stopStreamTracks(): void {

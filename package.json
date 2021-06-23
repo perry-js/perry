@@ -11,6 +11,7 @@
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run --parallel lint",
+    "lint:fix": "lerna run --parallel lint:fix",
     "build": "lerna run build",
     "clean": "lerna clean",
     "link": "lerna link",

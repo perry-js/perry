@@ -1,7 +1,7 @@
 /// <reference types="@perry/types" />
 
 export default interface IScreenRecorder {
-  stop: () => Promise<void>;
+  stop: () => void;
   start: () => Promise<void>;
   onRecorderStopEvent: EventListener;
   onRecorderErrorEvent: EventListener;
