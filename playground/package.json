@@ -12,7 +12,7 @@
   },
   "scripts": {
     "serve": "preact serve",
-    "build": "preact build --no-prerender --clean --template index.ejs --service-worker false",
+    "build": "preact build --no-prerender --template index.ejs",
     "start": "preact watch --template index.ejs"
   },
   "repository": {
