@@ -47,9 +47,9 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
 
     this.recorder = new MediaRecorder(this.stream);
 
-    this.recorder.onstop(this.onRecorderStopEvent);
-    this.recorder.onerror(this.onRecorderErrorEvent);
-    this.recorder.ondataavailable(this.onRecorderDataAvailableEvent);
+    this.recorder.addEventListener("stop", this.onRecorderStopEvent)
+    this.recorder.addEventListener("error", this.onRecorderErrorEvent);
+    this.recorder.addEventListener("dataavailable", this.onRecorderDataAvailableEvent);
 
     this.recorder.start();
   }
@@ -59,8 +59,6 @@ export default class ScreenRecorder implements IPerryScreenRecorder {
     this.stopStreamTracks();
   }
 
-  /* disabling because we actually want currently to console it */
-  /* tslint:disable-next-line */
   public onRecorderErrorEvent = (error: MediaRecorderErrorEvent) => console.error(error);
 
   public onRecorderDataAvailableEvent = (event: BlobEvent) => this.data.push(event.data);

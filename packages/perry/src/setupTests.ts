@@ -21,7 +21,7 @@
     };
   })();
 
-  Object.defineProperty(window, "localStorage", {
+  Object.defineProperty(window, 'localStorage', {
     value: localStorageMock,
   });
-}());
+})();

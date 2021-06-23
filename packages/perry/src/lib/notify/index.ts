@@ -1,6 +1,6 @@
-import { IPerryStore } from "@perry/perry-interfaces";
-import FeatureToggleStore from "../feature-toggle-store";
-import Features from "../features";
+import { IPerryStore } from '@perry/perry-interfaces';
+import FeatureToggleStore from '../feature-toggle-store';
+import Features from '../features';
 
 const notify = (error: Error, store: IPerryStore): void => {
   if (!FeatureToggleStore.is(Features.NOTIFY_LISTENER)) {
@@ -8,13 +8,13 @@ const notify = (error: Error, store: IPerryStore): void => {
   }
 
   store.write({
-    name: "perry",
+    name: 'perry',
     params: {
       message: error.message,
       name: error.name,
       stack: error.stack,
     },
-    property: "notify",
+    property: 'notify',
   });
 };
 

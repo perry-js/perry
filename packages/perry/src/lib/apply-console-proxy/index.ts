@@ -1,27 +1,29 @@
-import { IPerryOptions, IPerryStore } from "@perry/perry-interfaces";
-import FeatureToggleStore from "../feature-toggle-store";
-import Features from "../features";
+import { IPerryOptions, IPerryStore } from '@perry/perry-interfaces';
+import FeatureToggleStore from '../feature-toggle-store';
+import Features from '../features';
 
-type ConsoleCallSignature = (...params: any[]) => void;
-type Handler = (enabled: boolean, store: IPerryStore) => ConsoleCallSignature;
-type HandlerFactory = (instance: Console, property: string | number | symbol) => Handler;
+const createHandlerFactory = (
+  instance: Console,
+  property: string | number | symbol
+) => (
+  enabled: boolean,
+  store: IPerryStore
+) => <T>(...params: T[]) => {
+  if (enabled) {
+    store.write({
+      name: 'console',
+      params,
+      property,
+    });
+  }
 
-const createHandlerFactory: HandlerFactory =
-  (instance: Console, property: string): Handler =>
-    (enabled: boolean, store: IPerryStore): ConsoleCallSignature =>
-      (...params: any[]) => {
-        if (enabled) {
-          store.write({
-            name: "console",
-            params,
-            property,
-          });
-        }
+  return instance[property](...params);
+};
 
-        return instance[property](...params);
-      };
-
-export default function applyConsoleProxy(options: IPerryOptions, store: IPerryStore): void {
+export default function applyConsoleProxy(
+  options: IPerryOptions,
+  store: IPerryStore
+): void {
   (window.console as any) = new Proxy(window.console, {
     get(instance, property) {
       if (!FeatureToggleStore.is(Features.CONSOLE_LISTENER)) {
@@ -32,9 +34,9 @@ export default function applyConsoleProxy(options: IPerryOptions, store: IPerryS
 
       if (property in instance) {
         switch (property) {
-          case "log":
-          case "warn":
-          case "error":
+          case 'log':
+          case 'warn':
+          case 'error':
             return handlerFactory(options[property], store);
 
           default:

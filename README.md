@@ -1,12 +1,4 @@
 <div align="center">
-  <a href="https://github.com/perry-js">
-    <img alt="perry-js" src="https://github.com/perry-js/perry/blob/master/.github/assets/logo.png?raw=true" height="150px" />
-  </a>
-</div>
-
-<br />
-
-<div align="center">
   <strong>Perry is a spy. His job is to help finding bugs in your application.</strong>
   <br />
   <br />
@@ -309,37 +301,7 @@ const perry = new Perry({
 
 ## Contributing
 
-Contributions are welcome into Perry.
-
-### Getting started
-
-First clone this repository using Git:
-
-```sh
-git clone https://github.com/perry-js/perry.git
-```
-
-Enter the project repository, download the dependencies and init the development server:
-
-```sh
-cd ./perry
-npm ci
-npm start
-```
-
-Go to https://localhost:8080 and you'll see Perry's Test Page.
-
-At this point you can change the src code and it Perry will get rebuilt on each code change.
-
-The test page will reload as well when code changes.
-
-### Pull Requests
-
-Pull requests go through unit tests and also have their own deployment in Netlify using Deploy Previews.
-
-Just open it and you'll have your very own deployment of Perry's test page to play around.
-
-We'll review it as soon as possible as well =)
+See the CONTRIBUTING.md file.
 
 ## Collaborators
 

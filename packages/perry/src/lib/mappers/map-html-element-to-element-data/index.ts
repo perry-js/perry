@@ -1,10 +1,12 @@
-import { IPerryElementData } from "@perry/perry-interfaces";
+import { IPerryElementData } from '@perry/perry-interfaces';
 
-const mapClassListToArray =
-  (classList: DOMTokenList = ({} as DOMTokenList)): ReadonlyArray<string> =>
-    [].slice.call(classList);
+const mapClassListToArray = (
+  classList: DOMTokenList = {} as DOMTokenList
+): ReadonlyArray<string> => [].slice.call(classList);
 
-const mapHTMLElementToPerryElementData = (element: HTMLElement): IPerryElementData => ({
+const mapHTMLElementToPerryElementData = (
+  element: HTMLElement
+): IPerryElementData => ({
   classList: mapClassListToArray(element.classList),
   className: element.className,
   dataset: element.dataset,

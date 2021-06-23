@@ -1,8 +1,10 @@
-import { IViewport } from "@perry/perry-interfaces";
-import { IPerryStoreWriteParams } from "@perry/perry-interfaces/build/IPerryStore";
-import * as mappers from "./mappers";
+import { IViewport } from '@perry/perry-interfaces';
+import { IPerryStoreWriteParams } from '@perry/perry-interfaces/build/IPerryStore';
+import * as mappers from './mappers';
 
-const mapMouseEventToPerryEvent = (event: MouseEvent): IPerryStoreWriteParams => {
+const mapMouseEventToPerryEvent = (
+  event: MouseEvent
+): IPerryStoreWriteParams => {
   const view: Window = event.view;
   const screen: Screen = view.screen;
 
@@ -13,14 +15,14 @@ const mapMouseEventToPerryEvent = (event: MouseEvent): IPerryStoreWriteParams =>
   const viewport = (view as any).visualViewport as IViewport;
 
   return {
-    name: "document",
+    name: 'document',
     params: {
       event: mappers.mapMouseEventToSerializableMouseEvent(event),
       screen: mappers.mapScreenToSerializableScreen(screen),
       target: mappers.mapHTMLElementToSerializableTarget(element),
       viewport: mappers.mapViewportToSerializableViewport(viewport),
     },
-    property: "onclick",
+    property: 'onclick',
   };
 };
 

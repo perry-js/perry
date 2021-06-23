@@ -1,17 +1,20 @@
-import { IPerryOptions, IPerryStore } from "@perry/perry-interfaces";
-import FeatureToggleStore from "../feature-toggle-store";
-import Features from "../features";
+import { IPerryOptions, IPerryStore } from '@perry/perry-interfaces';
+import FeatureToggleStore from '../feature-toggle-store';
+import Features from '../features';
 
 const isScriptError = (message: string): boolean =>
-  message.toLowerCase().indexOf("script error") > -1;
+  message.toLowerCase().indexOf('script error') > -1;
 
-export default function listenWindowErrors(options: IPerryOptions, store: IPerryStore): void {
+export default function listenWindowErrors(
+  options: IPerryOptions,
+  store: IPerryStore
+) {
   const handler = (
     message: string,
     url: string,
     line: number,
     column: number,
-    error: any,
+    error: any
   ): void => {
     if (!FeatureToggleStore.is(Features.WINDOW_ERROR_LISTENER)) {
       return;
@@ -31,7 +34,7 @@ export default function listenWindowErrors(options: IPerryOptions, store: IPerry
     }
 
     store.write({
-      name: isUnhandableError ? "script" : "window",
+      name: isUnhandableError ? 'script' : 'window',
       params: {
         column,
         line,
@@ -39,7 +42,7 @@ export default function listenWindowErrors(options: IPerryOptions, store: IPerry
         stack: error && error.stack,
         url,
       },
-      property: "onerror",
+      property: 'onerror',
     });
   };
 

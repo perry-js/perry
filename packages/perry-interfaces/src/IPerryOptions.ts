@@ -1,7 +1,6 @@
 import IPerryReport from "./IPerryReport";
-import IPerryReportInfo from "./IPerryReportInfo";
 
-export type PerryPlugin = (reportInfo: IPerryReportInfo) => IPerryReport;
+export type PerryPlugin = (reportInfo: IPerryReport) => void;
 
 export default interface IPerryOptions {
   log: boolean;

@@ -1,5 +1,5 @@
-import FeatureToggleStore from "../feature-toggle-store";
-import Features from "../features";
+import FeatureToggleStore from '../feature-toggle-store';
+import Features from '../features';
 
 export default function stopListeners() {
   FeatureToggleStore.disable(Features.CONSOLE_LISTENER);
