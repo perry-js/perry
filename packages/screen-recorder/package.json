@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/dom-mediacapture-record": "^1.0.7",
     "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^4.3.4"
   },
   "dependencies": {
     "@perry/compat": "file:../compat",

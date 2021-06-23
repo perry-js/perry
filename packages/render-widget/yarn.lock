@@ -5,19 +5,19 @@
 "@perry/compat@file:../compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../types"
+    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-compat-0.1.0-10bd6566-317b-4ace-b6f5-894e0fa92e9b-1624460051688/node_modules/@perry/types"
 
 "@perry/perry-components@file:../perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../perry-interfaces"
-    preact "^8.4.2"
+    "@perry/perry-interfaces" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-components-0.1.0-bcdfcde1-dfe6-42c0-89a9-eccfc4d25191-1624460051683/node_modules/@perry/perry-interfaces"
+    preact "^10.5.13"
 
 "@perry/perry-interfaces@file:../perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../compat"
-    "@perry/types" "file:../types"
+    "@perry/compat" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-a28fe763-e820-416b-864c-68cf4bf17517-1624460051687/node_modules/@perry/compat"
+    "@perry/types" "file:../../../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-a28fe763-e820-416b-864c-68cf4bf17517-1624460051687/node_modules/@perry/types"
 
 "@perry/types@file:../types":
   version "0.1.0"
@@ -226,10 +226,10 @@ path-parse@^1.0.6:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
 
-preact@^8.4.2:
-  version "8.4.2"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-8.4.2.tgz#1263b974a17d1ea80b66590e41ef786ced5d6a23"
-  integrity sha512-TsINETWiisfB6RTk0wh3/mvxbGRvx+ljeBccZ4Z6MPFKgu/KFGyf2Bmw3Z/jlXhL5JlNKY6QAbA9PVyzIy9//A==
+preact@^10.5.13:
+  version "10.5.13"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.13.tgz#85f6c9197ecd736ce8e3bec044d08fd1330fa019"
+  integrity sha512-q/vlKIGNwzTLu+jCcvywgGrt+H/1P/oIRSD6mV4ln3hmlC+Aa34C7yfPI4+5bzW8pONyVXYS7SvXosy2dKKtWQ==
 
 resolve@^1.3.2:
   version "1.10.0"
@@ -298,10 +298,10 @@ tsutils@^2.29.0:
   dependencies:
     tslib "^1.8.1"
 
-typescript@^3.3.3333:
-  version "3.3.3333"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
-  integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
+typescript@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
+  integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==
 
 wrappy@1:
   version "1.0.2"

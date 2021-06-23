@@ -21,14 +21,14 @@
     "@types/jest": "^24.0.11",
     "babel-jest": "^24.5.0",
     "jest": "^24.5.0",
-    "preact-render-to-string": "^4.1.0",
+    "preact-render-to-string": "^5.1.19",
     "ts-jest": "^24.0.0",
     "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^4.3.4"
   },
   "dependencies": {
     "@perry/perry-interfaces": "file:../perry-interfaces",
-    "preact": "^8.4.2"
+    "preact": "^10.5.13"
   },
   "jest": {
     "transform": {

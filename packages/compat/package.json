@@ -21,7 +21,7 @@
   "homepage": "https://github.com/perry-js/perry#readme",
   "devDependencies": {
     "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^4.3.4"
   },
   "dependencies": {
     "@perry/types": "file:../types"
