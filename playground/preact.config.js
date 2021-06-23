@@ -12,16 +12,14 @@ const getPublicPath = () => {
   return ROOT_SLASH;
 };
 
-export default (config, env, helpers) => {
-  delete config.entry.polyfills;
-  config.output.filename = "[name].js";
+export default {
+  webpack(config, _env, _helpers, _options) {
+    delete config.entry.polyfills;
 
-  let { plugin } = helpers.getPluginsByName(config, "ExtractTextPlugin")[0];
-  plugin.options.disable = true;
-
-  config.output.publicPath = getPublicPath();
-
-  config.output.library = "perry";
-  config.output.libraryTarget = "umd";
-  config.output.umdNamedDefine = true;
+    config.output.filename = "[name].js";
+    config.output.publicPath = getPublicPath();
+    config.output.library = "perry";
+    config.output.libraryTarget = "umd";
+    config.output.umdNamedDefine = true;
+  }
 };

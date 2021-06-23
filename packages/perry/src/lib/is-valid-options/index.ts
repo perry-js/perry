@@ -1,41 +1,42 @@
-import { IPerryOptions } from "@perry/perry-interfaces";
+import { IPerryOptions } from '@perry/perry-interfaces';
 
 const expectedTypes = {
-  clearOnReload: "boolean",
-  clearOnStart: "boolean",
-  clicks: "boolean",
-  cookies: "boolean",
-  enableScreenRecording: "boolean",
-  error: "boolean",
-  ignoreScriptErrors: "boolean",
-  localStorage: "boolean",
-  log: "boolean",
-  plugins: "array",
-  sessionStorage: "boolean",
-  warn: "boolean",
+  clearOnReload: 'boolean',
+  clearOnStart: 'boolean',
+  clicks: 'boolean',
+  cookies: 'boolean',
+  enableScreenRecording: 'boolean',
+  error: 'boolean',
+  ignoreScriptErrors: 'boolean',
+  localStorage: 'boolean',
+  log: 'boolean',
+  plugins: 'array',
+  sessionStorage: 'boolean',
+  warn: 'boolean',
 };
-
-function isArray(value: any) {
-  return value && typeof value === "object" && value.constructor === Array;
-}
 
 function throwError(
   property: string,
   currentValue: string,
-  expectedType: string,
+  expectedType: string
 ) {
   throw new Error(
-    `[Perry Options]: "${property}" was supposed to be of type "${expectedType}", but received "${currentValue}"`,
+    `[Perry Options]: "${property}" was supposed to be of type "${expectedType}", but received "${currentValue}"`
   );
 }
 
-function shouldThrow(currentValue: any, expectedType: "array" | "boolean") {
-  const currentType = typeof currentValue;
-
-  const isNotAnArray = expectedType === "array" && !isArray(currentValue);
-  const isNotExpectedType = currentType !== expectedType;
-
-  return isNotAnArray || isNotExpectedType;
+function validateValue(
+  currentValue: any,
+  expectedType: 'array' | 'boolean'
+) {
+  switch (expectedType) {
+    case 'array':
+      return Array.isArray(currentValue);
+    case 'boolean':
+      return typeof currentValue === 'boolean';
+    default:
+      return false;
+  }
 }
 
 const checkOptions = (options: IPerryOptions) => {
@@ -44,14 +45,14 @@ const checkOptions = (options: IPerryOptions) => {
       const currentValue = options[property];
       const expectedType = expectedTypes[property];
 
-      if (shouldThrow(currentValue, expectedType)) {
+      if (!validateValue(currentValue, expectedType)) {
         throwError(property, currentValue, expectedType);
       }
     }
   }
 };
 
-export default (options: IPerryOptions): boolean => {
+const isValidOptions = (options: IPerryOptions) => {
   try {
     checkOptions(options);
     return true;
@@ -61,3 +62,5 @@ export default (options: IPerryOptions): boolean => {
     return false;
   }
 };
+
+export default isValidOptions;

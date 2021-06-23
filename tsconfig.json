@@ -12,6 +12,8 @@
     "strictNullChecks": false,
     "declaration": true,
     "strictPropertyInitialization": false,
+    "rootDir": "src",
+    "outDir": "build",
     "lib": ["dom", "es2015", "es5", "es6", "dom.iterable", "scripthost", "es2015.proxy"]
   }
 }

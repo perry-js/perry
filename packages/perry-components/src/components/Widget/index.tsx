@@ -2,73 +2,72 @@ import {
   IPerryReportInfo,
   IWidgetProps,
   WidgetStatus,
-} from "@perry/perry-interfaces";
-import { Component, h } from "preact";
-import ControlledPreviewModal from "../ControlledPreviewModal";
-import WidgetIcon from "../WidgetIcon";
+} from '@perry/perry-interfaces';
+import { FunctionalComponent, h } from 'preact';
+import { useCallback, useState } from 'preact/hooks';
 
-import getLabelForState from "../../lib/get-label-for-widget-state";
+import ControlledPreviewModal from '../ControlledPreviewModal';
+import WidgetIcon from '../WidgetIcon';
+
+import getLabelForState from '../../lib/get-label-for-widget-state';
 
 export interface IWidgetState {
   isModalOpen: boolean;
   status: WidgetStatus;
 }
 
-class Widget extends Component<IWidgetProps, IWidgetState> {
-  public state = {
-    isModalOpen: false,
-    status: WidgetStatus.IDLE,
-  };
+const Widget: FunctionalComponent<IWidgetProps> = ({
+  onSubmit,
+  onStopRecording,
+  onStartRecording,
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [status, setStatus] = useState(WidgetStatus.IDLE);
 
-  public toggleModal = () =>
-    this.setState(({ isModalOpen }) => ({
-      isModalOpen: !isModalOpen,
-    }))
+  const toggleModal = useCallback(() => {
+    setIsModalOpen((prevState) => !prevState);
+  }, [setIsModalOpen]);
 
-  public setStatus = (status: WidgetStatus) =>
-    this.setState({ status })
-
-  public next = async () => {
-    switch (this.state.status) {
+  const nextState = useCallback(async () => {
+    switch (status) {
       case WidgetStatus.IDLE:
-        await this.props.onStartRecording();
-        return this.setStatus(WidgetStatus.RECORDING);
+        await onStartRecording();
+        return setStatus(WidgetStatus.RECORDING);
       case WidgetStatus.RECORDING:
-        this.props.onStopRecording();
-        return this.setStatus(WidgetStatus.STOPPED);
+        onStopRecording();
+        return setStatus(WidgetStatus.STOPPED);
       case WidgetStatus.STOPPED:
-        return this.toggleModal();
+        return toggleModal();
     }
-  }
+  }, [onStartRecording, setStatus, toggleModal]);
 
-  public handleDiscard = () => {
-    this.setStatus(WidgetStatus.IDLE);
-    this.toggleModal();
-  }
+  const handleSubmit = useCallback(
+    (reportInfo: IPerryReportInfo) => {
+      setStatus(WidgetStatus.IDLE);
+      toggleModal();
+      onSubmit(reportInfo);
+    },
+    [setStatus, toggleModal, onSubmit]
+  );
 
-  public handleSubmit = (reportInfo: IPerryReportInfo) => {
-    this.setStatus(WidgetStatus.IDLE);
-    this.toggleModal();
-    this.props.onSubmit(reportInfo);
-  }
+  const handleDiscard = useCallback(() => {
+    setStatus(WidgetStatus.IDLE);
+    toggleModal();
+  }, [toggleModal, setStatus]);
 
-  public render() {
-    const { status, isModalOpen } = this.state;
-
-    return (
-      <div>
-        <button onClick={this.next}>
-          <WidgetIcon status={status} />
-          <p>{getLabelForState(status)}</p>
-        </button>
-        <ControlledPreviewModal
-          open={isModalOpen}
-          onSubmit={this.handleSubmit}
-          onDiscard={this.handleDiscard}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <button onClick={nextState}>
+        <WidgetIcon status={status} />
+        <p>{getLabelForState(status)}</p>
+      </button>
+      <ControlledPreviewModal
+        open={isModalOpen}
+        onSubmit={handleSubmit}
+        onDiscard={handleDiscard}
+      />
+    </div>
+  );
+};
 
 export default Widget;

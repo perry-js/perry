@@ -1,10 +1,13 @@
-import { IPerryReport, IPerryReportInfo } from "@perry/perry-interfaces";
-import aggregateReport from ".";
+import {
+  IPerryReport,
+  IPerryReportInfo,
+} from '@perry/perry-interfaces';
+import aggregateReport from '.';
 
 const reportInfo: IPerryReportInfo = {
-  description: "Testing this aggregateReport",
-  screenshotUrl: "http://urlscreenshot.com",
-  title: "Testing",
+  description: 'Testing this aggregateReport',
+  screenshotUrl: 'http://urlscreenshot.com',
+  title: 'Testing',
 };
 
 const expectedReport: IPerryReport = {
@@ -20,8 +23,8 @@ const expectedReport: IPerryReport = {
   warns: [],
 };
 
-describe("aggregateReport", () => {
-  it("should return an empty report by default", () => {
+describe('aggregateReport', () => {
+  it('should return an empty report by default', () => {
     expect(aggregateReport(reportInfo)).toEqual(expectedReport);
   });
 });

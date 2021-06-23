@@ -1,4 +1,4 @@
-import { IPerryStoreEvent } from "@perry/perry-interfaces";
+import { IPerryStoreEvent } from '@perry/perry-interfaces';
 
 export default function writeToStore({
   name,

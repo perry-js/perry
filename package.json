@@ -1,22 +1,21 @@
 {
   "name": "perry",
   "version": "0.1.0",
-  "description": "",
+  "description": "Painless and agnostic front-end bug reporting.",
   "main": "index.js",
   "private": true,
   "workspaces": [
-    "./packages/*",
-    "./playground/"
+    "./packages/*"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
-    "test:ci": "CI=1 npm test",
     "lint": "lerna run --parallel lint",
+    "lint:fix": "lerna run --parallel lint:fix",
     "build": "lerna run build",
-    "install": "npm run bootstrap",
     "clean": "lerna clean",
-    "link": "lerna link"
+    "link": "lerna link",
+    "lerna": "lerna"
   },
   "keywords": [],
   "contributors": [

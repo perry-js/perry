@@ -1,43 +1,56 @@
-import { IPerryReportInfo } from "@perry/perry-interfaces";
-import { Component, h } from "preact";
-import PreviewModal from "../PreviewModal";
-
+import { IPerryReportInfo } from '@perry/perry-interfaces';
+import { FunctionalComponent, h } from 'preact';
+import { useCallback, useState } from 'preact/hooks';
+import { LabeledInputProps } from '../LabeledInput';
+import PreviewModal from '../PreviewModal';
 interface IControlledPreviewModalProps {
   open: boolean;
   onSubmit?: (info: IPerryReportInfo) => void;
   onDiscard?: () => void;
 }
 
-export default class ControlledPreviewModal extends Component<IControlledPreviewModalProps, IPerryReportInfo> {
-  public static defaultProps = {
-    onDiscard: () => { /* noop */ },
-    onSubmit: () => { /* noop */ },
-    open: false,
-  };
+const noop = () => {};
 
-  public state = {
-    description: "",
-    screenshotUrl: "",
-    title: "",
-  };
+const ControlledPreviewModal: FunctionalComponent<IControlledPreviewModalProps> =
+  ({ open = false, onSubmit = noop, onDiscard = noop }) => {
+    const [formState, setFormState] = useState<IPerryReportInfo>({
+      description: '',
+      screenshotUrl: '',
+      title: '',
+    });
 
-  public handleFieldChange = ({ target: { name, value }}: any) =>
-    this.setState({ [name]: value })
+    const handleFieldChange = useCallback<
+      LabeledInputProps['onChange']
+    >(
+      (event) => {
+        const { target } = event;
 
-  public render() {
-    const {
-      open,
-      onSubmit,
-      onDiscard,
-    } = this.props;
+        /**
+         * for some reason the type does not matches the implementation
+         * so it triggers errors when trying to access well known properties
+         * like `name` and `value` from `event.target`.
+         */
+        // @ts-ignore
+        const { name, value } = target;
 
-    return open && (
-      <PreviewModal
-        form={this.state}
-        onSubmit={() => onSubmit(this.state)}
-        onDiscard={onDiscard}
-        onFieldChange={this.handleFieldChange}
-      />
+        setFormState((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+      },
+      [setFormState]
     );
-  }
-}
+
+    return (
+      open && (
+        <PreviewModal
+          form={formState}
+          onSubmit={() => onSubmit(formState)}
+          onDiscard={onDiscard}
+          onFieldChange={handleFieldChange}
+        />
+      )
+    );
+  };
+
+export default ControlledPreviewModal;

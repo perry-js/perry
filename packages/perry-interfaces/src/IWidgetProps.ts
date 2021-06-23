@@ -1,6 +1,6 @@
-import WidgetStatus from "./enums/WidgetStatus";
-import IPerryReport from "./IPerryReport";
-import IPerryReportInfo from "./IPerryReportInfo";
+import WidgetStatus from './enums/WidgetStatus';
+import IPerryReport from './IPerryReport';
+import IPerryReportInfo from './IPerryReportInfo';
 
 export default interface IWidgetProps {
   status?: WidgetStatus;

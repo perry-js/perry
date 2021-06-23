@@ -1,6 +1,6 @@
-import { WidgetStatus } from "@perry/perry-interfaces";
-import { FunctionalComponent, h } from "preact";
-import BugIcon from "../BugIcon";
+import { WidgetStatus } from '@perry/perry-interfaces';
+import { FunctionalComponent, h } from 'preact';
+import BugIcon from '../BugIcon';
 
 interface IWidgetIconProps {
   status: WidgetStatus;
@@ -17,9 +17,7 @@ const WidgetIcon: FunctionalComponent<IWidgetIconProps> = ({
 }) => {
   const IconComponent = IconForStatus[status];
 
-  return (
-    <IconComponent />
-  );
+  return <IconComponent />;
 };
 
 export default WidgetIcon;
