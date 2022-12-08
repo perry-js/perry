@@ -1623,38 +1623,38 @@
 "@perry/compat@file:packages/compat":
   version "0.1.0"
   dependencies:
-    "@perry/types" "file:../../../Library/Caches/Yarn/v6/npm-@perry-compat-0.1.0-72ab0493-9109-49b7-9138-ea01ffebec05-1624486272814/node_modules/@perry/types"
+    "@perry/types" "file:packages/types"
 
 "@perry/perry-components@file:packages/perry-components":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../Library/Caches/Yarn/v6/npm-@perry-perry-components-0.1.0-9101e976-22fb-4df1-9d9d-05a7759da402-1624486272817/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
     preact "^10.5.13"
 
 "@perry/perry-interfaces@file:packages/perry-interfaces":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-9dea1075-366e-4f46-8e77-ce87d70a95be-1624486272816/node_modules/@perry/compat"
-    "@perry/types" "file:../../../Library/Caches/Yarn/v6/npm-@perry-perry-interfaces-0.1.0-9dea1075-366e-4f46-8e77-ce87d70a95be-1624486272816/node_modules/@perry/types"
+    "@perry/compat" "file:packages/compat"
+    "@perry/types" "file:packages/types"
 
 "@perry/render-widget@file:packages/render-widget":
   version "0.1.0"
   dependencies:
-    "@perry/perry-components" "file:../../../Library/Caches/Yarn/v6/npm-@perry-render-widget-0.1.0-88a466df-682f-48db-85b2-f893d8a46f5a-1624486272817/node_modules/@perry/perry-components"
-    "@perry/perry-interfaces" "file:../../../Library/Caches/Yarn/v6/npm-@perry-render-widget-0.1.0-88a466df-682f-48db-85b2-f893d8a46f5a-1624486272817/node_modules/@perry/perry-interfaces"
+    "@perry/perry-components" "file:packages/perry-components"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
     preact "^10.5.13"
 
 "@perry/screen-recorder@file:packages/screen-recorder":
   version "0.1.0"
   dependencies:
-    "@perry/compat" "file:../../../Library/Caches/Yarn/v6/npm-@perry-screen-recorder-0.1.0-5785a02e-f4de-4a5f-a319-f9400b89368d-1624486272815/node_modules/@perry/compat"
-    "@perry/perry-interfaces" "file:../../../Library/Caches/Yarn/v6/npm-@perry-screen-recorder-0.1.0-5785a02e-f4de-4a5f-a319-f9400b89368d-1624486272815/node_modules/@perry/perry-interfaces"
-    "@perry/types" "file:../../../Library/Caches/Yarn/v6/npm-@perry-screen-recorder-0.1.0-5785a02e-f4de-4a5f-a319-f9400b89368d-1624486272815/node_modules/@perry/types"
+    "@perry/compat" "file:packages/compat"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
+    "@perry/types" "file:packages/types"
 
 "@perry/store@file:packages/store":
   version "0.1.0"
   dependencies:
-    "@perry/perry-interfaces" "file:../../../Library/Caches/Yarn/v6/npm-@perry-store-0.1.0-8702dfc7-4a03-4cac-95cc-fe69e807c8df-1624486272816/node_modules/@perry/perry-interfaces"
+    "@perry/perry-interfaces" "file:packages/perry-interfaces"
 
 "@perry/types@file:packages/types":
   version "0.1.0"
@@ -6077,9 +6077,9 @@ q@^1.5.1:
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 quick-lru@^1.0.0:
   version "1.1.0"
